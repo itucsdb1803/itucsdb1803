@@ -71,8 +71,6 @@ class DatabaseOperations:
                                                                 )"""
             cursor.execute(query)
 
-            cursor.execute(query)
-
             query = """DROP TABLE IF EXISTS HospitalInfo CASCADE """
             cursor.execute(query)
             query = """CREATE TABLE HospitalInfo (
