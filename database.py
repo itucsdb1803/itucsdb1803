@@ -40,6 +40,18 @@ class DatabaseOperations:
                                                  UpdateDate TIMESTAMP
                                                                 )"""
             cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS DutyInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE DutyInfo (
+                                                             DutyID SERIAL PRIMARY KEY,
+                                                             DoctorID INT NOT NULL,
+                                                             PatientCount INT DEFAULT 0,
+                                                             Report VARCHAR(500),
+                                                             ShiftDate TIMESTAMP NOT NULL,
+                                                             CreateDate TIMESTAMP NOT NULL
+                                                                            )"""
+            cursor.execute(query)
             """ UTKU's TABLE END """
 
             """ ORHAN's TABLE START """
