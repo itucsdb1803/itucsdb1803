@@ -12,7 +12,6 @@ class DatabaseOperations:
             self.config = DatabaseOperations.get_elephantsql_dsn(VCAP_SERVICES)
         else:
             self.config = """user='postgres' password='12345' host='localhost' port=5432 dbname='itucsdb1803'"""
-            print("hello")
 
     @classmethod
     def get_elephantsql_dsn(cls, vcap_services):
@@ -28,3 +27,17 @@ class DatabaseOperations:
     def create_tables(self):
         with dbapi2.connect(self.config) as connection:
             cursor = connection.cursor()
+
+            """ UTKU's TABLE START """
+            query = """DROP TABLE IF EXISTS LogInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE LogInfo (
+                                                 ID SERIAL PRIMARY KEY,
+                                                 UserName VARCHAR(100) NOT NULL,
+                                                 Password VARCHAR(100) NOT NULL,
+                                                 LastLoginDate TIMESTAMP,
+                                                 CreateDate TIMESTAMP NOT NULL,
+                                                 UpdateDate TIMESTAMP
+                                                                )"""
+            cursor.execute(query)
+            """ UTKU's TABLE END """
