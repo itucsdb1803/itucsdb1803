@@ -1,11 +1,14 @@
 import os
 from flask import Flask
+from database import DatabaseOperations
 
 app = Flask(__name__)
 
 
 @app.route("/")
 def home_page():
+    db = DatabaseOperations()
+    db.create_tables()
     return "Hello World"
 
 

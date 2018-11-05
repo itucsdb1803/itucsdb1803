@@ -41,3 +41,48 @@ class DatabaseOperations:
                                                                 )"""
             cursor.execute(query)
             """ UTKU's TABLE END """
+
+            """ ORHAN's TABLE START """
+
+            query = """DROP TABLE IF EXISTS RoomInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE RoomInfo (
+                                                RoomID SERIAL PRIMARY KEY,
+                                                DepartmentID INT,
+                                                RoomNo INT NOT NULL,
+                                                Capacity INT NOT NULL,
+                                                BathroomCount INT,
+                                                LastControl TIMESTAMP,
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                UpdateDate TIMESTAMP
+                                                                )"""
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS DepartmentInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE DepartmentInfo (
+                                                DepartmentID SERIAL PRIMARY KEY,
+                                                HospitalID INT,
+                                                DepartmentTypeID INT,
+                                                RoomCount INT,
+                                                BlockNumber INT,
+                                                PersonalCount INT,
+                                                CreateDate TIMESTAMP NOT NULL
+                                                                )"""
+            cursor.execute(query)
+
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS HospitalInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE HospitalInfo (
+                                                HospitalID SERIAL PRIMARY KEY,
+                                                City INT NOT NULL,
+                                                Capacity INT NOT NULL,
+                                                Address VARCHAR(500) NOT NULL,
+                                                Name VARCHAR(250) NOT NULL,
+                                                CreateDate TIMESTAMP NOT NULL
+                                                                )"""
+            cursor.execute(query)
+
+            """ ORHAN's TABLE END """
