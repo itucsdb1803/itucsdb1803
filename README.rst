@@ -1,4 +1,4 @@
 
 DATABASE DIAGRAM
 
-![Diagram](https://github.com/itucsdb1713/itucsdb1713/tree/master/static/assets/Db2.png)
+![Diagram](https://github.com/itucsdb1803/itucsdb1803/blob/master/images/databaseDesign.png)
