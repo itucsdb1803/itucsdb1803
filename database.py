@@ -17,7 +17,23 @@ class DatabaseOperations:
         with dbapi2.connect(self.config) as connection:
             cursor = connection.cursor()
 
-            """ UTKU's TABLE START """
+            query = """DROP TABLE IF EXISTS ParameterType CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE ParameterType (
+                                                            ID SERIAL PRIMARY KEY,
+                                                            Name VARCHAR(100)
+                                                                            )"""
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS ParameterInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE ParameterInfo (
+                                                            ID SERIAL PRIMARY KEY,
+                                                            TypeID INT NOT NULL,
+                                                            Name VARCHAR(100) NOT NULL,
+                                                            FOREIGN KEY (TypeID) REFERENCES ParameterType(ID)
+                                                                            )"""
+            cursor.execute(query)
 
             query = """DROP TABLE IF EXISTS LogInfo CASCADE """
             cursor.execute(query)
@@ -29,6 +45,26 @@ class DatabaseOperations:
                                                 CreateDate TIMESTAMP NOT NULL,
                                                 UpdateDate TIMESTAMP
                                                                )"""
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS PersonalInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE PersonalInfo (
+                                                            UserID INT PRIMARY KEY,
+                                                            HospitalID INT NOT NULL,
+                                                            DepartmentID INT NOT NULL,
+                                                            CreateUserID INT NOT NULL,
+                                                            UserType INT NOT NULL,
+                                                            RegNu INT NOT NULL,
+                                                            BirthPlace INT NOT NULL,
+                                                            Name VARCHAR(100) NOT NULL,
+                                                            Surname VARCHAR(100) NOT NULL,
+                                                            BirthDay TIMESTAMP,
+                                                            UpdateDate TIMESTAMP,
+                                                            FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
+                                                            FOREIGN KEY (CreateUserID) REFERENCES PersonalInfo(UserID),
+                                                            FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
+                                                                            )"""
             cursor.execute(query)
 
             query = """DROP TABLE IF EXISTS DutyInfo CASCADE """
@@ -44,30 +80,33 @@ class DatabaseOperations:
                                                                )"""
             cursor.execute(query)
 
-            query = """DROP TABLE IF EXISTS PersonalInfo CASCADE """
+            query = """DROP TABLE IF EXISTS HospitalInfo CASCADE """
             cursor.execute(query)
-            query = """CREATE TABLE PersonalInfo (
-                                                UserID INT PRIMARY KEY,
-                                                HospitalID INT NOT NULL,
-                                                DepartmentID INT NOT NULL,
-                                                CreateUserID INT NOT NULL,
-                                                UserType INT NOT NULL,
-                                                RegNu INT NOT NULL,
-                                                BirthPlace INT NOT NULL,
-                                                Name VARCHAR(100) NOT NULL,
-                                                Surname VARCHAR(100) NOT NULL,
-                                                BirthDay TIMESTAMP,
-                                                UpdateDate TIMESTAMP,
-                                                FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
-                                                FOREIGN KEY (CreateUserID) REFERENCES PersonalInfo(UserID),
-                                                FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
-                                                                )"""
+            query = """CREATE TABLE HospitalInfo (
+                                                            HospitalID SERIAL PRIMARY KEY,
+                                                            City INT NOT NULL,
+                                                            Capacity INT NOT NULL,
+                                                            Address VARCHAR(500) NOT NULL,
+                                                            Name VARCHAR(250) NOT NULL,
+                                                            CreateDate TIMESTAMP NOT NULL,
+                                                            FOREIGN KEY (City) REFERENCES ParameterInfo(ID)
+                                                                            )"""
             cursor.execute(query)
 
-            """ UTKU's TABLE END """
-
-
-            """ ORHAN's TABLE START """
+            query = """DROP TABLE IF EXISTS DepartmentInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE DepartmentInfo (
+                                                            DepartmentID SERIAL PRIMARY KEY,
+                                                            HospitalID INT,
+                                                            DepartmentTypeID INT,
+                                                            RoomCount INT,
+                                                            BlockNumber INT,
+                                                            PersonalCount INT,
+                                                            CreateDate TIMESTAMP NOT NULL,
+                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
+                                                            FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID)
+                                                                            )"""
+            cursor.execute(query)
 
             query = """DROP TABLE IF EXISTS RoomInfo CASCADE """
             cursor.execute(query)
@@ -84,49 +123,37 @@ class DatabaseOperations:
                                                                 )"""
             cursor.execute(query)
 
-            query = """DROP TABLE IF EXISTS DepartmentInfo CASCADE """
+            query = """DROP TABLE IF EXISTS DiseaseInfo CASCADE"""
             cursor.execute(query)
-            query = """CREATE TABLE DepartmentInfo (
-                                                DepartmentID SERIAL PRIMARY KEY,
-                                                HospitalID INT,
-                                                DepartmentTypeID INT,
-                                                RoomCount INT,
-                                                BlockNumber INT,
-                                                PersonalCount INT,
-                                                CreateDate TIMESTAMP NOT NULL,
-                                                FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
-                                                FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID)
+            query = """CREATE TABLE DiseaseInfo(
+                                                        DiseaseID SERIAL PRIMARY KEY,
+                                                        Department INT NOT NULL,
+                                                        Name VARCHAR(150) NOT NULL,
+                                                        DiseaseArea VARCHAR(150),
+                                                        Description VARCHAR(500),
+                                                        CreateDate TIMESTAMP NOT NULL,
+                                                        UpdateDate TIMESTAMP,
+                                                        FOREIGN KEY (Department) REFERENCES DepartmentInfo(DepartmentID)
                                                                 )"""
             cursor.execute(query)
 
-            query = """DROP TABLE IF EXISTS HospitalInfo CASCADE """
+            query = """DROP TABLE  IF EXISTS PatientInfo CASCADE"""
             cursor.execute(query)
-            query = """CREATE TABLE HospitalInfo (
-                                                HospitalID SERIAL PRIMARY KEY,
-                                                City INT NOT NULL,
-                                                Capacity INT NOT NULL,
-                                                Address VARCHAR(500) NOT NULL,
-                                                Name VARCHAR(250) NOT NULL,
-                                                CreateDate TIMESTAMP NOT NULL,
-                                                FOREIGN KEY (City) REFERENCES ParameterInfo(ID)
-                                                                )"""
-            cursor.execute(query)
-
-            query = """DROP TABLE IF EXISTS ParameterInfo CASCADE """
-            cursor.execute(query)
-            query = """CREATE TABLE ParameterInfo (
-                                                ID SERIAL PRIMARY KEY,
-                                                TypeID INT NOT NULL,
-                                                Name VARCHAR(100) NOT NULL,
-                                                FOREIGN KEY (TypeID) REFERENCES ParameterType(ID)
-                                                                )"""
-            cursor.execute(query)
-
-            query = """DROP TABLE IF EXISTS ParameterType CASCADE """
-            cursor.execute(query)
-            query = """CREATE TABLE ParameterType (
-                                                ID SERIAL PRIMARY KEY,
-                                                Name VARCHAR(100)
+            query = """CREATE TABLE PatientInfo(
+                                                         PatientID SERIAL PRIMARY KEY,
+                                                         UserID INT NOT NULL,
+                                                         DiseaseID INT NOT NULL,
+                                                         CreateUserID INT NOT NULL,
+                                                         TCKN INT NOT NULL,
+                                                         BirthPlace INT NOT NULL,
+                                                         Name VARCHAR(100) NOT NULL,
+                                                         Surname VARCHAR(100) NOT NULL,
+                                                         BirthDay TIMESTAMP NOT NULL,
+                                                         CreateDate TIMESTAMP NOT NULL,
+                                                         FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
+                                                         FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID),
+                                                         FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
+                                                         FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
                                                                 )"""
             cursor.execute(query)
 
@@ -148,48 +175,9 @@ class DatabaseOperations:
                                                                 )"""
             cursor.execute(query)
 
-            """ ORHAN's TABLE END """
-
-
-            """BILAL's TABLES START"""
-
-            query = """DROP TABLE  IF EXISTS PatientInfo CASCADE"""
+            query = """DROP TABLE IF EXISTS MedicalReport CASCADE"""
             cursor.execute(query)
-            query = """CREATE TABLE PatientInfo(
-                                             PatientID SERIAL PRIMARY KEY,
-                                             UserID INT NOT NULL,
-                                             DiseaseID INT NOT NULL,
-                                             CreateUserID INT NOT NULL,
-                                             TCKN INT NOT NULL,
-                                             BirthPlace INT NOT NULL,
-                                             Name VARCHAR(100) NOT NULL,
-                                             Surname VARCHAR(100) NOT NULL,
-                                             BirthDay TIMESTAMP NOT NULL,
-                                             CreateDate TIMESTAMP NOT NULL,
-                                             FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
-                                             FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID),
-                                             FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
-                                             FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
-                                                    )"""
-            cursor.execute(query)
-
-            query="""DROP TABLE IF EXISTS DiseaseInfo CASCADE"""
-            cursor.execute(query)
-            query="""CREATE TABLE DiseaseInfo(
-                                            DiseaseID SERIAL PRIMARY KEY,
-                                            Department INT NOT NULL,
-                                            Name VARCHAR(150) NOT NULL,
-                                            DiseaseArea VARCHAR(150),
-                                            Description VARCHAR(500),
-                                            CreateDate TIMESTAMP NOT NULL,
-                                            UpdateDate TIMESTAMP,
-                                            FOREIGN KEY (Department) REFERENCES DepartmentInfo(DepartmentID)
-                                                    )"""
-            cursor.execute(query)
-
-            query="""DROP TABLE IF EXISTS MedicalReport CASCADE"""
-            cursor.execute(query)
-            query="""CREATE TABLE MedicalReport(
+            query = """CREATE TABLE MedicalReport(
                                             PatientID INT PRIMARY KEY,
                                             DoctorID INT NOT NULL,
                                             DiseaseID INT NOT NULL,
@@ -203,7 +191,6 @@ class DatabaseOperations:
                                                     )"""
             cursor.execute(query)
 
-            """BILAL's TABLES END"""
 
     def init_db(self):
         with dbapi2.connect(self.config) as connection:
