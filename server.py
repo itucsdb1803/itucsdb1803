@@ -1,11 +1,10 @@
 from flask import Flask
-
 import pages
 
 app = Flask(__name__)
 
 def create_app():
-    app.config.from_object("settings")
+    #app.config.from_object("settings")
     app.add_url_rule("/initdb", view_func=pages.initialize_database)
     app.add_url_rule("/", view_func=pages.home_page)
     app.add_url_rule("/index", view_func=pages.home_page)
