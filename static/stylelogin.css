@@ -1,6 +1,8 @@
-﻿div.hea{
-	background-color:orange;
-	height:100px;
+﻿.bodyback {
+	background-color:#C2F7FA;
+	height:500px;
 	width:900px;
-
+}
+h1 {
+	color: red;
 }
