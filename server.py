@@ -1,7 +1,5 @@
 from flask import Flask
 from pages import site
-from flask_login import LoginManager
-from login import LoginDatabase
 
 app = Flask(__name__)
 

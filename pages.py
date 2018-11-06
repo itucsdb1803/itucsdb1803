@@ -2,7 +2,6 @@ from werkzeug.utils import redirect
 from database import DatabaseOperations
 from flask import Blueprint, render_template, request, url_for
 from login import LoginDatabase
-from flask_login import login_user
 
 
 site = Blueprint('site', __name__,)
