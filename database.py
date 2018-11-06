@@ -111,4 +111,17 @@ class DatabaseOperations:
                                              CreateDate TIMESTAMP NOT NULL
                                                     )"""
             cursor.execute(query)
-            """BILAL's TABLES START"""
+
+            query="""DROP TABLE IF EXISTS DiseaseInfo CASCADE"""
+            cursor.execute(query)
+            query="""CREATE TABLE DiseaseInfo(
+                                            DiseaseID SERIAL PRIMARY KEY,
+                                            DepartmentID INTEGER NOT NULL,
+                                            Name VARCHAR(150) NOT NULL,
+                                            DiseaseArea VARCHAR(150),
+                                            Description VARCHAR(500),
+                                            CreateDate TIMESTAMP NOT NULL,
+                                            UpdateDate TIMESTAMP
+                                                    )"""
+            cursor.execute(query)
+            """BILAL's TABLES END"""
