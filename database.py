@@ -11,16 +11,6 @@ class DatabaseOperations:
         else:
             self.config = """user='postgres' password='12345' host='localhost' port=5432 dbname='itucsdb1803'"""
 
-    # @classmethod
-        #    def get_elephantsql_dsn(cls, vcap_services):
-        #"""Returns the data source name for ElephantSQL."""
-        #parsed = json.loads(vcap_services)
-        #uri = parsed["elephantsql"][0]["credentials"]["uri"]
-        #match = re.match('postgres://(.*?):(.*?)@(.*?)(:(\d+))?/(.*)', uri)
-        #user, password, host, _, port, dbname = match.groups()
-            #dsn = """user='{}' password='{}' host='{}' port={}
-        #    dbname='{}'""".format(user, password, host, port, dbname)
-    #return dsn"""
 
     def create_tables(self):
         with dbapi2.connect(self.config) as connection:
@@ -123,5 +113,17 @@ class DatabaseOperations:
                                             CreateDate TIMESTAMP NOT NULL,
                                             UpdateDate TIMESTAMP
                                                     )"""
+            cursor.execute(query)
+
+            query="""DROP TABLE IF EXISTS MedicalReport CASCADE"""
+            cursor.execute(query)
+            query="""CREATE TABLE MedicalReport(
+                                            PatientID INTEGER NOT NULL,
+                                            DoctorID INTEGER NOT NULL,
+                                            DiseaseID INTEGER NOT NULL,
+                                            Treatment VARCHAR(500),
+                                            Prescription VARCHAR(500),
+                                            Report VARCHAR(1000),
+                                            CreateDate TIMESTAMP NOT NULL)"""
             cursor.execute(query)
             """BILAL's TABLES END"""
