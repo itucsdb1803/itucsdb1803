@@ -1,6 +1,4 @@
 import os
-import json
-import re
 import psycopg2 as dbapi2
 
 class DatabaseOperations:
@@ -96,3 +94,21 @@ class DatabaseOperations:
             cursor.execute(query)
 
             """ ORHAN's TABLE END """
+
+            """BILAL's TABLES START"""
+            query = """DROP TABLE  IF EXISTS PatientInfo CASCADE"""
+            cursor.execute(query)
+            query = """CREATE TABLE PatientInfo(
+                                             PatientID SERIAL PRIMARY KEY,
+                                             UserID INTEGER NOT NULL,
+                                             DiseaseID INTEGER NOT NULL,
+                                             CreateUserID INTEGER NOT NULL,
+                                             TCKN INTEGER NOT NULL,
+                                             BirthPlace INTEGER NOT NULL,
+                                             Name VARCHAR(100) NOT NULL,
+                                             Surname VARCHAR(100) NOT NULL,
+                                             BirthDay TIMESTAMP NOT NULL,
+                                             CreateDate TIMESTAMP NOT NULL
+                                                    )"""
+            cursor.execute(query)
+            """BILAL's TABLES START"""
