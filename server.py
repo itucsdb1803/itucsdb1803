@@ -1,5 +1,5 @@
 from flask import Flask
-from database import DatabaseOperations
+
 import pages
 
 app = Flask(__name__)
