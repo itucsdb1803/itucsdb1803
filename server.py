@@ -4,7 +4,6 @@ from database import DatabaseOperations
 
 app = Flask(__name__)
 
-
 @app.route("/")
 def home_page():
     db = DatabaseOperations()

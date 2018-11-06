@@ -6,10 +6,10 @@ import psycopg2 as dbapi2
 class DatabaseOperations:
     def __init__(self):
 
-        VCAP_SERVICES = os.getenv('VCAP_SERVICES')
+        DATABASE_URL = os.environ('DATABASE_URL')
 
-        if VCAP_SERVICES is not None:
-            self.config = DatabaseOperations.get_elephantsql_dsn(VCAP_SERVICES)
+        if DATABASE_URL is not None:
+            self.config = DatabaseOperations.get_elephantsql_dsn(DATABASE_URL)
         else:
             self.config = """user='postgres' password='12345' host='localhost' port=5432 dbname='itucsdb1803'"""
 
@@ -25,7 +25,7 @@ class DatabaseOperations:
         return dsn
 
     def create_tables(self):
-        with dbapi2.connect(self.config) as connection:
+        with dbapi2.connect(self.config, sslmode='require') as connection:
             cursor = connection.cursor()
 
             """ UTKU's TABLE START """
