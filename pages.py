@@ -6,8 +6,10 @@ def initialize_database():
     database.create_tables()
     return "Database initialized!"
 
+
 def home_page():
     return render_template("home.html")
+
 
 def login_page():
     return "Hello to Login Page!"
