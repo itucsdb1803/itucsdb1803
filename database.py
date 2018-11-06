@@ -211,3 +211,6 @@ class DatabaseOperations:
 
             query = """INSERT INTO LogInfo(UserName, Password, CreateDate) VALUES (%s, %s, %s)"""
             cursor.execute(query, ("admin", "12345", datetime.datetime.now()))
+
+
+database = DatabaseOperations()
