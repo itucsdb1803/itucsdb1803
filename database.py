@@ -18,30 +18,50 @@ class DatabaseOperations:
             cursor = connection.cursor()
 
             """ UTKU's TABLE START """
+
             query = """DROP TABLE IF EXISTS LogInfo CASCADE """
             cursor.execute(query)
             query = """CREATE TABLE LogInfo (
-                                                 ID SERIAL PRIMARY KEY,
-                                                 UserName VARCHAR(100) NOT NULL,
-                                                 Password VARCHAR(100) NOT NULL,
-                                                 LastLoginDate TIMESTAMP,
-                                                 CreateDate TIMESTAMP NOT NULL,
-                                                 UpdateDate TIMESTAMP
-                                                                )"""
+                                                ID SERIAL PRIMARY KEY,
+                                                UserName VARCHAR(100) NOT NULL,
+                                                Password VARCHAR(100) NOT NULL,
+                                                LastLoginDate TIMESTAMP,
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                UpdateDate TIMESTAMP
+                                                               )"""
             cursor.execute(query)
 
             query = """DROP TABLE IF EXISTS DutyInfo CASCADE """
             cursor.execute(query)
             query = """CREATE TABLE DutyInfo (
-                                                             DutyID SERIAL PRIMARY KEY,
-                                                             DoctorID INT NOT NULL,
-                                                             PatientCount INT DEFAULT 0,
-                                                             Report VARCHAR(500),
-                                                             ShiftDate TIMESTAMP NOT NULL,
-                                                             CreateDate TIMESTAMP NOT NULL
-                                                                            )"""
+                                                DutyID SERIAL PRIMARY KEY,
+                                                DoctorID INT NOT NULL,
+                                                PatientCount INT DEFAULT 0,
+                                                Report VARCHAR(500),
+                                                ShiftDate TIMESTAMP NOT NULL,
+                                                CreateDate TIMESTAMP NOT NULL
+                                                               )"""
             cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS PersonalInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE PersonalInfo (
+                                                UserID INT PRIMARY KEY,
+                                                HospitalID INT NOT NULL,
+                                                DepartmentID INT NOT NULL,
+                                                CreateUserID INT NOT NULL,
+                                                UserType INT NOT NULL,
+                                                RegNu INT NOT NULL,
+                                                BirthPlace INT NOT NULL,
+                                                Name VARCHAR(100) NOT NULL,
+                                                Surname VARCHAR(100) NOT NULL,
+                                                BirthDay TIMESTAMP,
+                                                UpdateDate TIMESTAMP
+                                                                )"""
+            cursor.execute(query)
+
             """ UTKU's TABLE END """
+
 
             """ ORHAN's TABLE START """
 
@@ -84,9 +104,28 @@ class DatabaseOperations:
                                                                 )"""
             cursor.execute(query)
 
+            query = """DROP TABLE IF EXISTS ParameterInfo CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE ParameterInfo (
+                                                ID SERIAL PRIMARY KEY,
+                                                TypeID INT NOT NULL,
+                                                Name VARCHAR(100) NOT NULL
+                                                                )"""
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS ParameterType CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE ParameterType (
+                                                ID SERIAL PRIMARY KEY,
+                                                Name VARCHAR(100)
+                                                                )"""
+            cursor.execute(query)
+
             """ ORHAN's TABLE END """
 
+
             """BILAL's TABLES START"""
+
             query = """DROP TABLE  IF EXISTS PatientInfo CASCADE"""
             cursor.execute(query)
             query = """CREATE TABLE PatientInfo(
@@ -127,6 +166,7 @@ class DatabaseOperations:
                                             Report VARCHAR(1000),
                                             CreateDate TIMESTAMP NOT NULL)"""
             cursor.execute(query)
+            
             """BILAL's TABLES END"""
 
     def init_db(self):
