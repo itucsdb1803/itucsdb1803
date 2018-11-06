@@ -1,4 +1,5 @@
 from database import DatabaseOperations
+from flask import render_template
 
 def initialize_database():
     database = DatabaseOperations()
@@ -6,7 +7,7 @@ def initialize_database():
     return "Database initialized!"
 
 def home_page():
-    return "Hello World!"
+    return render_template("home.html")
 
 def login_page():
     return "Hello to Login Page!"
