@@ -3,21 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <title>Login Page</title>
+    <link rel="stylesheet" type="text/css" href="static/stylelogin.css">
 </head>
 <body>
-    <div class="container">
-      <h1>Please login</h1>
-      <br>
+<center>
+    <div class="hea">dasdasdad</div>
+
+<h1 style="color:red">Please login</h1>
+      <br />
       <form action="" method="post">
-        <input type="text" placeholder="Username" name="username" value="{{
-          request.form.username }}">
-         <input type="password" placeholder="Password" name="password" value="{{
-          request.form.password }}">
+          <table border="0">
+              <tr>
+                  <td>Username</td><td>:</td>
+                  <td><input type="text" placeholder="Username" name="username" value="{{request.form.username }}"></td>
+              </tr>
+              <tr>
+                  <td>Password</td><td>:</td>
+                  <td><input type="password" placeholder="Password" name="password" value="{{request.form.password }}"></td>
+              </tr>
+
+          </table>
+
         <input class="btn btn-default" type="submit" value="Login">
       </form>
       {% if error %}
         <p class="error"><strong>Error:</strong> {{ error }}
       {% endif %}
-    </div>
+
+</center>
 </body>
 </html>
+
