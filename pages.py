@@ -1,7 +1,9 @@
 from werkzeug.utils import redirect
-
 from database import DatabaseOperations
 from flask import Blueprint, render_template, request, url_for
+from login import LoginDatabase
+from flask_login import login_user
+
 
 site = Blueprint('site', __name__,)
 
@@ -23,8 +25,11 @@ def home_page():
 def login_page():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != '12345':
+        ld = LoginDatabase()
+        loginInfo = ld.log_in_job(username=request.form['username'], password=request.form['password'])
+        if loginInfo is None or loginInfo == -1:
             error = 'Invalid Credentials. Please try again.'
         else:
+            #login_user(loginInfo)
             return redirect(url_for('site.home_page'))
     return render_template('login.html', error=error)

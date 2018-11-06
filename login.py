@@ -1,5 +1,5 @@
 import psycopg2 as dbapi2
-import database
+from database import *
 import datetime
 
 class Login:
@@ -26,6 +26,7 @@ class LoginDatabase:
                 connection.commit()
             cursor.close()
 
+    @classmethod
     def update_login(self, userID, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
@@ -47,38 +48,44 @@ class LoginDatabase:
                 connection.commit()
             cursor.close()
 
-    def login(self, username, password):
+    @classmethod
+    def log_in_job(self, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
-            query = """SELECT * FROM LogInfo WHERE Username = '%s' AND Password = '%s'"""
+            query = """SELECT * FROM LogInfo WHERE Username = %s AND Password = %s"""
             try:
-                cursor.execute(query, (username, password))
+                cursor.execute(query, (str(username), str(password)))
                 logData = cursor.fetchone()
+
+                if logData:
+                    LoginDatabase.update_last_login(logData[0])
+                    return Login(userID=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
+                                 createDate=logData[4], updateDate=logData[5])
+                else:
+                    return -1
+
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
 
-            if logData:
-                self.update_last_login(logData[0])
-                return Login(userID=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
-                             createDate=logData[4], updateDate=logData[5])
-            else:
-                return -1
 
+
+    @classmethod
     def update_last_login(self, userID):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
-            query = """UPDATE LogInfo SET LastLoginDate = '%s' WHERE UserID = %d"""
+            query = """UPDATE LogInfo SET LastLoginDate = %s WHERE UserID = %d""" % (datetime.datetime.now(), int(userID))
             try:
-                cursor.execute(query, (int(userID)))
+                cursor.execute(query)
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
 
+    @classmethod
     def select_login_info(self, userID):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
@@ -87,14 +94,16 @@ class LoginDatabase:
             try:
                 cursor.execute(query, (int(userID)))
                 logInfo = cursor.fetchone()
+
+                if logInfo:
+                    return Login(userID=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
+                                 createDate=logInfo[4], updateDate=logInfo[5])
+                else:
+                    return -1
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
 
-            if logInfo:
-                return Login(userID=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
-                         createDate=logInfo[4], updateDate=logInfo[5])
-            else:
-                return -1
+
 

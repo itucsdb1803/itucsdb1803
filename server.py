@@ -1,10 +1,21 @@
 from flask import Flask
 from pages import site
+from flask_login import LoginManager
+from login import LoginDatabase
 
 app = Flask(__name__)
 
 app.register_blueprint(site)
+login_manager = LoginManager()
 
+
+@login_manager.user_loader
+def load_user(user_id):
+    return LoginDatabase.select_login_info(user_id)
+
+
+login_manager.init_app(app)
+login_manager.login_view = 'site.login_page'
 
 if __name__ == '__main__':
     port = app.config.get("PORT", 5000)
