@@ -22,7 +22,7 @@ class DatabaseOperations:
             query = """DROP TABLE IF EXISTS LogInfo CASCADE """
             cursor.execute(query)
             query = """CREATE TABLE LogInfo (
-                                                ID SERIAL PRIMARY KEY,
+                                                UserID SERIAL PRIMARY KEY,
                                                 UserName VARCHAR(100) NOT NULL,
                                                 Password VARCHAR(100) NOT NULL,
                                                 LastLoginDate TIMESTAMP,
@@ -39,7 +39,8 @@ class DatabaseOperations:
                                                 PatientCount INT DEFAULT 0,
                                                 Report VARCHAR(500),
                                                 ShiftDate TIMESTAMP NOT NULL,
-                                                CreateDate TIMESTAMP NOT NULL
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID)
                                                                )"""
             cursor.execute(query)
 
@@ -56,7 +57,10 @@ class DatabaseOperations:
                                                 Name VARCHAR(100) NOT NULL,
                                                 Surname VARCHAR(100) NOT NULL,
                                                 BirthDay TIMESTAMP,
-                                                UpdateDate TIMESTAMP
+                                                UpdateDate TIMESTAMP,
+                                                FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
+                                                FOREIGN KEY (CreateUserID) REFERENCES PersonalInfo(UserID),
+                                                FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
                                                                 )"""
             cursor.execute(query)
 
@@ -75,7 +79,8 @@ class DatabaseOperations:
                                                 BathroomCount INT,
                                                 LastControl TIMESTAMP,
                                                 CreateDate TIMESTAMP NOT NULL,
-                                                UpdateDate TIMESTAMP
+                                                UpdateDate TIMESTAMP,
+                                                FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID)
                                                                 )"""
             cursor.execute(query)
 
@@ -88,7 +93,9 @@ class DatabaseOperations:
                                                 RoomCount INT,
                                                 BlockNumber INT,
                                                 PersonalCount INT,
-                                                CreateDate TIMESTAMP NOT NULL
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
+                                                FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID)
                                                                 )"""
             cursor.execute(query)
 
@@ -100,7 +107,8 @@ class DatabaseOperations:
                                                 Capacity INT NOT NULL,
                                                 Address VARCHAR(500) NOT NULL,
                                                 Name VARCHAR(250) NOT NULL,
-                                                CreateDate TIMESTAMP NOT NULL
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                FOREIGN KEY (City) REFERENCES ParameterInfo(ID)
                                                                 )"""
             cursor.execute(query)
 
@@ -109,7 +117,8 @@ class DatabaseOperations:
             query = """CREATE TABLE ParameterInfo (
                                                 ID SERIAL PRIMARY KEY,
                                                 TypeID INT NOT NULL,
-                                                Name VARCHAR(100) NOT NULL
+                                                Name VARCHAR(100) NOT NULL,
+                                                FOREIGN KEY (TypeID) REFERENCES ParameterType(ID)
                                                                 )"""
             cursor.execute(query)
 
@@ -118,6 +127,24 @@ class DatabaseOperations:
             query = """CREATE TABLE ParameterType (
                                                 ID SERIAL PRIMARY KEY,
                                                 Name VARCHAR(100)
+                                                                )"""
+            cursor.execute(query)
+
+            query = """DROP TABLE IF EXISTS Reservation CASCADE """
+            cursor.execute(query)
+            query = """CREATE TABLE Reservation (
+                                                ReservationID SERIAL PRIMARY KEY,
+                                                PatientID INT NOT NULL,
+                                                HospitalID INT NOT NULL,
+                                                DoctorID INT NOT NULL,
+                                                DepartmentID INT NOT NULL,
+                                                UpdateDate TIMESTAMP,
+                                                CreateDate TIMESTAMP NOT NULL,
+                                                ReservationDate TIMESTAMP NOT NULL,
+                                                FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),
+                                                FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
+                                                FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),
+                                                FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID)
                                                                 )"""
             cursor.execute(query)
 
@@ -130,15 +157,19 @@ class DatabaseOperations:
             cursor.execute(query)
             query = """CREATE TABLE PatientInfo(
                                              PatientID SERIAL PRIMARY KEY,
-                                             UserID INTEGER NOT NULL,
-                                             DiseaseID INTEGER NOT NULL,
-                                             CreateUserID INTEGER NOT NULL,
-                                             TCKN INTEGER NOT NULL,
-                                             BirthPlace INTEGER NOT NULL,
+                                             UserID INT NOT NULL,
+                                             DiseaseID INT NOT NULL,
+                                             CreateUserID INT NOT NULL,
+                                             TCKN INT NOT NULL,
+                                             BirthPlace INT NOT NULL,
                                              Name VARCHAR(100) NOT NULL,
                                              Surname VARCHAR(100) NOT NULL,
                                              BirthDay TIMESTAMP NOT NULL,
-                                             CreateDate TIMESTAMP NOT NULL
+                                             CreateDate TIMESTAMP NOT NULL,
+                                             FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
+                                             FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID),
+                                             FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
+                                             FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
                                                     )"""
             cursor.execute(query)
 
@@ -146,27 +177,32 @@ class DatabaseOperations:
             cursor.execute(query)
             query="""CREATE TABLE DiseaseInfo(
                                             DiseaseID SERIAL PRIMARY KEY,
-                                            DepartmentID INTEGER NOT NULL,
+                                            Department INT NOT NULL,
                                             Name VARCHAR(150) NOT NULL,
                                             DiseaseArea VARCHAR(150),
                                             Description VARCHAR(500),
                                             CreateDate TIMESTAMP NOT NULL,
-                                            UpdateDate TIMESTAMP
+                                            UpdateDate TIMESTAMP,
+                                            FOREIGN KEY (Department) REFERENCES DepartmentInfo(DepartmentID)
                                                     )"""
             cursor.execute(query)
 
             query="""DROP TABLE IF EXISTS MedicalReport CASCADE"""
             cursor.execute(query)
             query="""CREATE TABLE MedicalReport(
-                                            PatientID INTEGER NOT NULL,
-                                            DoctorID INTEGER NOT NULL,
-                                            DiseaseID INTEGER NOT NULL,
+                                            PatientID INT PRIMARY KEY,
+                                            DoctorID INT NOT NULL,
+                                            DiseaseID INT NOT NULL,
                                             Treatment VARCHAR(500),
                                             Prescription VARCHAR(500),
                                             Report VARCHAR(1000),
-                                            CreateDate TIMESTAMP NOT NULL)"""
+                                            CreateDate TIMESTAMP NOT NULL,
+                                            FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),
+                                            FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),
+                                            FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID)
+                                                    )"""
             cursor.execute(query)
-            
+
             """BILAL's TABLES END"""
 
     def init_db(self):
