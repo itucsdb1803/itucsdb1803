@@ -10,6 +10,7 @@ site = Blueprint('site', __name__,)
 def initialize_database():
     database = DatabaseOperations()
     database.create_tables()
+    database.init_db()
     return "Database initialized!"
 
 
@@ -22,7 +23,7 @@ def home_page():
 def login_page():
     error = None
     if request.method == 'POST':
-        if request.form['username'] != 'admin' or request.form['password'] != 'admin':
+        if request.form['username'] != 'admin' or request.form['password'] != '12345':
             error = 'Invalid Credentials. Please try again.'
         else:
             return redirect(url_for('site.home_page'))

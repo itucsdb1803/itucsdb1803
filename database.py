@@ -1,5 +1,6 @@
 import os
 import psycopg2 as dbapi2
+import datetime
 
 class DatabaseOperations:
     def __init__(self):
@@ -127,3 +128,10 @@ class DatabaseOperations:
                                             CreateDate TIMESTAMP NOT NULL)"""
             cursor.execute(query)
             """BILAL's TABLES END"""
+
+    def init_db(self):
+        with dbapi2.connect(self.config) as connection:
+            cursor = connection.cursor()
+
+            query = """INSERT INTO LogInfo(UserName, Password, CreateDate) VALUES (%s, %s, %s)"""
+            cursor.execute(query, ("admin", "12345", datetime.datetime.now()))
