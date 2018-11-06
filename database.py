@@ -6,7 +6,7 @@ import psycopg2 as dbapi2
 class DatabaseOperations:
     def __init__(self):
 
-        DATABASE_URL = os.environ('DATABASE_URL')
+        DATABASE_URL = os.getenv('DATABASE_URL')
 
         if DATABASE_URL is not None:
             self.config = DATABASE_URL
@@ -25,7 +25,7 @@ class DatabaseOperations:
     #return dsn"""
 
     def create_tables(self):
-        with dbapi2.connect(self.config, sslmode='require') as connection:
+        with dbapi2.connect(self.config) as connection:
             cursor = connection.cursor()
 
             """ UTKU's TABLE START """
