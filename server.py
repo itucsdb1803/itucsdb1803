@@ -5,6 +5,8 @@ from login import *
 
 app = Flask(__name__)
 login_manager = LoginManager()
+app.config.from_object('settings')
+app.register_blueprint(site)
 
 @login_manager.user_loader
 def load_user(user_id):
@@ -12,8 +14,7 @@ def load_user(user_id):
 
 if __name__ == '__main__':
 
-    app.config.from_object('settings')
-    app.register_blueprint(site)
+
     login_manager.init_app(app)
     login_manager.login_view = 'site.login_page'
 
