@@ -1,10 +1,12 @@
 import psycopg2 as dbapi2
 from database import *
 import datetime
+from flask_login import UserMixin
 
-class Login:
-    def __init__(self, userID, username, password, lastLoginDate, createDate, updateDate):
-        self.UserID = userID
+
+class Login(UserMixin):
+    def __init__(self, id, username, password, lastLoginDate, createDate, updateDate):
+        self.id = id
         self.UserName = username
         self.Password = password
         self.LastLoginDate = lastLoginDate
@@ -60,7 +62,7 @@ class LoginDatabase:
 
                 if logData:
                     LoginDatabase.update_last_login(logData[0])
-                    return Login(userID=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
+                    return Login(id=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
                                  createDate=logData[4], updateDate=logData[5])
                 else:
                     return -1
@@ -90,13 +92,13 @@ class LoginDatabase:
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
-            query = """SELECT * FROM LogInfo WHERE UserID = %d"""
+            query = """SELECT * FROM LogInfo WHERE UserID = %s"""
             try:
-                cursor.execute(query, (int(userID)))
+                cursor.execute(query, (userID))
                 logInfo = cursor.fetchone()
 
                 if logInfo:
-                    return Login(userID=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
+                    return Login(id=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
                                  createDate=logInfo[4], updateDate=logInfo[5])
                 else:
                     return -1
