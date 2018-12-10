@@ -28,6 +28,7 @@ class PersonalDatabase:
             else:
                 connection.commit()
             cursor.close()
+            return
 
     @classmethod
     def update_personal(cls, userID, hospitalID, departmentID, userType, regNu, birthPlace, name, surname, birthDay):
@@ -61,3 +62,67 @@ class PersonalDatabase:
             else:
                 connection.commit()
             cursor.close()
+            return
+
+    @classmethod
+    def select_personal_info(cls, userID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """SELECT * FROM PersonalInfo WHERE UserID = %s"""
+            try:
+                cursor.execute(query, (userID))
+                personalInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if personalInfo:
+                return Personal(id=personalInfo[0], HospitalID=personalInfo[1], DepartmentID=personalInfo[2],
+                                CreateUserID=personalInfo[3],
+                                UserType=personalInfo[4], RegNu=personalInfo[5], BirthPlace=personalInfo[6],
+                                Surname=personalInfo[7], BirthDay=personalInfo[8], UpdateDate=personalInfo[9])
+            else:
+                return -1
+
+    @classmethod
+    def select_all_personal_info(cls, UserType):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            if UserType == '' or UserType == None:
+                query = """SELECT * FROM PersonalInfo"""
+            else:
+                query = """SELECT * FROM PersonalInfo WHERE UserType = %s"""
+            try:
+                cursor.execute(query,)
+                personalInfo = cursor.fetchall()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if personalInfo:
+                return Personal(id=personalInfo[0], HospitalID=personalInfo[1], DepartmentID=personalInfo[2],
+                                CreateUserID=personalInfo[3],
+                                UserType=personalInfo[4], RegNu=personalInfo[5], BirthPlace=personalInfo[6],
+                                Surname=personalInfo[7], BirthDay=personalInfo[8], UpdateDate=personalInfo[9])
+            else:
+                return -1
+
+    @classmethod
+    def delete_personal_info(cls, userID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """DELETE FROM PersonalInfo WHERE UserID = %s"""
+            try:
+                cursor.execute(query, (userID))
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            return
