@@ -7,6 +7,7 @@ from personal import PersonalDatabase
 from disease import DiseaseDatabase
 from hospital import HospitalDatabase
 from department import DepartmentDatabase
+from room import RoomDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -64,4 +65,10 @@ def hospital_page():
 def department_page():
     department = DepartmentDatabase()
     department.add_department(1, 1, 1, 1, 1, 1)
+    return render_template("home.html")
+
+@site.route('/room')
+def room_page():
+    room = RoomDatabase()
+    room.add_room(1, 1, 1, 1, 1)
     return render_template("home.html")
