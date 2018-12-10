@@ -30,7 +30,7 @@ class LoginDatabase:
             return
 
     @classmethod
-    def update_login(self, userID, username, password):
+    def update_login(cls, userID, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
             if (username != '' and username is not None) and (password != '' and password is not None):
@@ -53,7 +53,7 @@ class LoginDatabase:
             return
 
     @classmethod
-    def log_in_job(self, username, password):
+    def log_in_job(cls, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
@@ -76,7 +76,7 @@ class LoginDatabase:
                 return -1
 
     @classmethod
-    def update_last_login(self, userID):
+    def update_last_login(cls, userID):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
@@ -90,7 +90,7 @@ class LoginDatabase:
         return
 
     @classmethod
-    def select_login_info(self, userID):
+    def select_login_info(cls, userID):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
