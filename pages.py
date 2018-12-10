@@ -49,11 +49,19 @@ def personel_page():
     personal.add_personal(1, 1, 1, 1, 1, 1, 1, "Utku", "Anıl", "16.01.1995")
     return render_template("home.html")
 
-@site.route('/disease')
+@site.route('/disease',methods=['GET', 'POST'])
 def disease_page():
-    disease = DiseaseDatabase
-    disease.add_disease(1,1,"Flue","Head","blabla",None,None)
-    return render_template("home.html");
+    derror = "OK"
+    if request.method=='POST':
+        disease = DiseaseDatabase()
+        diseaseAddCheck = disease.add_disease(department=request.form['departmentid'],name=request.form['namer'],diseasearea=request.form['diseasearea'],description=request.form['description'])
+        if diseaseAddCheck is None or diseaseAddCheck==-1:
+            derror = 'Disease could not be added.'
+        else:
+            derror = 'Disease is added'
+        return render_template("disease.html", derror=derror)
+    else:
+        return render_template("disease.html")
 
 @site.route('/hospital')
 def hospital_page():
