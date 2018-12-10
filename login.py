@@ -27,6 +27,7 @@ class LoginDatabase:
             else:
                 connection.commit()
             cursor.close()
+            return
 
     @classmethod
     def update_login(self, userID, username, password):
@@ -49,6 +50,7 @@ class LoginDatabase:
             else:
                 connection.commit()
             cursor.close()
+            return
 
     @classmethod
     def log_in_job(self, username, password):
@@ -73,7 +75,6 @@ class LoginDatabase:
             else:
                 return -1
 
-
     @classmethod
     def update_last_login(self, userID):
         with dbapi2.connect(database.config) as connection:
@@ -86,6 +87,7 @@ class LoginDatabase:
                 connection.rollback()
             else:
                 connection.commit()
+        return
 
     @classmethod
     def select_login_info(self, userID):
