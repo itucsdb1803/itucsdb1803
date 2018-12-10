@@ -5,6 +5,7 @@ from login import LoginDatabase
 from flask_login import login_user, logout_user
 from personal import PersonalDatabase
 from disease import DiseaseDatabase
+from hospital import HospitalDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -51,3 +52,9 @@ def disease_page():
     disease = DiseaseDatabase
     disease.add_disease(1,1,"Flue","Head","blabla","10.12.2018",None)
     return render_template("home.html");
+
+@site.route('/hospital')
+def hospital_page():
+    hospital = HospitalDatabase()
+    hospital.add_hospital(1, 1, 1, 1, "Orhan")
+    return render_template("home.html")
