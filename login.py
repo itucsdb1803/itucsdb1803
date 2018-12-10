@@ -97,15 +97,13 @@ class LoginDatabase:
                 cursor.execute(query, (userID))
                 logInfo = cursor.fetchone()
 
-                if logInfo:
-                    return Login(id=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
-                                 createDate=logInfo[4], updateDate=logInfo[5])
-                else:
-                    return -1
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
 
-
-
+            if logInfo:
+                return Login(id=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
+                             createDate=logInfo[4], updateDate=logInfo[5])
+            else:
+                return -1
