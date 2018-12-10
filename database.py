@@ -199,5 +199,17 @@ class DatabaseOperations:
             query = """INSERT INTO LogInfo(UserName, Password, CreateDate) VALUES (%s, %s, %s)"""
             cursor.execute(query, ("admin", "12345", datetime.datetime.now()))
 
+            query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
+            cursor.execute(query, ("1", "Şehir"))
+
+            query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
+            cursor.execute(query, ("2", "DepartmentType"))
+
+            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
+            cursor.execute(query, ("1", "1", "İstanbul"))
+
+            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
+            cursor.execute(query, ("2", "2", "Kardiyoloji"))
+
 
 database = DatabaseOperations()
