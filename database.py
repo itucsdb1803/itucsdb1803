@@ -205,8 +205,8 @@ class DatabaseOperations:
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "Şehir"))
 
-            query = """INSERT INTO Parameters(TypeID, Name) VALUES (3, %(city)s)"""
-            cursor.executemany(query, city_Dict)
+            #uery = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
+            #cursor.executemany(query, city_Dict)
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("2", "DepartmentType"))
