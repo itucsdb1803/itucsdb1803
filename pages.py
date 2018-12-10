@@ -6,6 +6,7 @@ from flask_login import login_user, logout_user
 from personal import PersonalDatabase
 from disease import DiseaseDatabase
 from hospital import HospitalDatabase
+from department import DepartmentDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -57,4 +58,10 @@ def disease_page():
 def hospital_page():
     hospital = HospitalDatabase()
     hospital.add_hospital(1, 1, 1, 1, "Orhan")
+    return render_template("home.html")
+
+@site.route('/department')
+def department_page():
+    department = DepartmentDatabase()
+    department.add_department(1, 1, 1, 1, 1, 1)
     return render_template("home.html")
