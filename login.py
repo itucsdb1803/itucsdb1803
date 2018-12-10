@@ -62,16 +62,16 @@ class LoginDatabase:
 
                 if logData:
                     LoginDatabase.update_last_login(logData[0])
-                    return Login(id=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
-                                 createDate=logData[4], updateDate=logData[5])
-                else:
-                    return -1
 
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
-
+            if logData:
+                return Login(id=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
+                         createDate=logData[4], updateDate=logData[5])
+            else:
+                return -1
 
 
     @classmethod
