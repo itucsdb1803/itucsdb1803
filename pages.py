@@ -50,7 +50,7 @@ def personel_page():
 @site.route('/disease')
 def disease_page():
     disease = DiseaseDatabase
-    disease.add_disease(1,1,"Flue","Head","blabla","10.12.2018",None)
+    disease.add_disease(1,1,"Flue","Head","blabla",None,None)
     return render_template("home.html");
 
 @site.route('/hospital')
