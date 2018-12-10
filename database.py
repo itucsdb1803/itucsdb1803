@@ -1,6 +1,9 @@
 import os
 import psycopg2 as dbapi2
 import datetime
+import cities
+city_Dict= dict()
+city_Dict = cities.city_dict
 
 class DatabaseOperations:
     def __init__(self):
@@ -201,6 +204,9 @@ class DatabaseOperations:
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "Şehir"))
+
+            query = """INSERT INTO Parameters(TypeID, Name) VALUES (3, %(city)s)"""
+            cursor.executemany(query, city_Dict)
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("2", "DepartmentType"))
