@@ -12,7 +12,7 @@ login_manager.login_view = "site.login_page"
 
 @login_manager.user_loader
 def load_user(user_id):
-    return LoginDatabase.select_login_info(user_id)
+    return LoginDatabase.select_login_info(user_id, None, None)
 
 app.register_blueprint(site)
 
