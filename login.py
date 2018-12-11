@@ -27,7 +27,6 @@ class LoginDatabase:
             else:
                 connection.commit()
             cursor.close()
-            return
 
     @classmethod
     def update_login(cls, userID, username, password):
@@ -56,6 +55,7 @@ class LoginDatabase:
     def log_in_job(cls, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
+            logData = None
 
             query = """SELECT * FROM LogInfo WHERE Username = %s AND Password = %s"""
             try:
@@ -90,13 +90,17 @@ class LoginDatabase:
         return
 
     @classmethod
-    def select_login_info(cls, userID):
+    def select_login_info(cls, userID, username, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
+            logInfo = None
 
-            query = """SELECT * FROM LogInfo WHERE UserID = %s"""
+            if userID != None and userID != '':
+                query = 'SELECT * FROM LogInfo WHERE UserID = ' + str(userID)
+            else:
+                query = "SELECT * FROM LogInfo WHERE username =  '" + username + "' AND password = '" + password + "'"
             try:
-                cursor.execute(query, (userID))
+                cursor.execute(query)
                 logInfo = cursor.fetchone()
 
             except dbapi2.Error:
