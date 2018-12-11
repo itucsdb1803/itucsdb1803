@@ -8,6 +8,7 @@ from disease import DiseaseDatabase
 from hospital import HospitalDatabase
 from department import DepartmentDatabase
 from room import RoomDatabase
+from parameter import ParameterDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -80,3 +81,29 @@ def room_page():
     room = RoomDatabase()
     room.add_room(1, 1, 1, 1, 1)
     return render_template("home.html")
+
+@site.route('/register' , methods=['GET', 'POST'])
+def register_page():
+    if request.method == 'POST':
+        personal = PersonalDatabase()
+        login = LoginDatabase()
+
+        username = request.form['UserName']
+        password = request.form['Password']
+
+        login.add_login(username=username, password=password)
+        loginInfo = login.select_login_info(None, username, password)
+
+        personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
+                              departmentID=request.form['DepartmentID'], createUserID=1,
+                              userType=request.form['UserType'], regNu=request.form['RegNu'], name=request.form['Name'],
+                              surname=request.form['Surname'], birthDay=request.form['Birthday'], birthPlace = request.form['BirthPlace'])
+
+        return redirect(url_for('site.home_page'))
+    else:
+        parameter = ParameterDatabase()
+        userTypes = parameter.select_parameters_with_type(3)
+        cities = parameter.select_parameters_with_type(1)
+        hospitals = [(1, 2, "Örnek Hastane")]
+        departments = [(1, 2, "Örnek Departman")]
+        return render_template("register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)

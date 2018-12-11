@@ -22,7 +22,7 @@ class PersonalDatabase:
             cursor = connection.cursor()
             query = """INSERT INTO PersonalInfo(UserID, HospitalID, DepartmentID, createUserID, UserType, RegNu, BirthPlace, Name, Surname, BirthDay) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(UserID), str(hospitalID), str(departmentID), str(createUserID), str(userType), str(regNu), str(birthPlace), str(name), surname, str(birthDay)))
+                cursor.execute(query, (str(UserID), str(hospitalID), str(departmentID), str(createUserID), str(userType), str(regNu), str(birthPlace), str(name), str(surname), str(birthDay)))
             except dbapi2.Error:
                 connection.rollback()
             else:
@@ -68,6 +68,7 @@ class PersonalDatabase:
     def select_personal_info(cls, userID):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
+            personalInfo = None
 
             query = """SELECT * FROM PersonalInfo WHERE UserID = %s"""
             try:
@@ -91,11 +92,12 @@ class PersonalDatabase:
     def select_all_personal_info(cls, UserType):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
+            personalInfo = None
 
             if UserType == '' or UserType == None:
                 query = """SELECT * FROM PersonalInfo"""
             else:
-                query = """SELECT * FROM PersonalInfo WHERE UserType = %s"""
+                query = 'SELECT * FROM PersonalInfo WHERE UserType = ' + UserType
             try:
                 cursor.execute(query,)
                 personalInfo = cursor.fetchall()
