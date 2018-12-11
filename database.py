@@ -65,7 +65,7 @@ class DatabaseOperations:
                                                             BirthDay TIMESTAMP,
                                                             UpdateDate TIMESTAMP,
                                                             FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
-                                                            FOREIGN KEY (CreateUserID) REFERENCES PersonalInfo(UserID),
+                                                            FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
                                                             FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
                                                                             )"""
             cursor.execute(query)
@@ -205,17 +205,25 @@ class DatabaseOperations:
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "Şehir"))
 
+
+
             #uery = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
             #cursor.executemany(query, city_Dict)
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("2", "DepartmentType"))
 
+            query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
+            cursor.execute(query, ("3", "Görev"))
+
             query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
             cursor.execute(query, ("1", "1", "İstanbul"))
 
             query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
             cursor.execute(query, ("2", "2", "Kardiyoloji"))
+
+            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
+            cursor.execute(query, ("3", "3", "Doktor"))
 
 
 database = DatabaseOperations()
