@@ -83,6 +83,7 @@ class DatabaseOperations:
                                                 Report VARCHAR(500),
                                                 ShiftDate TIMESTAMP NOT NULL,
                                                 CreateDate TIMESTAMP NOT NULL,
+                                                UpdateDate TIMESTAMP,
                                                 FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID)
                                                                )"""
             cursor.execute(query)

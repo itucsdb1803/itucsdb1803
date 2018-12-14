@@ -84,3 +84,27 @@ class DutyDatabase:
             else:
                 connection.commit()
             return
+
+    @classmethod
+    def update_duty(cls, dutyID, patientCount, report, shiftDate):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = 'UPDATE DutyInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
+
+            if (patientCount != '' and patientCount is not None):
+                query = query + ", PatientCount = '" + str(patientCount) + "'"
+            if (report != '' and report is not None):
+                query = query + ", Report = '" + str(report) + "'"
+            if (shiftDate != '' and shiftDate is not None):
+                query = query + ", ShiftDate = '" + str(shiftDate) + "'"
+            query = query + ' WHERE DutyID = ' + str(dutyID)
+
+            try:
+                cursor.execute(query)
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            cursor.close()
+            return 
