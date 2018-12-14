@@ -1,9 +1,9 @@
 import os
 import psycopg2 as dbapi2
 import datetime
-import cities
+import init_parameters
 city_Dict = dict()
-city_Dict = cities.city_dict
+city_Dict = init_parameters.city_dict
 
 class DatabaseOperations:
     def __init__(self):
