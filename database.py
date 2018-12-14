@@ -2,8 +2,12 @@ import os
 import psycopg2 as dbapi2
 import datetime
 import init_parameters
-city_Dict = dict()
-city_Dict = init_parameters.city_dict
+
+
+city_dict = init_parameters.city_dict
+job_dict = init_parameters.job_dict
+dep_dict = init_parameters.department_dict
+
 
 class DatabaseOperations:
     def __init__(self):
@@ -205,20 +209,19 @@ class DatabaseOperations:
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "Şehir"))
 
-            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
-            cursor.executemany(query, city_Dict)
-
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("2", "DepartmentType"))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("3", "Görev"))
 
-            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("82", "2", "Kardiyoloji"))
+            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
+            cursor.executemany(query, city_dict)
 
-            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("83", "3", "Doktor"))
+            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (2, %(job)s)"""
+            cursor.executemany(query, job_dict)
 
+            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (3, %(dep)s)"""
+            cursor.executemany(query, dep_dict)
 
 database = DatabaseOperations()
