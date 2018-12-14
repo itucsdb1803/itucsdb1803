@@ -1,10 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.parameter_add_page') }}" method="post">
+    <fieldset>
+    <!-- Name input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">Name</label>
+            <div class="col-md-4">
+                <input id="Name" name="Name" placeholder="Name" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+    <!-- Parameter Type input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Type">Parameter Type</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="Type" name="Type" class="selectpicker form-control">
+                        {% for parameter in parameters %}
+                            <option value="{{parameter[0] }}">{{ parameter[1] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+    <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="register_button"></label>
+            <div class="col-md-4">
+                <button id="register_button" name="register_button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
