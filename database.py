@@ -211,10 +211,10 @@ class DatabaseOperations:
             cursor.execute(query, ("1", "Şehir"))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
-            cursor.execute(query, ("2", "DepartmentType"))
+            cursor.execute(query, ("2", "Görev"))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
-            cursor.execute(query, ("3", "Görev"))
+            cursor.execute(query, ("3", "Department Type"))
 
             query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
             cursor.executemany(query, city_dict)
