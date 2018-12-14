@@ -84,7 +84,7 @@ def room_page():
     return render_template("home.html")
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
-def register_page():
+def register_personal_page():
     if request.method == 'POST':
         personal = PersonalDatabase()
         login = LoginDatabase()
