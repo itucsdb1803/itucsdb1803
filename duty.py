@@ -70,3 +70,17 @@ class DutyDatabase:
                 return dutyInfo
             else:
                 return -1
+
+    @classmethod
+    def delete_duty_info(cls, dutyID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """DELETE FROM DutyInfo WHERE DutyID = %s"""
+            try:
+                cursor.execute(query, dutyID)
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            return
