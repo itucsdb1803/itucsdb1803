@@ -10,6 +10,7 @@ from department import DepartmentDatabase
 from room import RoomDatabase
 from parameter import ParameterDatabase
 from duty import DutyDatabase
+from parameter_type import ParameterTypeDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -27,6 +28,7 @@ def initialize_database():
 def home_page():
     return render_template("home.html")
 
+
 @site.route("/login", methods=['GET', 'POST'])
 def login_page():
     error = None
@@ -40,16 +42,19 @@ def login_page():
             return redirect(url_for('site.home_page'))
     return render_template('login.html', error=error)
 
+
 @site.route('/logout')
 def logout():
     logout_user()
     return redirect(url_for('index'))
+
 
 @site.route('/personal')
 def personel_page():
     personal = PersonalDatabase()
     personal.add_personal(1, 1, 1, 1, 1, 1, 1, "Utku", "Anıl", "16.01.1995")
     return render_template("home.html")
+
 
 @site.route('/disease',methods=['GET', 'POST'])
 def disease_page():
@@ -65,11 +70,13 @@ def disease_page():
     else:
         return render_template("disease.html")
 
+
 @site.route('/hospital')
 def hospital_page():
     hospital = HospitalDatabase()
     hospital.add_hospital(1, 1, 1, 1, "Orhan")
     return render_template("home.html")
+
 
 @site.route('/department')
 def department_page():
@@ -77,11 +84,13 @@ def department_page():
     department.add_department(1, 1, 1, 1, 1, 1)
     return render_template("home.html")
 
+
 @site.route('/room')
 def room_page():
     room = RoomDatabase()
     room.add_room(1, 1, 1, 1, 1)
     return render_template("home.html")
+
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
 def register_personal_page():
@@ -106,8 +115,9 @@ def register_personal_page():
         userTypes = parameter.select_parameters_with_type(2)
         cities = parameter.select_parameters_with_type(1)
         hospitals = [(1, 2, "Örnek Hastane")]
-        departments = [(1, 2, "Örnek Departman")]
+        departments = parameter.select_parameters_with_type(3)
         return render_template("register_personal.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+
 
 @site.route('/duty' , methods=['GET', 'POST'])
 def duty_page():
@@ -118,6 +128,7 @@ def duty_page():
         dutyList = duty.select_all_duty_info()
         return render_template("duty.html", dutyList=dutyList)
 
+
 @site.route('/duty/add' , methods=['GET', 'POST'])
 def duty_add_page():
     if request.method == 'POST':
@@ -126,3 +137,23 @@ def duty_add_page():
         return redirect(url_for('site.duty_page'))
     else:
         return render_template("duty_add.html")
+
+
+@site.route('/parameter' , methods=['GET', 'POST'])
+def parameter_page():
+    if request.method == 'POST':
+        return redirect(url_for('site.home_page'))
+    else:
+        return render_template("site.home_page")
+
+
+@site.route('/parameter/add' , methods=['GET', 'POST'])
+def parameter_add_page():
+    if request.method == 'POST':
+        parameter = ParameterDatabase()
+        parameter.add_parameter(name=request.form['Name'], typeID=request.form['Type'])
+        return redirect(url_for('site.home_page'))
+    else:
+        parameterTypes = ParameterTypeDatabase()
+        parameters = parameterTypes.select_parameter_types()
+        return render_template("parameter_add.html", parameters=parameters)
