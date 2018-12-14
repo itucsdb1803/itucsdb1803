@@ -2,7 +2,7 @@ from werkzeug.utils import redirect
 from database import DatabaseOperations
 from flask import Blueprint, render_template, request, url_for
 from login import LoginDatabase
-from flask_login import login_user, logout_user
+from flask_login import login_user, logout_user, current_user
 from personal import PersonalDatabase
 from disease import DiseaseDatabase
 from hospital import HospitalDatabase
@@ -117,3 +117,12 @@ def duty_page():
         duty = DutyDatabase()
         dutyList = duty.select_all_duty_info()
         return render_template("duty.html", dutyList=dutyList)
+
+@site.route('/duty/add' , methods=['GET', 'POST'])
+def duty_add_page():
+    if request.method == 'POST':
+        duty = DutyDatabase()
+        duty.add_duty(doctorID=current_user.id, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
+        return redirect(url_for('site.duty_page'))
+    else:
+        return render_template("duty_add.html")
