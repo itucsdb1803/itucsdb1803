@@ -92,11 +92,11 @@ class DutyDatabase:
 
             query = 'UPDATE DutyInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
 
-            if (patientCount != '' and patientCount is not None):
+            if patientCount != '' and patientCount is not None:
                 query = query + ", PatientCount = '" + str(patientCount) + "'"
-            if (report != '' and report is not None):
+            if report != '' and report is not None:
                 query = query + ", Report = '" + str(report) + "'"
-            if (shiftDate != '' and shiftDate is not None):
+            if shiftDate != '' and shiftDate is not None:
                 query = query + ", ShiftDate = '" + str(shiftDate) + "'"
             query = query + ' WHERE DutyID = ' + str(dutyID)
 
@@ -107,4 +107,4 @@ class DutyDatabase:
             else:
                 connection.commit()
             cursor.close()
-            return 
+            return
