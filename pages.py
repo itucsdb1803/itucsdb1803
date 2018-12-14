@@ -9,6 +9,7 @@ from hospital import HospitalDatabase
 from department import DepartmentDatabase
 from room import RoomDatabase
 from parameter import ParameterDatabase
+from duty import DutyDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -102,8 +103,17 @@ def register_page():
         return redirect(url_for('site.home_page'))
     else:
         parameter = ParameterDatabase()
-        userTypes = parameter.select_parameters_with_type(3)
+        userTypes = parameter.select_parameters_with_type(2)
         cities = parameter.select_parameters_with_type(1)
         hospitals = [(1, 2, "Örnek Hastane")]
         departments = [(1, 2, "Örnek Departman")]
         return render_template("register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+
+@site.route('/duty' , methods=['GET', 'POST'])
+def duty_page():
+    if request.method == 'POST':
+        return redirect(url_for('site.home_page'))
+    else:
+        duty = DutyDatabase()
+        dutyList = duty.select_all_duty_info()
+        return render_template("duty.html", dutyList=dutyList)

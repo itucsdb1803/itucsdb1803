@@ -13,12 +13,13 @@ class Duty:
 
 class DutyDatabase:
     @classmethod
-    def add_personal(cls, doctorID, patientCount, report, shiftDate):
+    def add_duty(cls, doctorID, patientCount, report, shiftDate):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = 'INSERT INTO DutyInfo(DoctorID, PatientCount, Report, ShiftDate, CreateDate) VALUES (%s, %s, %s, %s, %s)'
+            query = "INSERT INTO DutyInfo(DoctorID, PatientCount, Report, ShiftDate, CreateDate) VALUES ('" + str(doctorID) + \
+                    "', '" + str(patientCount) + "', '" + report + "', '" + shiftDate + "', '" + str(datetime.datetime.now()) + "')"
             try:
-                cursor.execute(query, (str(doctorID), str(patientCount), str(report), str(shiftDate), datetime.datetime.now))
+                cursor.execute(query)
             except dbapi2.Error:
                 connection.rollback()
             else:
@@ -54,7 +55,8 @@ class DutyDatabase:
             cursor = connection.cursor()
             dutyInfo = None
 
-            query = 'SELECT * FROM DutyInfo'
+            query = 'SELECT d.DutyID, d.DoctorID, p.Name, p.Surname, d.PatientCount, d.Report, d.ShiftDate, d.CreateDate' \
+                    ' FROM DutyInfo d, PersonalInfo p Where d.DoctorID = p.UserID'
             try:
                 cursor.execute(query, )
                 dutyInfo = cursor.fetchall()

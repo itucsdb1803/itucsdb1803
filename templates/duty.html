@@ -1,0 +1,31 @@
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.register_page') }}" method="post">
+    <fieldset>
+        <table class="table">
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Doctor</th>
+                <th scope="col">Patient Count</th>
+                <th scope="col">Report</th>
+                <th scope="col">Shift Date</th>
+              <th scope="col">Create Date</th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for duty in dutyList %}
+            <tr>
+                <th scope="row">{{loop.index}}</th>
+                <td>{{duty[2]}} {{duty[3]}}</td>
+                <td>{{duty[4]}}</td>
+                <td>{{duty[5]}}</td>
+                <td>{{duty[6]}}</td>
+                <td>{{duty[7]}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+</fieldset>
+</form>
+{% endblock %}
