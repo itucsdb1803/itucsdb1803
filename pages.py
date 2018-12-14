@@ -83,7 +83,7 @@ def room_page():
     room.add_room(1, 1, 1, 1, 1)
     return render_template("home.html")
 
-@site.route('/register' , methods=['GET', 'POST'])
+@site.route('/register/personal' , methods=['GET', 'POST'])
 def register_page():
     if request.method == 'POST':
         personal = PersonalDatabase()
@@ -107,7 +107,7 @@ def register_page():
         cities = parameter.select_parameters_with_type(1)
         hospitals = [(1, 2, "Örnek Hastane")]
         departments = [(1, 2, "Örnek Departman")]
-        return render_template("register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+        return render_template("register_personal.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
 
 @site.route('/duty' , methods=['GET', 'POST'])
 def duty_page():
