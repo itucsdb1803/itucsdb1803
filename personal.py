@@ -108,10 +108,7 @@ class PersonalDatabase:
                 connection.commit()
 
             if personalInfo:
-                return Personal(id=personalInfo[0], HospitalID=personalInfo[1], DepartmentID=personalInfo[2],
-                                CreateUserID=personalInfo[3],
-                                UserType=personalInfo[4], RegNu=personalInfo[5], BirthPlace=personalInfo[6],
-                                Surname=personalInfo[7], BirthDay=personalInfo[8], UpdateDate=personalInfo[9])
+                return personalInfo
             else:
                 return -1
 
