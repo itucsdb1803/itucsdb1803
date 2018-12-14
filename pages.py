@@ -96,7 +96,7 @@ def register_page():
         loginInfo = login.select_login_info(None, username, password)
 
         personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
-                              departmentID=request.form['DepartmentID'], createUserID=1,
+                              departmentID=request.form['DepartmentID'], createUserID=current_user.id,
                               userType=request.form['UserType'], regNu=request.form['RegNu'], name=request.form['Name'],
                               surname=request.form['Surname'], birthDay=request.form['Birthday'], birthPlace = request.form['BirthPlace'])
 
