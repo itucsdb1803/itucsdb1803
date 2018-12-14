@@ -2,7 +2,7 @@ import os
 import psycopg2 as dbapi2
 import datetime
 import cities
-city_Dict= dict()
+city_Dict = dict()
 city_Dict = cities.city_dict
 
 class DatabaseOperations:
@@ -205,10 +205,8 @@ class DatabaseOperations:
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "Şehir"))
 
-
-
-            #uery = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
-            #cursor.executemany(query, city_Dict)
+            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, %(city)s)"""
+            cursor.executemany(query, city_Dict)
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("2", "DepartmentType"))
@@ -217,13 +215,10 @@ class DatabaseOperations:
             cursor.execute(query, ("3", "Görev"))
 
             query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("1", "1", "İstanbul"))
+            cursor.execute(query, ("82", "2", "Kardiyoloji"))
 
             query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("2", "2", "Kardiyoloji"))
-
-            query = """INSERT INTO ParameterInfo(ID, TypeID, Name) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("3", "3", "Doktor"))
+            cursor.execute(query, ("83", "3", "Doktor"))
 
 
 database = DatabaseOperations()
