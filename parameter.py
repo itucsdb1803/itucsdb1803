@@ -27,3 +27,17 @@ class ParameterDatabase:
                 return parameterInfo
             else:
                 return [[]]
+
+    @classmethod
+    def add_parameter(cls, name, typeID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (%s, %s)"""
+            try:
+                cursor.execute(query, (str(typeID), str(name)))
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            cursor.close()
+            return
