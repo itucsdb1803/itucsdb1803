@@ -12,12 +12,12 @@ class MedicalReport(UserMixin):
         self.CreateDate = createdate
         self.ReservationDate = reservationdate
 
-class MedicalReportDatabase:
+class ReservaitonDatabase:
     @classmethod
-    def add_report(cls, patientid, hospitalid, doctorid, departmentid, reservationdate):
+    def add_reservation(cls, patientid, hospitalid, doctorid, departmentid, reservationdate):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO MedicalReport(PatientID, HospitalID, DoctorID, DepartmentID, CreateDate, ReservationDate) VALUES (%s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO Reservation(PatientID, HospitalID, DoctorID, DepartmentID, CreateDate, ReservationDate) VALUES (%s, %s, %s, %s, %s, %s)"""
             try:
                 cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), datetime.datetime.now(), str(reservationdate)))
             except dbapi2.Error:
@@ -25,4 +25,3 @@ class MedicalReportDatabase:
             else:
                 connection.commit()
             cursor.close()
-            
