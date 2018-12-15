@@ -24,7 +24,7 @@ class HospitalDatabase:
             cursor.close()
 
     @classmethod
-    def update_hospital(cls, hospitalid, capacity, address, name):
+    def update_hospital(cls, hospitalid, city, capacity, address, name):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
@@ -32,6 +32,8 @@ class HospitalDatabase:
 
             if capacity != '' and capacity is not None:
                 query = query + ", Capacity = '" + str(capacity) + "'"
+            if city != '' and city is not None:
+                query = query + ", city = '" + str(city) + "'"
             if address != '' and address is not None:
                 query = query + ", address = '" + str(address) + "'"
             if name != '' and name is not None:

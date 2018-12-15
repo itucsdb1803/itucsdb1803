@@ -23,3 +23,31 @@ class DepartmentDatabase:
             else:
                 connection.commit()
             cursor.close()
+
+    @classmethod
+    def update_department(cls, departmentid, hospitalid, departmentTypeid, roomCount, blockNumber, personalCount):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = 'UPDATE DepartmentInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
+
+            if hospitalid != '' and hospitalid is not None:
+                query = query + ", HospitalId = '" + str(hospitalid) + "'"
+            if departmentTypeid != '' and departmentTypeid is not None:
+                query = query + ", DepartmentTypeId = '" + str(departmentTypeid) + "'"
+            if roomCount != '' and roomCount is not None:
+                query = query + ", RoomCount = '" + str(roomCount) + "'"
+            if blockNumber != '' and blockNumber is not None:
+                query = query + ", BlockNumber = '" + str(blockNumber) + "'"
+            if personalCount != '' and personalCount is not None:
+                query = query + ", PersonalCount = '" + str(personalCount) + "'"
+            query = query + 'WHERE DepartmentId = ' + str(departmentid)
+
+            try:
+                cursor.execute(query)
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            cursor.close()
+            return
