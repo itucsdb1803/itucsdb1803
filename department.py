@@ -51,3 +51,27 @@ class DepartmentDatabase:
                 connection.commit()
             cursor.close()
             return
+
+    @classmethod
+    def select_department_info(cls, departmentId):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            departmentInfo = None
+
+            query = """SELECT d.DepartmentID, d.HospitalID, d.DepartmentTypeID, d.RoomCount, d.BlockNumber, d.PersonalCount, h.HospitalID, para.TypeID
+                        FROM DepartmentInfo d, HospitalInfo h, ParameterInfo para
+                        WHERE d.HospitalID = h.HospitalID AND d.DepartmentTypeID = para.TypeID AND d.DepartmentID = %s"""
+
+            try:
+                cursor.execute(query, str(departmentId))
+                departmentInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if departmentInfo:
+                return departmentInfo
+            else:
+                return []
