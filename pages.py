@@ -116,7 +116,7 @@ def register_personal_page():
         cities = parameter.select_parameters_with_type(1)
         hospitals = [(1, 2, "Örnek Hastane")]
         departments = parameter.select_parameters_with_type(3)
-        return render_template("register_personal.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+        return render_template("personal_register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
 
 
 @site.route('/duty', methods=['GET', 'POST'])

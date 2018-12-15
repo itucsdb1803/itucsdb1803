@@ -37,21 +37,21 @@ class PersonalDatabase:
 
             query = 'UPDATE PersonalInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
 
-            if (hospitalID != '' and hospitalID is not None):
+            if hospitalID != '' and hospitalID is not None:
                 query = query + ", HospitalID = '" + str(hospitalID) + "'"
-            if (departmentID != '' and departmentID is not None):
+            if departmentID != '' and departmentID is not None:
                 query = query + ", DepartmentID = '" + str(departmentID) + "'"
-            if (userType != '' and userType is not None):
+            if userType != '' and userType is not None:
                 query = query + ", UserType = '" + str(userType) + "'"
-            if (regNu != '' and regNu is not None):
+            if regNu != '' and regNu is not None:
                 query = query + ", RegNu = '" + str(regNu) + "'"
-            if (birthPlace != '' and birthPlace is not None):
+            if birthPlace != '' and birthPlace is not None:
                 query = query + ", BirthPlace = '" + str(birthPlace) + "'"
-            if (name != '' and name is not None):
+            if name != '' and name is not None:
                 query = query + ", Name = '" + str(name) + "'"
-            if (surname != '' and surname is not None):
-                query = query + ", Surname = '" +  str(surname) + "'"
-            if (birthDay != '' and birthDay is not None):
+            if surname != '' and surname is not None:
+                query = query + ", Surname = '" + str(surname) + "'"
+            if birthDay != '' and birthDay is not None:
                 query = query + ", BirthDay = '" + str(birthDay) + "'"
             query = query + ' WHERE UserID = ' + str(userID)
 
