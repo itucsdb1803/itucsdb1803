@@ -222,3 +222,26 @@ def register_patient_page():
         parameter = ParameterDatabase()
         cities = parameter.select_parameters_with_type(1)
         return render_template("patient_register.html", cities=cities)
+
+
+@site.route('/patient/update/<int:UserID>', methods=['GET', 'POST'])
+def update_patient_page(UserID):
+    if request.method == 'POST':
+        patient = PatientDatabase()
+        login = LoginDatabase()
+
+        password = request.form['Password']
+        if password is not None and password != '':
+            login.change_password(UserID, password)
+
+        patient.update_patient(patientId=UserID, tckn=request.form['TCKN'], birthPlace=request.form['BirthPlace'],
+                               gsm=request.form['GSM'], name=request.form['Name'], surname=request.form['Surname'],
+                               birthDay=request.form['Birthday'])
+
+        return redirect(url_for('site.home_page'))
+    else:
+        parameter = ParameterDatabase()
+        patient = PatientDatabase()
+        patientInfo = patient.select_patient_info(UserID)
+        cities = parameter.select_parameters_with_type(1)
+        return render_template("patient_update.html",  cities=cities, patient=patientInfo)
