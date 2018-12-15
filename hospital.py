@@ -71,4 +71,26 @@ class HospitalDatabase:
             else:
                 return []
 
-    
+    @classmethod
+    def select_all_hospital_info(cls, City):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            hospitalInfo = None
+
+            if City == '' or City == None:
+                query = """SELECT * FROM HospitalInfo"""
+            else:
+                query = 'SELECT * FROM HospitalInfo WHERE City = ' + City
+            try:
+                cursor.execute(query,)
+                hospitalInfo = cursor.fetchall()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if hospitalInfo:
+                return hospitalInfo
+            else:
+                return -1
