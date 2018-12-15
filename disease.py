@@ -12,10 +12,9 @@ class Disease():
 
 class DiseaseDatabase:
     @classmethod
-    def add_disease(cls, department, name, diseasearea, description,):
+    def add_disease(cls, department, name, diseasearea, description):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            print(department)
             query = """INSERT INTO DiseaseInfo(Department, Name, DiseaseArea, Description, CreateDate) VALUES (%s, %s, %s, %s, %s)"""
             try:
                 cursor.execute(query, (str(department), str(name), str(diseasearea), str(description), datetime.datetime.now()))
