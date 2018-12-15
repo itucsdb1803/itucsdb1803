@@ -18,7 +18,7 @@ class DiseaseDatabase:
             print(department)
             query = """INSERT INTO DiseaseInfo(Department, Name, DiseaseArea, Description, CreateDate) VALUES (%s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(department), str(name), str(diseasearea), str(description), datetime.datetime.now))
+                cursor.execute(query, (str(department), str(name), str(diseasearea), str(description), datetime.datetime.now()))
             except dbapi2.Error:
                 connection.rollback()
             else:
