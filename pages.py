@@ -86,9 +86,11 @@ def room_page():
     return render_template("home.html")
 
 
-@site.route('/personal')
-def personel_page():
-    return render_template("personal.html")
+@site.route('/personal/<int:UserID>')
+def personel_page(UserID):
+    personal = PersonalDatabase()
+    profile = personal.get_profile_info(UserID)
+    return render_template("personal.html", profile=profile)
 
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
