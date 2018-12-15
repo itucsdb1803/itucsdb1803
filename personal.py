@@ -2,13 +2,14 @@ from flask_login import UserMixin
 from database import *
 
 class Personal(UserMixin):
-    def __init__(self, id, hospitalid, departmentID, createUserID, userType, regNu, birthPlace, name, surname, birthDay, updateDate):
+    def __init__(self, id, hospitalid, departmentID, createUserID, userType, regNu, telNo, birthPlace, name, surname, birthDay, updateDate):
         self.id = id
         self.HospitalID = hospitalid
         self.DepartmentID = departmentID
         self.CreateUserID = createUserID
         self.UserType = userType
         self.RegNu = regNu
+        self.TelNo = telNo
         self.BirthPlace = birthPlace
         self.Name = name
         self.Surname = surname
@@ -17,12 +18,12 @@ class Personal(UserMixin):
 
 class PersonalDatabase:
     @classmethod
-    def add_personal(cls, UserID, hospitalID, departmentID, createUserID, userType, regNu, birthPlace, name, surname, birthDay):
+    def add_personal(cls, UserID, hospitalID, departmentID, createUserID, userType, regNu, telNo, birthPlace, name, surname, birthDay):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO PersonalInfo(UserID, HospitalID, DepartmentID, createUserID, UserType, RegNu, BirthPlace, Name, Surname, BirthDay) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO PersonalInfo(UserID, HospitalID, DepartmentID, createUserID, UserType, RegNu, TelNo, BirthPlace, Name, Surname, BirthDay) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(UserID), str(hospitalID), str(departmentID), str(createUserID), str(userType), str(regNu), str(birthPlace), str(name), str(surname), str(birthDay)))
+                cursor.execute(query, (str(UserID), str(hospitalID), str(departmentID), str(createUserID), str(userType), str(regNu), str(telNo), str(birthPlace), str(name), str(surname), str(birthDay)))
             except dbapi2.Error:
                 connection.rollback()
             else:
@@ -31,7 +32,7 @@ class PersonalDatabase:
             return
 
     @classmethod
-    def update_personal(cls, userID, hospitalID, departmentID, userType, regNu, birthPlace, name, surname, birthDay):
+    def update_personal(cls, userID, hospitalID, departmentID, userType, regNu, telNo, birthPlace, name, surname, birthDay):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
 
@@ -45,6 +46,8 @@ class PersonalDatabase:
                 query = query + ", UserType = '" + str(userType) + "'"
             if regNu != '' and regNu is not None:
                 query = query + ", RegNu = '" + str(regNu) + "'"
+            if telNo != '' and telNo is not None:
+                query = query + ", TelNo = '" + str(telNo) + "'"
             if birthPlace != '' and birthPlace is not None:
                 query = query + ", BirthPlace = '" + str(birthPlace) + "'"
             if name != '' and name is not None:
@@ -70,7 +73,7 @@ class PersonalDatabase:
             cursor = connection.cursor()
             personalInfo = None
 
-            query = """SELECT p.UserID, p.HospitalID, h.name, p.DepartmentID, para1.name, p.UserType, para2.Name, p.RegNu, p.BirthPlace, para3.Name, p.Name, p.Surname, p.BirthDay
+            query = """SELECT p.UserID, p.HospitalID, h.name, p.DepartmentID, para1.name, p.UserType, para2.Name, p.RegNu, p.TelNo, p.BirthPlace, para3.Name, p.Name, p.Surname, p.BirthDay
                 FROM PersonalInfo p, ParameterInfo para1, ParameterInfo para2, ParameterInfo para3, HospitalInfo h 
                     WHERE p.DepartmentID = para1.ID AND p.UserType = para2.ID AND p.BirthPlace = para3.ID AND p.HospitalID = h.HospitalID
                         AND UserID = %s"""
