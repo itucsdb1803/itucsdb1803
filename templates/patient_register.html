@@ -1,10 +1,100 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.register_patient_page') }}" method="post">
+    <fieldset>
+    <!-- Name input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">Name</label>
+            <div class="col-md-4">
+                <input id="Name" name="Name" placeholder="Name" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+    <!-- Surname input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Surname">Surname</label>
+            <div class="col-md-4">
+                <input id="Surname" name="Surname" placeholder="Surname" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+
+    <!-- UserName input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="UserName">Name</label>
+            <div class="col-md-4">
+                <input id="UserName" name="UserName" placeholder="UserName" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+
+    <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Password">Password</label>
+            <div class="col-md-4">
+                <input id="Password" name="Password" placeholder="Password" class="form-control input-md"
+                       required="" type="password">
+
+            </div>
+        </div>
+
+    <!-- TCKN input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="TCKN">TCKN</label>
+            <div class="col-md-4">
+                <input id="TCKN" name="TCKN" placeholder="TCKN" class="form-control input-md"
+                       type="text" maxlength="11" minlength="11" size="11">
+
+            </div>
+        </div>
+
+    <!-- GSM input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="GSM">Phone Number</label>
+            <div class="col-md-4">
+                <input id="GSM" name="GSM" placeholder="5## ### ####" class="form-control input-md"
+                       type="tel">
+            </div>
+        </div>
+    </div>
+
+    <!-- Birth City input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="BirthPlace">Birth Place</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control">
+                        {% for city in cities %}
+                            <option value="{{city[0]}}">{{city[2]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- Birthday input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Birthday">Birthday</label>
+            <div id="datetimepicker1" class="input-append date col-md-4">
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="Birthday"></input>
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                        </i>
+                    </span>
+            </div>
+        </div>
+
+    <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="register_button"></label>
+            <div class="col-md-4">
+                <button id="register_button" name="register_button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
