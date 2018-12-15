@@ -148,11 +148,16 @@ def update_personal_page(UserID):
 @site.route('/duty', methods=['GET', 'POST'])
 def duty_page():
     if request.method == 'POST':
-        return redirect(url_for('site.home_page'))
+        deletes = request.form.getlist('duty_to_delete')
+        duty = DutyDatabase()
+        for delete in deletes:
+            duty.delete_duty_info(delete)
+        return redirect(url_for('site.duty_page'))
     else:
         duty = DutyDatabase()
         dutyList = duty.select_all_duty_info()
         return render_template("duty.html", dutyList=dutyList)
+
 
 
 @site.route('/duty/add', methods=['GET', 'POST'])
