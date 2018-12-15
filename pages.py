@@ -49,13 +49,6 @@ def logout():
     return redirect(url_for('index'))
 
 
-@site.route('/personal')
-def personel_page():
-    personal = PersonalDatabase()
-    personal.add_personal(1, 1, 1, 1, 1, 1, 1, "Utku", "Anıl", "16.01.1995")
-    return render_template("home.html")
-
-
 @site.route('/disease',methods=['GET', 'POST'])
 def disease_page():
     derror = "OK"
@@ -92,6 +85,11 @@ def room_page():
     return render_template("home.html")
 
 
+@site.route('/personal')
+def personel_page():
+    return render_template("home.html")
+
+
 @site.route('/register/personal' , methods=['GET', 'POST'])
 def register_personal_page():
     if request.method == 'POST':
@@ -117,6 +115,33 @@ def register_personal_page():
         hospitals = [(1, 2, "Örnek Hastane")]
         departments = parameter.select_parameters_with_type(3)
         return render_template("personal_register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+
+
+@site.route('/personal/update/<int:UserID>' , methods=['GET', 'POST'])
+def update_personal_page(UserID):
+    if request.method == 'POST':
+        personal = PersonalDatabase()
+        login = LoginDatabase()
+
+        password = request.form['Password']
+        if password is not None and password != '':
+            login.change_password(UserID, password)
+
+        personal.update_personal(userID=UserID, hospitalID=request.form['HospitalID'],
+                                 departmentID=request.form['DepartmentID'], userType=request.form['UserType'],
+                                 regNu=request.form['RegNu'], name=request.form['Name'],
+                                 surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                 birthPlace=request.form['BirthPlace'])
+        return redirect(url_for('site.home_page'))
+    else:
+        parameter = ParameterDatabase()
+        personal = PersonalDatabase()
+        personalInfo = personal.select_personal_info(UserID)
+        userTypes = parameter.select_parameters_with_type(2)
+        cities = parameter.select_parameters_with_type(1)
+        hospitals = [(1, 2, "Örnek Hastane")]
+        departments = parameter.select_parameters_with_type(3)
+        return render_template("personal_update.html", userTypes=userTypes, cities=cities, hospitals=hospitals, departments=departments, personal=personalInfo)
 
 
 @site.route('/duty', methods=['GET', 'POST'])
