@@ -198,6 +198,7 @@ class DatabaseOperations:
                                             Prescription VARCHAR(500),
                                             Report VARCHAR(1000),
                                             CreateDate TIMESTAMP NOT NULL,
+                                            UpdateDate TIMSESTAMP,
                                             FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),
                                             FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),
                                             FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID)
