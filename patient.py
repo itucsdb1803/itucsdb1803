@@ -82,3 +82,32 @@ class PatientDatabase:
                 return patientInfo
             else:
                 return []
+
+    @classmethod
+    def get_profile_info(cls, patientID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            patientInfo = None
+
+            query = """SELECT p.PatientID, l.username, p.name, p.Surname, p.TCKN, p.GSM, p.BirthDay, para.name 
+                FROM PatientInfo p, ParameterInfo para, LogInfo l
+                WHERE p.BirthPlace = para.ID AND p.PatientID = l.UserID
+                AND p.PatientID = %s"""
+            try:
+                cursor.execute(query, str(patientID))
+                patientInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if patientInfo:
+                birthDay = patientInfo[6]
+                today = datetime.datetime.now()
+                age = int((today - birthDay).days / 365)
+                profileInfo = [patientInfo[0], patientInfo[1], patientInfo[2], patientInfo[3], patientInfo[4],
+                               patientInfo[5], age, patientInfo[7]]
+                return profileInfo
+            else:
+                return []
