@@ -1,10 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>Title</title>
-</head>
-<body>
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.update_personal_page', UserID = personal[0]) }}" method="post">
+    <fieldset>
+    <!-- Name input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Name">Name</label>
+            <div class="col-md-4">
+                <input id="Name" name="Name" placeholder="{{personal[10]}}" class="form-control input-md"
+                       type="text">
 
-</body>
-</html>
+            </div>
+        </div>
+    <!-- Surname input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Surname">Surname</label>
+            <div class="col-md-4">
+                <input id="Surname" name="Surname" placeholder="{{personal[11]}}" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+
+    <!-- Password input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Password">Password</label>
+            <div class="col-md-4">
+                <input id="Password" name="Password" placeholder="Password" class="form-control input-md"
+                       required="" type="password">
+
+            </div>
+        </div>
+
+    <!-- Hospital input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="HospitalID">Hospital</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="HospitalID" name="HospitalID" class="selectpicker form-control">
+                        <option value="" selected disabled>{{personal[2]}}</option>
+                        {% for hospital in hospitals %}
+                            <option value="{{hospital[0] }}">{{ hospital[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- Department input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="DepartmentID">Department</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="DepartmentID" name="DepartmentID" class="selectpicker form-control">
+                        <option value="" selected disabled>{{personal[4]}}</option>
+                        {% for department in departments %}
+                            <option value="{{department[0]}}">{{ department[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- User Type input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="UserType">User Type</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="UserType" name="UserType" class="selectpicker form-control">
+                        <option value="" selected disabled>{{personal[6]}}</option>
+                        {% for type in userTypes %}
+                            <option value="{{type[0]}}">{{type[2]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- RegNo input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="RegNu">Registration No</label>
+            <div class="col-md-4">
+                <input id="RegNu" name="RegNu" placeholder="{{personal[7]}}" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+
+    <!-- Birth City input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="BirthPlace">Birth Place</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control">
+                         <option value="" selected disabled>{{personal[9]}}</option>
+                        {% for city in cities %}
+                            <option value="{{city[0]}}">{{city[2]}}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- Birthday input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Birthday">Birthday</label>
+            <div id="datetimepicker1" class="input-append date col-md-4">
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="{{personal[12]}}">
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                        </i>
+                    </span>
+            </div>
+        </div>
+
+    <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="register_button"></label>
+            <div class="col-md-4">
+                <button id="register_button" name="register_button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
