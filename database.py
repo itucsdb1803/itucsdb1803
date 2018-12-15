@@ -208,10 +208,10 @@ class DatabaseOperations:
             cursor.execute(query, ("admin", "12345", datetime.datetime.now()))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
-            cursor.execute(query, ("1", "Şehir"))
+            cursor.execute(query, ("1", "City"))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
-            cursor.execute(query, ("2", "Görev"))
+            cursor.execute(query, ("2", "Duty"))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("3", "Department Type"))
