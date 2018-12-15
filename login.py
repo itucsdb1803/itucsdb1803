@@ -29,19 +29,12 @@ class LoginDatabase:
             cursor.close()
 
     @classmethod
-    def update_login(cls, userID, username, password):
+    def change_password(cls, userID, password):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            if (username != '' and username is not None) and (password != '' and password is not None):
-                query = """UPDATE LogInfo SET Username = '%s', Password = '%s', UpdateDate = '%s' WHERE UserID = %d""" \
-                        % (str(username), str(password), datetime.datetime.now(), userID)
-            elif username != '' and username is not None:
-                query = """UPDATE LogInfo SET Username = '%s', UpdateDate = '%s' WHERE UserID = %d""" \
-                        % (str(username), datetime.datetime.now(), userID)
-            elif password != '' and password is not None:
-                query = """UPDATE LogInfo SET Password = '%s', UpdateDate = '%s' WHERE UserID = %d""" \
-                        % (str(password), datetime.datetime.now(), userID)
-
+            if password != '' and password is not None:
+                query = """UPDATE LogInfo SET Password = '%s', UpdateDate = '%s' WHERE UserID = %s""" \
+                        % (str(password), datetime.datetime.now(), str(userID))
             try:
                 cursor.execute(query)
             except dbapi2.Error:
