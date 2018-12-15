@@ -153,14 +153,13 @@ class DatabaseOperations:
             query = """CREATE TABLE PatientInfo(
                                                          PatientID INT PRIMARY KEY,
                                                          CreateUserID INT NOT NULL,
-                                                         TCKN INT NOT NULL,
                                                          BirthPlace INT NOT NULL,
                                                          GSM BIGINT NOT NULL,
-                                                         EMail VARCHAR(100),
+                                                         TCKN VARCHAR(50) NOT NULL,
                                                          Name VARCHAR(100) NOT NULL,
                                                          Surname VARCHAR(100) NOT NULL,
                                                          BirthDay TIMESTAMP NOT NULL,
-                                                         UpdateDate TIMESTAMP NOT NULL,
+                                                         UpdateDate TIMESTAMP,
                                                          FOREIGN KEY (PatientID) REFERENCES LogInfo(UserID),
                                                          FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
                                                          FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
