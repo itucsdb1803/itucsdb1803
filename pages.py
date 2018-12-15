@@ -65,7 +65,7 @@ def disease_page():
         return render_template("disease.html")
 
 
-@site.route('/hospital')
+@site.route('/hospital', methods=['GET', 'POST'])
 def hospital_page():
     hospital = HospitalDatabase()
     hospital.add_hospital(1, 1, 1, 1, "Orhan")
