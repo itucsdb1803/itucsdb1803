@@ -119,7 +119,7 @@ def register_personal_page():
         return render_template("register_personal.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
 
 
-@site.route('/duty' , methods=['GET', 'POST'])
+@site.route('/duty', methods=['GET', 'POST'])
 def duty_page():
     if request.method == 'POST':
         return redirect(url_for('site.home_page'))
@@ -129,7 +129,7 @@ def duty_page():
         return render_template("duty.html", dutyList=dutyList)
 
 
-@site.route('/duty/add' , methods=['GET', 'POST'])
+@site.route('/duty/add', methods=['GET', 'POST'])
 def duty_add_page():
     if request.method == 'POST':
         duty = DutyDatabase()
@@ -137,6 +137,18 @@ def duty_add_page():
         return redirect(url_for('site.duty_page'))
     else:
         return render_template("duty_add.html")
+
+
+@site.route('/duty/update/<int:DutyID>', methods=['GET', 'POST'])
+def duty_update_page(DutyID):
+    if request.method == 'POST':
+        duty = DutyDatabase()
+        duty.update_duty(dutyID=DutyID, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
+        return redirect(url_for('site.duty_page'))
+    else:
+        duty = DutyDatabase()
+        dutyInfo = duty.select_duty_info(DutyID)
+        return render_template("duty_update.html", dutyInfo=dutyInfo)
 
 
 @site.route('/parameter' , methods=['GET', 'POST'])
