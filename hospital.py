@@ -30,10 +30,10 @@ class HospitalDatabase:
 
             query = 'UPDATE HospitalInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
 
-            if capacity != '' and capacity is not None:
-                query = query + ", Capacity = '" + str(capacity) + "'"
             if city != '' and city is not None:
                 query = query + ", city = '" + str(city) + "'"
+            if capacity != '' and capacity is not None:
+                query = query + ", Capacity = '" + str(capacity) + "'"
             if address != '' and address is not None:
                 query = query + ", address = '" + str(address) + "'"
             if name != '' and name is not None:

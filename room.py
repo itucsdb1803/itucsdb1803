@@ -24,3 +24,29 @@ class RoomDatabase:
             else:
                 connection.commit()
             cursor.close()
+
+    @classmethod
+    def update_room(cls, roomid, departmentid, roomno, capacity, bathroomCount):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = 'UPDATE RoomInfo SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
+
+            if departmentid != '' and departmentid is not None:
+                query = query + ", DepartmentId = '" + str(departmentid) + "'"
+            if roomno != '' and roomno is not None:
+                query = query + ", RoomNo = '" + str(roomno) + "'"
+            if capacity != '' and capacity is not None:
+                query = query + ", Capacity = '" + str(capacity) + "'"
+            if bathroomCount != '' and bathroomCount is not None:
+                query = query + ", BathRoomCount = '" + str(bathroomCount) + "'"
+            query = query + ' WHERE RoomId = ' + str(roomid)
+
+            try:
+                cursor.execute(query)
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            cursor.close()
+            return
