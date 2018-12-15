@@ -7,7 +7,7 @@
             <label class="col-md-4 control-label" for="Name">Name</label>
             <div class="col-md-4">
                 <input id="Name" name="Name" placeholder="Name" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -17,7 +17,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="Type" name="Type" class="selectpicker form-control">
+                    <select id="Type" name="Type" class="selectpicker form-control" required>
                         {% for parameter in parameters %}
                             <option value="{{parameter[0] }}">{{ parameter[1] }}</option>
                         {% endfor %}
