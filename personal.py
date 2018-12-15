@@ -75,7 +75,7 @@ class PersonalDatabase:
                     WHERE p.DepartmentID = para1.ID AND p.UserType = para2.ID AND p.BirthPlace = para3.ID AND p.HospitalID = h.HospitalID
                         AND UserID = %s"""
             try:
-                cursor.execute(query, (userID))
+                cursor.execute(query, str(userID))
                 personalInfo = cursor.fetchone()
 
             except dbapi2.Error:
