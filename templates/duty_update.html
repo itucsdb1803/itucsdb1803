@@ -1,10 +1,45 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.duty_update_page', DutyID = dutyInfo[0])}}" method="post">
+    <fieldset>
+    <!-- Report input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="Report">Report</label>
+            <div class="col-md-4">
+                <input id="Report" name="Report" placeholder="{{dutyInfo[3]}}" class="form-control input-md"
+                       type="text">
+
+            </div>
+        </div>
+    <!-- Patient Count input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="PatientCount">Patient Count</label>
+            <div class="col-md-4">
+                <input id="PatientCount" name="PatientCount" placeholder="{{dutyInfo[2]}}" class="form-control input-md"
+                       type="number">
+
+            </div>
+        </div>
+
+    <!-- Shift Date input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="ShiftDate">Shift Date</label>
+            <div id="datetimepicker1" class="input-append date col-md-4">
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="ShiftDate" name="ShiftDate" placeholder="{{dutyInfo[5]}}">
+                    <span class="add-on">
+                        <i data-time-icon="icon-time" data-date-icon="icon-calendar">
+                        </i>
+                    </span>
+            </div>
+        </div>
+
+    <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="register_button"></label>
+            <div class="col-md-4">
+                <button id="register_button" name="register_button" class="btn btn-primary">Register</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
