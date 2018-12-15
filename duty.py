@@ -64,7 +64,7 @@ class DutyDatabase:
             if dutyInfo:
                 return dutyInfo
             else:
-                return -1
+                return []
 
     @classmethod
     def delete_duty_info(cls, dutyID):
