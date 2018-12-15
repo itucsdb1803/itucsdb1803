@@ -36,7 +36,7 @@ class HospitalDatabase:
                 query = query + ", address = '" + str(address) + "'"
             if name != '' and name is not None:
                 query = query + ", Name = '" + str(name) + "'"
-            query = query + ' WHERE HospitalOd = ' + str(hospitalid)
+            query = query + ' WHERE HospitalId = ' + str(hospitalid)
 
             try:
                 cursor.execute(query)
@@ -47,3 +47,28 @@ class HospitalDatabase:
             cursor.close()
             return
 
+    @classmethod
+    def select_hospital_info(cls, hospitalId):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            hospitalInfo = None
+
+            query = """SELECT h.HospitalID, h.City, h.Capacity, h.Address, h.Name, para.ID
+                        FROM HospitalInfo h, ParameterInfo para
+                        WHERE h.City = para.ID AND h.HospitalID = %s"""
+
+            try:
+                cursor.execute(query, str(hospitalId))
+                hospitalInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if hospitalInfo:
+                return hospitalInfo
+            else:
+                return []
+
+    
