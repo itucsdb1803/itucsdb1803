@@ -2,6 +2,7 @@
 {% block content %}
 <form class="form-horizontal" action="{{ url_for('site.duty_page') }}" method="post">
     <fieldset>
+
         <table class="table">
           <thead>
             <tr>
@@ -10,18 +11,36 @@
                 <th scope="col">Patient Count</th>
                 <th scope="col">Report</th>
                 <th scope="col">Shift Date</th>
-              <th scope="col">Create Date</th>
+                <th scope="col">Create Date</th>
+                <th scope="col">
+                    <a href="{{ url_for('site.duty_add_page') }}">
+                        <button type="button" id="add" name="add" class="btn btn-success">
+                            Add
+                        </button>
+                    </a>
+                    <a href="{{ url_for('site.duty_page')}}">
+                        <button type="submit" id="delete" name="delete" class="btn btn-danger">
+                            Delete
+                        </button>
+                    </a>
+                </th>
             </tr>
           </thead>
           <tbody>
           {% for duty in dutyList %}
             <tr>
-                <th scope="row">{{loop.index}}</th>
+                <td>{{loop.index}}</td>
                 <td>{{duty[2]}} {{duty[3]}}</td>
                 <td>{{duty[4]}}</td>
                 <td>{{duty[5]}}</td>
                 <td>{{duty[6]}}</td>
                 <td>{{duty[7]}}</td>
+                <td>
+                    <input type="checkbox" name="duty_to_delete" value="{{duty[0]}}" class="checkthis"/>
+                    <a href="/duty/update/{{ duty[0] }}" class="btn btn-default btn-xs pull-right">
+                        <i class="glyphicon glyphicon-edit"></i>
+                    </a>
+                </td>
             </tr>
           {% endfor %}
           </tbody>
