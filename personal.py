@@ -70,7 +70,10 @@ class PersonalDatabase:
             cursor = connection.cursor()
             personalInfo = None
 
-            query = """SELECT * FROM PersonalInfo WHERE UserID = %s"""
+            query = """SELECT p.UserID, p.HospitalID, h.name, p.DepartmentID, para1.name, p.UserType, para2.Name, p.RegNu, p.BirthPlace, para3.Name, p.Name, p.Surname, p.BirthDay
+                FROM PersonalInfo p, ParameterInfo para1, ParameterInfo para2, ParameterInfo para3, HospitalInfo h 
+                    WHERE p.DepartmentID = para1.ID AND p.UserType = para2.ID AND p.BirthPlace = para3.ID AND p.HospitalID = h.HospitalID
+                        AND UserID = %s"""
             try:
                 cursor.execute(query, (userID))
                 personalInfo = cursor.fetchone()
@@ -81,12 +84,9 @@ class PersonalDatabase:
                 connection.commit()
 
             if personalInfo:
-                return Personal(id=personalInfo[0], HospitalID=personalInfo[1], DepartmentID=personalInfo[2],
-                                CreateUserID=personalInfo[3],
-                                UserType=personalInfo[4], RegNu=personalInfo[5], BirthPlace=personalInfo[6],
-                                Surname=personalInfo[7], BirthDay=personalInfo[8], UpdateDate=personalInfo[9])
+                return personalInfo
             else:
-                return -1
+                return []
 
     @classmethod
     def select_all_personal_info(cls, UserType):
