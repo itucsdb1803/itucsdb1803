@@ -205,9 +205,11 @@ def parameter_add_page():
         return render_template("parameter_add.html", parameters=parameters)
 
 
-@site.route('/patient')
-def patient_page():
-    return render_template("home.html")
+@site.route('/patient/<int:UserID>')
+def patient_page(UserID):
+    patient = PatientDatabase()
+    profile = patient.get_profile_info(UserID)
+    return render_template("patient.html", profile=profile)
 
 
 @site.route('/register/patient', methods=['GET', 'POST'])
