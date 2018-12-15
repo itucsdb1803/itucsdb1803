@@ -7,7 +7,7 @@
             <label class="col-md-4 control-label" for="Name">Name</label>
             <div class="col-md-4">
                 <input id="Name" name="Name" placeholder="Name" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -16,7 +16,7 @@
             <label class="col-md-4 control-label" for="Surname">Surname</label>
             <div class="col-md-4">
                 <input id="Surname" name="Surname" placeholder="Surname" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -26,7 +26,7 @@
             <label class="col-md-4 control-label" for="UserName">Name</label>
             <div class="col-md-4">
                 <input id="UserName" name="UserName" placeholder="UserName" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -47,7 +47,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="HospitalID" name="HospitalID" class="selectpicker form-control">
+                    <select id="HospitalID" name="HospitalID" class="selectpicker form-control" required>
                         {% for hospital in hospitals %}
                             <option value="{{hospital[0] }}">{{ hospital[2] }}</option>
                         {% endfor %}
@@ -62,7 +62,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="DepartmentID" name="DepartmentID" class="selectpicker form-control">
+                    <select id="DepartmentID" name="DepartmentID" class="selectpicker form-control" required>
                         {% for department in departments %}
                             <option value="{{department[0]}}">{{ department[2] }}</option>
                         {% endfor %}
@@ -77,7 +77,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="UserType" name="UserType" class="selectpicker form-control">
+                    <select id="UserType" name="UserType" class="selectpicker form-control" required>
                         {% for type in userTypes %}
                             <option value="{{type[0]}}">{{type[2]}}</option>
                         {% endfor %}
@@ -91,7 +91,7 @@
             <label class="col-md-4 control-label" for="RegNu">Registration No</label>
             <div class="col-md-4">
                 <input id="RegNu" name="RegNu" placeholder="RegNu" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -111,7 +111,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control">
+                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control" required>
                         {% for city in cities %}
                             <option value="{{city[0]}}">{{city[2]}}</option>
                         {% endfor %}
@@ -124,7 +124,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="Birthday">Birthday</label>
             <div id="datetimepicker1" class="input-append date col-md-4">
-                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="Birthday"></input>
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="Birthday">
                     <span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                         </i>
