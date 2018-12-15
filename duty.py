@@ -3,7 +3,7 @@ from database import *
 
 class Duty:
     def __init__(self, dutyID, doctorID, patientCount, report, shiftDate, createDate):
-        self.DutyID = dutyID
+        self.ID = dutyID
         self.DoctorID = doctorID
         self.PatientCount = patientCount
         self.Report = report
@@ -35,19 +35,14 @@ class DutyDatabase:
 
             query = """SELECT * FROM DutyInfo WHERE DutyID = %s"""
             try:
-                cursor.execute(query, (dutyID))
+                cursor.execute(query, (str(dutyID)))
                 dutyInfo = cursor.fetchone()
 
             except dbapi2.Error:
                 connection.rollback()
             else:
                 connection.commit()
-
-            if dutyInfo:
-                return Duty(DutyID=dutyInfo[0], DoctorID=dutyInfo[1], PatientCount=dutyInfo[2],
-                            Report=dutyInfo[3], ShiftDate=dutyInfo[4], CreateDate=dutyInfo[5])
-            else:
-                return -1
+            return dutyInfo
 
     @classmethod
     def select_all_duty_info(cls):
