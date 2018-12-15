@@ -136,7 +136,7 @@ class PersonalDatabase:
             cursor = connection.cursor()
             personalInfo = None
 
-            query = """SELECT p.UserID, l.username, p.Name, p.Surname, para2.Name, h.name, para1.name, p.RegNu, p.BirthDay, para3.Name
+            query = """SELECT p.UserID, l.username, p.Name, p.Surname, para2.Name, h.name, para1.name, p.RegNu, p.BirthDay, para3.Name, p.TelNo
                     FROM PersonalInfo p, ParameterInfo para1, ParameterInfo para2, ParameterInfo para3, HospitalInfo h, LogInfo l 
                         WHERE p.DepartmentID = para1.ID AND p.UserType = para2.ID AND p.BirthPlace = para3.ID AND p.HospitalID = h.HospitalID AND p.UserID = l.UserID
                             AND p.UserID = %s"""
@@ -154,7 +154,7 @@ class PersonalDatabase:
                 today = datetime.datetime.now()
                 age = int((today - birthDay).days / 365)
                 profileInfo = [personalInfo[0], personalInfo[1], personalInfo[2], personalInfo[3], personalInfo[4],
-                                personalInfo[5], personalInfo[6], personalInfo[7], age, personalInfo[9]]
+                                personalInfo[5], personalInfo[6], personalInfo[7], age, personalInfo[9], personalInfo[10]]
                 return profileInfo
             else:
                 return []
