@@ -62,3 +62,25 @@ class PatientDatabase:
                 connection.commit()
             cursor.close()
             return
+
+    @classmethod
+    def select_patient_info(cls, patientID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            patientInfo = None
+
+            query = """SELECT p.PatientID, p.TCKN, p.BirthPlace, para.name, p.GSM, p.EMail, p.Name, p.Surname, p.BirthDay  
+                FROM PatientInfo p, ParameterInfo para WHERE p.BirthPlace = para.ID AND p.PatientID = %s"""
+            try:
+                cursor.execute(query, str(patientID))
+                patientInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if patientInfo:
+                return patientInfo
+            else:
+                return []
