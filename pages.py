@@ -88,7 +88,7 @@ def room_page():
 
 @site.route('/personal')
 def personel_page():
-    return render_template("home.html")
+    return render_template("personal.html")
 
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
@@ -105,8 +105,9 @@ def register_personal_page():
 
         personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
                               departmentID=request.form['DepartmentID'], createUserID=current_user.id,
-                              userType=request.form['UserType'], regNu=request.form['RegNu'], name=request.form['Name'],
-                              surname=request.form['Surname'], birthDay=request.form['Birthday'], birthPlace = request.form['BirthPlace'])
+                              userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
+                              name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                              birthPlace = request.form['BirthPlace'])
 
         return redirect(url_for('site.home_page'))
     else:
@@ -130,7 +131,7 @@ def update_personal_page(UserID):
 
         personal.update_personal(userID=UserID, hospitalID=request.form['HospitalID'],
                                  departmentID=request.form['DepartmentID'], userType=request.form['UserType'],
-                                 regNu=request.form['RegNu'], name=request.form['Name'],
+                                 regNu=request.form['RegNu'], name=request.form['Name'], telNo=request.form['TelNo'],
                                  surname=request.form['Surname'], birthDay=request.form['Birthday'],
                                  birthPlace=request.form['BirthPlace'])
         return redirect(url_for('site.home_page'))
