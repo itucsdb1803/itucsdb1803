@@ -7,7 +7,7 @@
             <label class="col-md-4 control-label" for="Name">Name</label>
             <div class="col-md-4">
                 <input id="Name" name="Name" placeholder="Name" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -16,7 +16,7 @@
             <label class="col-md-4 control-label" for="Surname">Surname</label>
             <div class="col-md-4">
                 <input id="Surname" name="Surname" placeholder="Surname" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -26,7 +26,7 @@
             <label class="col-md-4 control-label" for="UserName">Name</label>
             <div class="col-md-4">
                 <input id="UserName" name="UserName" placeholder="UserName" class="form-control input-md"
-                       type="text">
+                       type="text" required>
 
             </div>
         </div>
@@ -46,7 +46,7 @@
             <label class="col-md-4 control-label" for="TCKN">TCKN</label>
             <div class="col-md-4">
                 <input id="TCKN" name="TCKN" placeholder="TCKN" class="form-control input-md"
-                       type="text" maxlength="11" minlength="11" size="11">
+                       type="text" maxlength="11" minlength="11" size="11" required>
 
             </div>
         </div>
@@ -66,7 +66,7 @@
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control">
+                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control" required>
                         {% for city in cities %}
                             <option value="{{city[0]}}">{{city[2]}}</option>
                         {% endfor %}
@@ -79,7 +79,7 @@
         <div class="form-group">
             <label class="col-md-4 control-label" for="Birthday">Birthday</label>
             <div id="datetimepicker1" class="input-append date col-md-4">
-                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="Birthday"></input>
+                <input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="Birthday" required>
                     <span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar">
                         </i>
