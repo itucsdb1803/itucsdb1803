@@ -11,6 +11,7 @@ from room import RoomDatabase
 from parameter import ParameterDatabase
 from duty import DutyDatabase
 from parameter_type import ParameterTypeDatabase
+from patient import PatientDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -194,3 +195,30 @@ def parameter_add_page():
         parameterTypes = ParameterTypeDatabase()
         parameters = parameterTypes.select_parameter_types()
         return render_template("parameter_add.html", parameters=parameters)
+
+
+@site.route('/patient')
+def patient_page():
+    return render_template("home.html")
+
+
+@site.route('/register/patient', methods=['GET', 'POST'])
+def register_patient_page():
+    if request.method == 'POST':
+        patient = PatientDatabase()
+        login = LoginDatabase()
+
+        username = request.form['UserName']
+        password = request.form['Password']
+
+        login.add_login(username=username, password=password)
+        loginInfo = login.select_login_info(None, username, password)
+        patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
+                            gsm=request.form['GSM'], name=request.form['Name'],
+                            surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                            birthPlace=request.form['BirthPlace'])
+        return redirect(url_for('site.home_page'))
+    else:
+        parameter = ParameterDatabase()
+        cities = parameter.select_parameters_with_type(1)
+        return render_template("patient_register.html", cities=cities)
