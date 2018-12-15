@@ -70,7 +70,10 @@ class DatabaseOperations:
                                                             UpdateDate TIMESTAMP,
                                                             FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
                                                             FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
-                                                            FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
+                                                            FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID),
+                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
+                                                            FOREIGN KEY (DepartmentID) REFERENCES ParameterInfo(ID),
+                                                            FOREIGN KEY (UserType) REFERENCES ParameterInfo(ID)
                                                                             )"""
             cursor.execute(query)
 
