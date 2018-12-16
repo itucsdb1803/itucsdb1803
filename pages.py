@@ -176,9 +176,9 @@ def register_personal_page():
                                     userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
                                     name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
                                     birthPlace = request.form['BirthPlace'])
-                return redirect(url_for('site.home_page'))
+                return redirect(url_for('site.profile.page'))
             else:
-                return redirect(url_for('site.home_page'))
+                return render_template("error.html")
         else:
             parameter = ParameterDatabase()
             userTypes = parameter.select_parameters_with_type(2)
@@ -207,7 +207,7 @@ def update_personal_page(UserID):
                                      regNu=request.form['RegNu'], name=request.form['Name'], telNo=request.form['TelNo'],
                                      surname=request.form['Surname'], birthDay=request.form['Birthday'],
                                      birthPlace=request.form['BirthPlace'])
-            return redirect(url_for('site.home_page'))
+            return redirect(url_for('site.profile_page'))
         else:
             parameter = ParameterDatabase()
             personal = PersonalDatabase()
@@ -274,9 +274,9 @@ def duty_update_page(DutyID):
 def parameter_page():
     if str(current_user.IsEmployee) == "True":
         if request.method == 'POST':
-            return redirect(url_for('site.home_page'))
+            return redirect(url_for('site.profile_page'))
         else:
-            return render_template("site.home_page")
+            return render_template("site.profile_page")
     else:
         return render_template("permission_denied.html")
 
@@ -288,7 +288,7 @@ def parameter_add_page():
         if request.method == 'POST':
             parameter = ParameterDatabase()
             parameter.add_parameter(name=request.form['Name'], typeID=request.form['Type'])
-            return redirect(url_for('site.home_page'))
+            return redirect(url_for('site.profile_page'))
         else:
             parameterTypes = ParameterTypeDatabase()
             parameters = parameterTypes.select_parameter_types()
@@ -323,9 +323,9 @@ def register_patient_page():
                                     gsm=request.form['GSM'], name=request.form['Name'],
                                     surname=request.form['Surname'], birthDay=request.form['Birthday'],
                                     birthPlace=request.form['BirthPlace'])
-                return redirect(url_for('site.home_page'))
+                return redirect(url_for('site.profile_page'))
             else:
-                return redirect(url_for('error.html'))
+                return render_template('error.html')
         else:
             parameter = ParameterDatabase()
             cities = parameter.select_parameters_with_type(1)
@@ -349,7 +349,7 @@ def update_patient_page(UserID):
                                    gsm=request.form['GSM'], name=request.form['Name'], surname=request.form['Surname'],
                                    birthDay=request.form['Birthday'])
 
-            return redirect(url_for('site.home_page'))
+            return redirect(url_for('site.profile_page'))
         else:
             parameter = ParameterDatabase()
             patient = PatientDatabase()
