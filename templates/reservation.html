@@ -26,7 +26,14 @@
 			<td>DoctorID :</td>
             <td><input type="text" size="29" name="DoctorID" id="DoctorID" value="{{request.form.doctorid}}" required/></td>
 		</tr>
-        <!-- There will be a calender to decide the reservation time -->
+		<tr>
+			<td>DiseaseID :</td>
+            <td><input type="text" size="29" name="DiseaseID" id="DiseaseID" value="{{request.form.diseaseid}}" required/></td>
+		</tr>
+		<tr>
+			<td>Comment about the disease :</td>
+			<td><textarea rows="4" cols="30" name="Comment" id="Comment" value="{{request.form.comment}}"></textarea></td>
+		</tr>
 		<tr>
 			<td>Reservation Date :</td>
 			<td><div id="datetimepicker1" class="input-append date col-md-4">
