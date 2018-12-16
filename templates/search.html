@@ -1,33 +1,26 @@
 {% extends "layout.html" %}
 {% block content %}
 
-<html>
-<head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-</head>
-<body>
 
 <form class="form-horizontal" action="{{ url_for('site.search_page') }}" method="post">
 <div class="container-fluid bg-light ">
-    <div class="row align-items-center justify-content-center">
+    <div class="">
             	        <div id="username">
-                            <div class="input-group col-md-12">
+                            <div class="input-group col-md-3">
                                 <input name="username" type="text" class="  search-query form-control" placeholder="Username" />
                             </div>
                         </div>
                         <div id="name">
-                            <div class="input-group col-md-12">
+                            <div class="input-group col-md-3">
                                 <input name="name" type="text" class="  search-query form-control" placeholder="Name" />
                             </div>
                         </div>
                         <div id="surname">
-                            <div class="input-group col-md-12">
+                            <div class="input-group col-md-3">
                                 <input name="surname" type="text" class="  search-query form-control" placeholder="Surname" />
                             </div>
                         </div>
-                		<div class="col-md-2 pt-3">
+                		<div class="col-md-2">
                            <div class="form-group">
                               <select id="Type" name="Type" class="selectpicker form-control" required>
                                   <option value="True" selected>Personal</option>
@@ -36,9 +29,9 @@
                                 </select>
                            </div>
                         </div>
-                        <div class="form-group col-md-2">
-                            <label class="col-md-4 control-label" for="register_button"></label>
-                                <div class="col-md-4">
+                        <div class="form-group col-md-1">
+                            <label class="col-md-2 control-label" for="register_button"></label>
+                                <div class="col-md-2">
                                     <button id="register_button" name="register_button" class="btn btn-primary">Search</button>
                                 </div>
                         </div>
