@@ -4,11 +4,11 @@
     <fieldset>
     <!-- City input-->
         <div class="form-group">
-            <label class="col-md-4 control-label" for="BirthPlace">Birth Place</label>
+            <label class="col-md-4 control-label" for="City">Existing City</label>
             <div class="col-md-4">
                 <div class="input-group">
                     <span class="input-group-addon"></span>
-                    <select id="BirthPlace" name="BirthPlace" class="selectpicker form-control" required>
+                    <select id="City" name="City" class="selectpicker form-control" required>
                         {% for city in cities %}
                             <option value="{{city[0]}}">{{city[2]}}</option>
                         {% endfor %}
