@@ -233,4 +233,7 @@ class DatabaseOperations:
             query = """INSERT INTO ParameterInfo(TypeID, Name) VALUES (3, %(dep)s)"""
             cursor.executemany(query, dep_dict)
 
+            query = """INSERT INTO HospitalInfo(City, Capacity, Address, Name, CreateDate) VALUES (%s, %s, %s, %s, %s)"""
+            cursor.execute(query, (city_dict, "1500", "Maslak", "Acibadem", datetime.datetime.now()))
+
 database = DatabaseOperations()
