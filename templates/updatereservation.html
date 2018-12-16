@@ -32,12 +32,12 @@
 		</tr>
 		<tr>
 			<td>Comment about the disease :</td>
-			<td><textarea rows="4" cols="30" name="Comment" id="Comment" value="{{request.form.comment}}"></textarea></td>
+			<td><textarea rows="4" cols="30" name="comment" id="comment" value="{{request.form.comment}}"></textarea></td>
 		</tr>
 		<tr>
 			<td>Reservation Date :</td>
 			<td><div id="datetimepicker1" class="input-append date col-md-4">
-                	<input data-format="dd/MM/yyyy hh:mm:ss" type="date" size="29" id="ReservationDate" name="ReservationDate" placeholder="ReservationDate" value="{{request.form.reservationdate}}" required />
+                	<input data-format="dd/MM/yyyy hh:mm:ss" type="date" size="29" id="reservationdate" name="reservationdate" placeholder="ReservationDate" value="{{request.form.reservationdate}}" required />
 					<span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 					</span>
@@ -47,37 +47,37 @@
 		<tr>
 			<td>Reservation Hour :</td>
             <td>
-				<select name="ReservationHour" id="ReservationHour" required >
-					<option value="{{request.form.reservationhour}}" >09:00</option>
-					<option value="{{request.form.reservationhour}}" >09:15</option>
-					<option value="{{request.form.reservationhour}}" >09:30</option>
-					<option value="{{request.form.reservationhour}}">09:45</option>
-					<option value="{{request.form.reservationhour}}">10:00</option>
-					<option value="{{request.form.reservationhour}}">10:15</option>
-					<option value="{{request.form.reservationhour}}">10:30</option>
-					<option value="{{request.form.reservationhour}}">10:45</option>
-					<option value="{{request.form.reservationhour}}">11:00</option>
-					<option value="{{request.form.reservationhour}}">11:15</option>
-					<option value="{{request.form.reservationhour}}">11:30</option>
-					<option value="{{request.form.reservationhour}}">11:45</option>
-					<option value="{{request.form.reservationhour}}">12:00</option>
-					<option value="{{request.form.reservationhour}}">12:15</option>
-					<option value="{{request.form.reservationhour}}">12:30</option>
-					<option value="{{request.form.reservationhour}}">12:45</option>
-					<option value="{{request.form.reservationhour}}">13:30</option>
-					<option value="{{request.form.reservationhour}}">13:45</option>
-					<option value="{{request.form.reservationhour}}">14:00</option>
-					<option value="{{request.form.reservationhour}}">14:15</option>
-					<option value="{{request.form.reservationhour}}">14:30</option>
-					<option value="{{request.form.reservationhour}}">14:45</option>
-					<option value="{{request.form.reservationhour}}">15:00</option>
-					<option value="{{request.form.reservationhour}}">15:15</option>
-					<option value="{{request.form.reservationhour}}">15:30</option>
-					<option value="{{request.form.reservationhour}}">15:45</option>
-					<option value="{{request.form.reservationhour}}">16:00</option>
-					<option value="{{request.form.reservationhour}}">16:15</option>
-					<option value="{{request.form.reservationhour}}">16:30</option>
-					<option value="{{request.form.reservationhour}}">16:45</option>
+				<select name="reservationHour" id="reservationHour" required >
+					<option selected value="09.00" >09.00</option>
+					<option value="09.15" >09.15</option>
+					<option value="09.30" >09.30</option>
+					<option value="09.45">09.45</option>
+					<option value="10.00">10.00</option>
+					<option value="10.15">10.15</option>
+					<option value="10.30">10.30</option>
+					<option value="10.45">10.45</option>
+					<option value="11.00">11.00</option>
+					<option value="11.15">11.15</option>
+					<option value="11.30">11.30</option>
+					<option value="11.45">11.45</option>
+					<option value="12.00">12.00</option>
+					<option value="12.15">12.15</option>
+					<option value="12.30">12.30</option>
+					<option value="12.45">12.45</option>
+					<option value="13.30">13.30</option>
+					<option value="13.45">13.45</option>
+					<option value="14.00">14.00</option>
+					<option value="14.15">14.15</option>
+					<option value="14.30">14.30</option>
+					<option value="14.45">14.45</option>
+					<option value="15.00">15.00</option>
+					<option value="15.15">15.15</option>
+					<option value="15.30">15.30</option>
+					<option value="15.45">15.45</option>
+					<option value="16.00">16.00</option>
+					<option value="16.15">16.15</option>
+					<option value="16.30">16.30</option>
+					<option value="16.45">16.45</option>
 				</select>
 			</td>
 		</tr>
