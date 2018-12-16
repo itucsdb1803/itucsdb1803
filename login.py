@@ -163,12 +163,12 @@ class LoginDatabase:
             if logInfo:
                 if isEmployee == "True":
                     for log in logInfo:
-                        input = [log[0], log[1], log[2], log[3], log[4], log[5], "/Patient"]
+                        input = [log[0], log[1], log[2], log[3], log[4], log[5], "/personal/"]
                         result.append(input)
                     return result
                 else:
                     for log in logInfo:
-                        input = [log[0], log[1], log[2], log[3], log[4], "Patient", "/Patient"]
+                        input = [log[0], log[1], log[2], log[3], log[4], "Patient", "/patient/"]
                         result.append(input)
                     return result
             else:
