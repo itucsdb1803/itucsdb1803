@@ -109,11 +109,11 @@ def department_page(DepartmentID):
     return render_template("home.html", department=department)
 
 
-@site.route('/room')
-def room_page():
+@site.route('/room/<int:RoomID>')
+def room_page(RoomID):
     room = RoomDatabase()
-    room.add_room(1, 1, 1, 1, 1)
-    return render_template("home.html")
+    room = room.get_room_info(RoomID)
+    return render_template("home.html", room=room)
 
 
 @site.route('/personal/<int:UserID>')
