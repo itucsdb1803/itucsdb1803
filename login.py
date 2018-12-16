@@ -5,10 +5,11 @@ from flask_login import UserMixin
 
 
 class Login(UserMixin):
-    def __init__(self, id, username, password, lastLoginDate, createDate, updateDate):
+    def __init__(self, id, username, password, isEmployee, lastLoginDate, createDate, updateDate):
         self.id = id
         self.UserName = username
         self.Password = password
+        self.IsEmployee = isEmployee
         self.LastLoginDate = lastLoginDate
         self.CreateDate = createDate
         self.UpdateDate = updateDate
@@ -16,12 +17,12 @@ class Login(UserMixin):
 
 class LoginDatabase:
     @classmethod
-    def add_login(cls, username, password):
+    def add_login(cls, username, password, isEmployee):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO LogInfo(UserName, Password, CreateDate) VALUES (%s, %s, %s)"""
+            query = """INSERT INTO LogInfo(UserName, Password, isEmployee, CreateDate) VALUES (%s, %s, %s)"""
             try:
-                cursor.execute(query, (str(username), str(password), datetime.datetime.now()))
+                cursor.execute(query, (str(username), str(password), str(isEmployee), datetime.datetime.now()))
             except dbapi2.Error:
                 connection.rollback()
             else:
@@ -63,8 +64,8 @@ class LoginDatabase:
             else:
                 connection.commit()
             if logData:
-                return Login(id=logData[0], username=logData[1], password=logData[2], lastLoginDate=logData[3],
-                         createDate=logData[4], updateDate=logData[5])
+                return Login(id=logData[0], username=logData[1], password=logData[2], isEmployee=logData[3],
+                         lastLoginDate=logData[4], createDate=logData[5], updateDate=logData[6])
             else:
                 return -1
 
@@ -102,7 +103,7 @@ class LoginDatabase:
                 connection.commit()
 
             if logInfo:
-                return Login(id=logInfo[0], username=logInfo[1], password=logInfo[2], lastLoginDate=logInfo[3],
-                             createDate=logInfo[4], updateDate=logInfo[5])
+                return Login(id=logInfo[0], username=logInfo[1], password=logInfo[2], isEmployee=logInfo[3],
+                         lastLoginDate=logInfo[4], createDate=logInfo[5], updateDate=logInfo[6])
             else:
                 return -1

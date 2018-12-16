@@ -102,7 +102,7 @@ def register_personal_page():
         username = request.form['UserName']
         password = request.form['Password']
 
-        login.add_login(username=username, password=password)
+        login.add_login(username=username, password=password, isEmployee="true")
         loginInfo = login.select_login_info(None, username, password)
 
         personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
@@ -221,7 +221,7 @@ def register_patient_page():
         username = request.form['UserName']
         password = request.form['Password']
 
-        login.add_login(username=username, password=password)
+        login.add_login(username=username, password=password, isEmployee="false")
         loginInfo = login.select_login_info(None, username, password)
         patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
                             gsm=request.form['GSM'], name=request.form['Name'],
