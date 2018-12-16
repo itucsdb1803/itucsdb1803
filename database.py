@@ -102,7 +102,7 @@ class DatabaseOperations:
                                                             Address VARCHAR(500) NOT NULL,
                                                             Name VARCHAR(250) NOT NULL,
                                                             CreateDate TIMESTAMP NOT NULL,
-                                                            FOREIGN KEY (City) REFERENCES ParameterInfo(ID)
+                                                            FOREIGN KEY (City) REFERENCES ParameterInfo(ID) ON DELETE CASCADE
                                                                             )"""
             cursor.execute(query)
 
@@ -116,8 +116,8 @@ class DatabaseOperations:
                                                             BlockNumber INT,
                                                             PersonalCount INT,
                                                             CreateDate TIMESTAMP NOT NULL,
-                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
-                                                            FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID)
+                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID) ON DELETE CASCADE,
+                                                            FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT
                                                                             )"""
             cursor.execute(query)
 
@@ -132,7 +132,7 @@ class DatabaseOperations:
                                                 LastControl TIMESTAMP,
                                                 CreateDate TIMESTAMP NOT NULL,
                                                 UpdateDate TIMESTAMP,
-                                                FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID)
+                                                FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID) ON DELETE CASCADE
                                                                 )"""
             cursor.execute(query)
 
