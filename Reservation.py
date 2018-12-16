@@ -62,3 +62,26 @@ class ReservationDatabase:
                 connection.commit()
             cursor.close()
             return
+    @classmethod
+    def select_all_reservation_info(cls, patientid):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            reservationInfo = None
+
+            if patientid == '' or patientid == None:
+                query = """SELECT * FROM Reservation"""
+            else:
+                query = 'SELECT * FROM ReservationInfo WHERE PatientID = ' + patientid
+            try:
+                cursor.execute(query,)
+                reservationInfo = cursor.fetchall()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if reservationInfo:
+                return reservationInfo
+            else:
+                return -1
