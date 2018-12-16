@@ -18,7 +18,7 @@
             </a>
         <br><br><br>
     </div>
-  <br>
+  <br />
     <div class="row">
         <div class="col-sm-4">
             <!--left col-->
@@ -34,6 +34,36 @@
         </div>
     </div>
 </div>
+
+<div class="container target">
+        <div class="row">
+        <div class="col-sm-10">
+            <!--<a href="">-->
+                <button type="button" class="btn btn-primary">Update Reservation</button>
+            <!--</a>-->
+        <br />
+    </div>
+  <br />
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">Reservation</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">ReservationID: </strong></span>{{reservation[1]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">DoctorID </strong></span>{{reservation[2]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">HospitalID: </strong></span>{{reservation[3]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">DepartmentID: </strong></span>{{reservation[4]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">DiseaseID: </strong></span>{{reservation[5]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Comment: </strong></span>{{reservation[6]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Reservation Date: </strong></span>{{reservation[7]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Reservation Hour: </strong></span>{{reservation[8]}}</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
 </body>
 </html>
 {% endblock %}

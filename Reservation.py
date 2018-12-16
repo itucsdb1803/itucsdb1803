@@ -89,17 +89,17 @@ class ReservationDatabase:
                 return -1
 
     @classmethod
-    def select_reservation_info(cls, patientid, reservationid):
+    def select_reservation_info(cls, patientid):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
             reservationInfo = None
 
-            query = """SELECT  p.PatientID, res.ReservationID, res.DoctorID, res.HospitalID, res.DepartmentID, 
+            query = """SELECT  res.PatientID, res.ReservationID, res.DoctorID, res.HospitalID, res.DepartmentID, 
                             res.DiseaseID, res.Comment, res.ReservationDate, res.ReservationHour 
                 FROM  PatientInfo p, Reservation res
-                    WHERE p.PatientID = res.PatientID AND res.PatientID = %s AND res.ReservationID = %s"""
+                    WHERE p.PatientID = res.PatientID AND p.PatientID = %s"""
             try:
-                cursor.execute(query, str(patientid, reservationid))
+                cursor.execute(query, str(patientid))
                 reservationInfo = cursor.fetchone()
 
             except dbapi2.Error:
@@ -108,6 +108,8 @@ class ReservationDatabase:
                 connection.commit()
 
             if reservationInfo:
-                return reservationInfo
+                reservationInfo2 = [reservationInfo[0], reservationInfo[1], reservationInfo[2], reservationInfo[3], reservationInfo[4],
+                                    reservationInfo[5], reservationInfo[6], reservationInfo[7], reservationInfo[8]]
+                return reservationInfo2
             else:
                 return []

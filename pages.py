@@ -304,7 +304,9 @@ def parameter_add_page():
 def patient_page(UserID):
     patient = PatientDatabase()
     profile = patient.get_profile_info(UserID)
-    return render_template("patient.html", profile=profile)
+    reservation = ReservationDatabase()
+    reservation_list = reservation.select_reservation_info(UserID)
+    return render_template("patient.html", profile=profile, reservation=reservation_list)
 
 
 @site.route('/register/patient', methods=['GET', 'POST'])
