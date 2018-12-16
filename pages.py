@@ -90,9 +90,9 @@ def reservation_page():
             derror = 'Reservation could not be added.'
         else:
             derror = 'Reservation is done'
-        return render_template("medicalreport.html", derror=derror)
+        return render_template("reservation.html", derror=derror)
     else:
-        return render_template("medicalreport.html")
+        return render_template("reservation.html")
 
 @site.route('/hospital', methods=['GET', 'POST'])
 def hospital_page():
