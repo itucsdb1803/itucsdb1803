@@ -106,14 +106,14 @@ def hospital_page(HospitalID):
 def department_page(DepartmentID):
     department = DepartmentDatabase()
     department = department.get_department_info(DepartmentID)
-    return render_template("home.html", department=department)
+    return render_template("department.html", department=department)
 
 
 @site.route('/room/<int:RoomID>')
 def room_page(RoomID):
     room = RoomDatabase()
     room = room.get_room_info(RoomID)
-    return render_template("home.html", room=room)
+    return render_template("room.html", room=room)
 
 
 @site.route('/personal/<int:UserID>')
