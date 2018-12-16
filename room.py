@@ -98,3 +98,28 @@ class RoomDatabase:
                 return roomInfo
             else:
                 return -1
+
+    @classmethod
+    def get_room_info(cls, RoomID):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            roomInfo = None
+
+            query = """SELECT r.RoomID, r.DepartmentID, d.DepartmentID r.RoomNo, r.Capacity, r.BathroomCount
+                        FROM RoomInfo r, DepartmentInfo d
+                        WHERE r.DepartmentID = d.DepartmentID
+                        AND r.RoomID = %s"""
+
+            try:
+                cursor.execute(query, str(RoomID))
+                roomInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if roomInfo:
+                return roomInfo
+            else:
+                return []
