@@ -16,12 +16,12 @@ class MedicalReport(UserMixin):
 
 class ReservationDatabase:
     @classmethod
-    def add_reservation(cls, patientid, hospitalid, doctorid, departmentid, diseaseid, comment, reservationdate):
+    def add_reservation(cls, patientid, hospitalid, doctorid, departmentid, diseaseid, comment, reservationdate, reservationhour):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO Reservation(PatientID, HospitalID, DoctorID, DepartmentID, DiseaseID, Comment, CreateDate, ReservationDate) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO Reservation(PatientID, HospitalID, DoctorID, DepartmentID, DiseaseID, Comment, CreateDate, ReservationDate, ReservationHour) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), str(diseaseid),str(comment), datetime.datetime.now(), str(reservationdate)))
+                cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), str(diseaseid),str(comment), datetime.datetime.now(), str(reservationdate), str(reservationhour)))
             except dbapi2.Error:
                 connection.rollback()
                 return -1
