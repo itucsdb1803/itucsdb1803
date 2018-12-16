@@ -114,9 +114,9 @@ class LoginDatabase:
             cursor = connection.cursor()
             logInfo = None
 
-            query = """SELECT * FROM LogInfo WHERE username = %s"""
+            query = "SELECT COUNT(*) FROM LogInfo WHERE username = %s" % (str("'" + username + "'"))
             try:
-                cursor.execute(query, str(username))
+                cursor.execute(query)
                 logInfo = cursor.fetchone()
 
             except dbapi2.Error:
@@ -124,7 +124,7 @@ class LoginDatabase:
             else:
                 connection.commit()
 
-            if logInfo:
+            if logInfo[0] == 0:
                 return True
             else:
                 return False
@@ -144,7 +144,7 @@ class LoginDatabase:
                 if surname is not None and surname != "":
                     query = query + " AND p.surname like '%" + surname + "%'"
             else:
-                query = query + " 'Patient', p.GSM FROM LogInfo l, patientInfo p WHERE l.UserID = p.patientID"
+                query = query + "  p.GSM FROM LogInfo l, patientInfo p WHERE l.UserID = p.patientID"
                 if username is not None and username != "":
                     query = query + " AND l.username like '%" + username + "%'"
                 if name is not None and name != "":
@@ -159,8 +159,17 @@ class LoginDatabase:
                 connection.rollback()
             else:
                 connection.commit()
-
+            result = []
             if logInfo:
-                return logInfo
+                if isEmployee == "True":
+                    for log in logInfo:
+                        input = [log[0], log[1], log[2], log[3], log[4], log[5], "/Patient"]
+                        result.append(input)
+                    return result
+                else:
+                    for log in logInfo:
+                        input = [log[0], log[1], log[2], log[3], log[4], "Patient", "/Patient"]
+                        result.append(input)
+                    return result
             else:
                 return []
