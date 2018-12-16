@@ -157,6 +157,19 @@ def department_page():
     else:
         return render_template("department.html")
 
+@site.route('/updatedepartment/<int:DepartmentID>')
+def updateredepartment_page(DepartmentID):
+    derror = "OK"
+    if request.method=='POST':
+        create_department = DepartmentDatabase()
+        departmentAddCheck = create_department.update_hospital(departmentid=DepartmentID, hospitalid=request.form['HospitalID'], deptypeid=request.form['DepartmentTypeID'], roomcount=request.form['RoomCount'], blocknumber=request.form['BlockNumber'], personalcount=request.form['PersonalCount'])
+        if departmentAddCheck is None or departmentAddCheck == -1:
+            derror = 'Department info could not be updated.'
+        else:
+            derror = 'Department info is updated'
+        return render_template("updatedepartment.html", derror=derror)
+    else:
+        return render_template("updatedepartment.html")
 
 @site.route('/room', methods=['GET', 'POST'])
 def room_page():
