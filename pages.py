@@ -128,11 +128,20 @@ def department_page():
         return render_template("department.html")
 
 
-@site.route('/room/<int:RoomID>')
-def room_page(RoomID):
-    room = RoomDatabase()
-    room = room.get_room_info(RoomID)
-    return render_template("room.html", room=room)
+@site.route('/room', methods=['GET', 'POST'])
+def room_page():
+    derror = "OK"
+    if request.method=='POST':
+        room = RoomDatabase()
+        roomAddCheck = room.add_room(departmentid=request.form['DepartmentID'], roomno=request.form['RoomNo'], capacity=request.form['Capacity'], bathroomcount=request.form['BathroomCount'])
+
+        if roomAddCheck is None or roomAddCheck == -1:
+            derror = 'Room could not be added'
+        else:
+            derror = 'Room is added'
+        return render_template("room.html", derror=derror)
+    else:
+        return render_template("room.html")
 
 
 @site.route('/personal/<int:UserID>')

@@ -13,17 +13,19 @@ class Room():
 
 class RoomDatabase:
     @classmethod
-    def add_room(cls, roomid, departmentid, roomno, capacity, bathroomcount):
+    def add_room(cls, departmentid, roomno, capacity, bathroomcount):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO RoomInfo(RoomID, DepartmentID, RoomNo, Capacity, BathroomCount, LastControl, CreateDate, UpdateDate) VALUES (%s, %s, %s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO RoomInfo(DepartmentID, RoomNo, Capacity, BathroomCount, LastControl, CreateDate, UpdateDate) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(roomid), str(departmentid), str(roomno), str(capacity), str(bathroomcount), datetime.datetime.now(), datetime.datetime.now(), datetime.datetime.now()))
+                cursor.execute(query, str(departmentid), str(roomno), str(capacity), str(bathroomcount), datetime.datetime.now(), datetime.datetime.now(), datetime.datetime.now())
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
 
     @classmethod
     def update_room(cls, roomid, departmentid, roomno, capacity, bathroomCount):
