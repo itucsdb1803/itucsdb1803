@@ -389,3 +389,12 @@ def register_page():
         return render_template("register.html")
     else:
         return render_template("permission_denied.html")
+
+
+@site.route('/profile')
+@login_required
+def profile_page():
+    if str(current_user.IsEmployee) == "True":
+        return personel_page(current_user.id)
+    else:
+        return patient_page(current_user.id)
