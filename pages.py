@@ -26,7 +26,6 @@ def initialize_database():
     database.init_db()
     return "Database initialized!"
 
-
 @site.route('/')
 def home_page():
     return render_template("home.html")
@@ -147,130 +146,152 @@ def room_page():
 @site.route('/personal/<int:UserID>')
 @login_required
 def personel_page(UserID):
-    personal = PersonalDatabase()
-    profile = personal.get_profile_info(UserID)
-    return render_template("personal.html", profile=profile)
-
+    if str(current_user.IsEmployee) == "True":
+        personal = PersonalDatabase()
+        profile = personal.get_profile_info(UserID)
+        return render_template("personal.html", profile=profile)
+    else:
+        return render_template("permission_denied.html")
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
 @login_required
 def register_personal_page():
-    if request.method == 'POST':
-        personal = PersonalDatabase()
-        login = LoginDatabase()
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            personal = PersonalDatabase()
+            login = LoginDatabase()
 
-        username = request.form['UserName']
-        password = request.form['Password']
-        isUsernameValid = login.username_validator(username)
-        if isUsernameValid:
-            login.add_login(username=username, password=password, isEmployee="true")
-            loginInfo = login.select_login_info(None, username, password)
+            username = request.form['UserName']
+            password = request.form['Password']
+            isUsernameValid = login.username_validator(username)
+            if isUsernameValid:
+                login.add_login(username=username, password=password, isEmployee="true")
+                loginInfo = login.select_login_info(None, username, password)
 
-            personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
-                                departmentID=request.form['DepartmentID'], createUserID=current_user.id,
-                                userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
-                                name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                                birthPlace = request.form['BirthPlace'])
-            return redirect(url_for('site.home_page'))
+                personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
+                                    departmentID=request.form['DepartmentID'], createUserID=current_user.id,
+                                    userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
+                                    name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                    birthPlace = request.form['BirthPlace'])
+                return redirect(url_for('site.home_page'))
+            else:
+                return redirect(url_for('site.home_page'))
         else:
-            return redirect(url_for('site.home_page'))
+            parameter = ParameterDatabase()
+            userTypes = parameter.select_parameters_with_type(2)
+            cities = parameter.select_parameters_with_type(1)
+            hospitals = [(1, 2, "Örnek Hastane")]
+            departments = parameter.select_parameters_with_type(3)
+            return render_template("personal_register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
     else:
-        parameter = ParameterDatabase()
-        userTypes = parameter.select_parameters_with_type(2)
-        cities = parameter.select_parameters_with_type(1)
-        hospitals = [(1, 2, "Örnek Hastane")]
-        departments = parameter.select_parameters_with_type(3)
-        return render_template("personal_register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
+        return render_template("permission_denied.html")
 
 
 @site.route('/personal/update/<int:UserID>' , methods=['GET', 'POST'])
 @login_required
 def update_personal_page(UserID):
-    if request.method == 'POST':
-        personal = PersonalDatabase()
-        login = LoginDatabase()
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            personal = PersonalDatabase()
+            login = LoginDatabase()
 
-        password = request.form['Password']
-        if password is not None and password != '':
-            login.change_password(UserID, password)
+            password = request.form['Password']
+            if password is not None and password != '':
+                login.change_password(UserID, password)
 
-        personal.update_personal(userID=UserID, hospitalID=request.form['HospitalID'],
-                                 departmentID=request.form['DepartmentID'], userType=request.form['UserType'],
-                                 regNu=request.form['RegNu'], name=request.form['Name'], telNo=request.form['TelNo'],
-                                 surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                                 birthPlace=request.form['BirthPlace'])
-        return redirect(url_for('site.home_page'))
+            personal.update_personal(userID=UserID, hospitalID=request.form['HospitalID'],
+                                     departmentID=request.form['DepartmentID'], userType=request.form['UserType'],
+                                     regNu=request.form['RegNu'], name=request.form['Name'], telNo=request.form['TelNo'],
+                                     surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                     birthPlace=request.form['BirthPlace'])
+            return redirect(url_for('site.home_page'))
+        else:
+            parameter = ParameterDatabase()
+            personal = PersonalDatabase()
+            personalInfo = personal.select_personal_info(UserID)
+            userTypes = parameter.select_parameters_with_type(2)
+            cities = parameter.select_parameters_with_type(1)
+            hospitals = [(1, 2, "Örnek Hastane")]
+            departments = parameter.select_parameters_with_type(3)
+            return render_template("personal_update.html", userTypes=userTypes, cities=cities, hospitals=hospitals, departments=departments, personal=personalInfo)
     else:
-        parameter = ParameterDatabase()
-        personal = PersonalDatabase()
-        personalInfo = personal.select_personal_info(UserID)
-        userTypes = parameter.select_parameters_with_type(2)
-        cities = parameter.select_parameters_with_type(1)
-        hospitals = [(1, 2, "Örnek Hastane")]
-        departments = parameter.select_parameters_with_type(3)
-        return render_template("personal_update.html", userTypes=userTypes, cities=cities, hospitals=hospitals, departments=departments, personal=personalInfo)
+        return render_template("permission_denied.html")
 
 
 @site.route('/duty', methods=['GET', 'POST'])
 @login_required
 def duty_page():
-    if request.method == 'POST':
-        deletes = request.form.getlist('duty_to_delete')
-        duty = DutyDatabase()
-        for delete in deletes:
-            duty.delete_duty_info(delete)
-        return redirect(url_for('site.duty_page'))
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            deletes = request.form.getlist('duty_to_delete')
+            duty = DutyDatabase()
+            for delete in deletes:
+                duty.delete_duty_info(delete)
+            return redirect(url_for('site.duty_page'))
+        else:
+            duty = DutyDatabase()
+            dutyList = duty.select_all_duty_info()
+            return render_template("duty.html", dutyList=dutyList)
     else:
-        duty = DutyDatabase()
-        dutyList = duty.select_all_duty_info()
-        return render_template("duty.html", dutyList=dutyList)
-
+        return render_template("permission_denied.html")
 
 
 @site.route('/duty/add', methods=['GET', 'POST'])
 @login_required
 def duty_add_page():
-    if request.method == 'POST':
-        duty = DutyDatabase()
-        duty.add_duty(doctorID=current_user.id, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
-        return redirect(url_for('site.duty_page'))
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            duty = DutyDatabase()
+            duty.add_duty(doctorID=current_user.id, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
+            return redirect(url_for('site.duty_page'))
+        else:
+            return render_template("duty_add.html")
     else:
-        return render_template("duty_add.html")
+        return render_template("permission_denied.html")
 
 
 @site.route('/duty/update/<int:DutyID>', methods=['GET', 'POST'])
 @login_required
 def duty_update_page(DutyID):
-    if request.method == 'POST':
-        duty = DutyDatabase()
-        duty.update_duty(dutyID=DutyID, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
-        return redirect(url_for('site.duty_page'))
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            duty = DutyDatabase()
+            duty.update_duty(dutyID=DutyID, patientCount=request.form['PatientCount'], report=request.form['Report'], shiftDate=request.form['ShiftDate'])
+            return redirect(url_for('site.duty_page'))
+        else:
+            duty = DutyDatabase()
+            dutyInfo = duty.select_duty_info(DutyID)
+            return render_template("duty_update.html", dutyInfo=dutyInfo)
     else:
-        duty = DutyDatabase()
-        dutyInfo = duty.select_duty_info(DutyID)
-        return render_template("duty_update.html", dutyInfo=dutyInfo)
+        return render_template("permission_denied.html")
 
 
 @site.route('/parameter' , methods=['GET', 'POST'])
 @login_required
 def parameter_page():
-    if request.method == 'POST':
-        return redirect(url_for('site.home_page'))
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            return redirect(url_for('site.home_page'))
+        else:
+            return render_template("site.home_page")
     else:
-        return render_template("site.home_page")
+        return render_template("permission_denied.html")
 
 
 @site.route('/parameter/add' , methods=['GET', 'POST'])
 @login_required
 def parameter_add_page():
-    if request.method == 'POST':
-        parameter = ParameterDatabase()
-        parameter.add_parameter(name=request.form['Name'], typeID=request.form['Type'])
-        return redirect(url_for('site.home_page'))
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            parameter = ParameterDatabase()
+            parameter.add_parameter(name=request.form['Name'], typeID=request.form['Type'])
+            return redirect(url_for('site.home_page'))
+        else:
+            parameterTypes = ParameterTypeDatabase()
+            parameters = parameterTypes.select_parameter_types()
+            return render_template("parameter_add.html", parameters=parameters)
     else:
-        parameterTypes = ParameterTypeDatabase()
-        parameters = parameterTypes.select_parameter_types()
-        return render_template("parameter_add.html", parameters=parameters)
+        return render_template("permission_denied.html")
 
 
 @site.route('/patient/<int:UserID>')
@@ -284,72 +305,84 @@ def patient_page(UserID):
 @site.route('/register/patient', methods=['GET', 'POST'])
 @login_required
 def register_patient_page():
-    if request.method == 'POST':
-        patient = PatientDatabase()
-        login = LoginDatabase()
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            patient = PatientDatabase()
+            login = LoginDatabase()
 
-        username = request.form['UserName']
-        password = request.form['Password']
-        isUsernameValid = login.username_validator(username)
-        if isUsernameValid:
-            login.add_login(username=username, password=password, isEmployee="false")
-            loginInfo = login.select_login_info(None, username, password)
-            patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
-                                gsm=request.form['GSM'], name=request.form['Name'],
-                                surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                                birthPlace=request.form['BirthPlace'])
-            return redirect(url_for('site.home_page'))
+            username = request.form['UserName']
+            password = request.form['Password']
+            isUsernameValid = login.username_validator(username)
+            if isUsernameValid:
+                login.add_login(username=username, password=password, isEmployee="false")
+                loginInfo = login.select_login_info(None, username, password)
+                patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
+                                    gsm=request.form['GSM'], name=request.form['Name'],
+                                    surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                    birthPlace=request.form['BirthPlace'])
+                return redirect(url_for('site.home_page'))
+            else:
+                return redirect(url_for('error.html'))
         else:
-            return redirect(url_for('error.html'))
+            parameter = ParameterDatabase()
+            cities = parameter.select_parameters_with_type(1)
+            return render_template("patient_register.html", cities=cities)
     else:
-        parameter = ParameterDatabase()
-        cities = parameter.select_parameters_with_type(1)
-        return render_template("patient_register.html", cities=cities)
+        return render_template("permission_denied.html")
 
 
 @site.route('/patient/update/<int:UserID>', methods=['GET', 'POST'])
 @login_required
 def update_patient_page(UserID):
-    if request.method == 'POST':
-        patient = PatientDatabase()
-        login = LoginDatabase()
+        if request.method == 'POST':
+            patient = PatientDatabase()
+            login = LoginDatabase()
 
-        password = request.form['Password']
-        if password is not None and password != '':
-            login.change_password(UserID, password)
+            password = request.form['Password']
+            if password is not None and password != '':
+                login.change_password(UserID, password)
 
-        patient.update_patient(patientId=UserID, tckn=request.form['TCKN'], birthPlace=request.form['BirthPlace'],
-                               gsm=request.form['GSM'], name=request.form['Name'], surname=request.form['Surname'],
-                               birthDay=request.form['Birthday'])
+            patient.update_patient(patientId=UserID, tckn=request.form['TCKN'], birthPlace=request.form['BirthPlace'],
+                                   gsm=request.form['GSM'], name=request.form['Name'], surname=request.form['Surname'],
+                                   birthDay=request.form['Birthday'])
 
-        return redirect(url_for('site.home_page'))
-    else:
-        parameter = ParameterDatabase()
-        patient = PatientDatabase()
-        patientInfo = patient.select_patient_info(UserID)
-        cities = parameter.select_parameters_with_type(1)
-        return render_template("patient_update.html",  cities=cities, patient=patientInfo)
+            return redirect(url_for('site.home_page'))
+        else:
+            parameter = ParameterDatabase()
+            patient = PatientDatabase()
+            patientInfo = patient.select_patient_info(UserID)
+            cities = parameter.select_parameters_with_type(1)
+            return render_template("patient_update.html",  cities=cities, patient=patientInfo)
 
 
 @site.route('/search', methods=['GET', 'POST'])
 @login_required
 def search_page():
-    if request.method == 'POST':
-        login = LoginDatabase()
-        search = login.user_search(username=request.form['username'], name=request.form['name'],
-                                   surname=request.form['surname'], isEmployee=request.form['Type'])
-        return search_result_page(search)
+    if str(current_user.IsEmployee) == "True":
+        if request.method == 'POST':
+            login = LoginDatabase()
+            search = login.user_search(username=request.form['username'], name=request.form['name'],
+                                       surname=request.form['surname'], isEmployee=request.form['Type'])
+            return search_result_page(search)
+        else:
+            return render_template("search.html")
     else:
-        return render_template("search.html")
+        return render_template("permission_denied.html")
 
 
 @site.route('/search/result', methods=['GET', 'POST'])
 @login_required
 def search_result_page(search):
-    return render_template("search.html", searchList=search)
+    if str(current_user.IsEmployee) == "True":
+        return render_template("search.html", searchList=search)
+    else:
+        return render_template("permission_denied.html")
 
 
 @site.route('/register', methods=['GET', 'POST'])
 @login_required
 def register_page():
-    return render_template("register.html")
+    if str(current_user.IsEmployee) == "True":
+        return render_template("register.html")
+    else:
+        return render_template("permission_denied.html")
