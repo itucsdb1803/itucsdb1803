@@ -52,6 +52,20 @@ class HospitalDatabase:
             return
 
     @classmethod
+    def delete_hospital_info(cls, hospitalId):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """DELETE FROM HospitalInfo WHERE HospitalID = %s"""
+            try:
+                cursor.execute(query, (hospitalId))
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            return
+
+    @classmethod
     def select_hospital_info(cls, hospitalId):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
