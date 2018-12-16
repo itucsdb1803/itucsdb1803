@@ -128,3 +128,39 @@ class LoginDatabase:
                 return True
             else:
                 return False
+
+    @classmethod
+    def user_search(cls, username, name, surname, isEmployee):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            logInfo = None
+            query = "SELECT l.UserID, l.username, p.name, p.surname,"
+            if isEmployee == "True":
+                query = query + " par.name, p.TelNo FROM LogInfo l, personalInfo p, parameterInfo par WHERE l.UserID = p.UserID AND p.usertype = par.ID"
+                if username is not None and username != "":
+                    query = query + " AND l.username like '%" + username + "%'"
+                if name is not None and name != "":
+                    query = query + " AND p.name like '%" + name + "%'"
+                if surname is not None and surname != "":
+                    query = query + " AND p.surname like '%" + surname + "%'"
+            else:
+                query = query + " 'Patient', p.GSM FROM LogInfo l, patientInfo p WHERE l.UserID = p.patientID"
+                if username is not None and username != "":
+                    query = query + " AND l.username like '%" + username + "%'"
+                if name is not None and name != "":
+                    query = query + " AND p.name like '%" + name + "%'"
+                if surname is not None and surname != "":
+                    query = query + " AND p.surname like '%" + surname + "%'"
+            try:
+                cursor.execute(query)
+                logInfo = cursor.fetchall()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if logInfo:
+                return logInfo
+            else:
+                return []
