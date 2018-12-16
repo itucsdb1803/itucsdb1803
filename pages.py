@@ -13,6 +13,7 @@ from duty import DutyDatabase
 from parameter_type import ParameterTypeDatabase
 from patient import PatientDatabase
 from medicalreport import MedicalReportDatabase
+from Reservation import ReservationDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -75,6 +76,20 @@ def medicalreport_page():
             derror = 'Report could not be added.'
         else:
             derror = 'Report is added'
+        return render_template("medicalreport.html", derror=derror)
+    else:
+        return render_template("medicalreport.html")
+
+@site.route('/reservation', methods=['GET', 'POST'])
+def reservation_page():
+    derror = "OK"
+    if request.method=='POST':
+        make_reservation = ReservationDatabase()
+        reservationAddCheck = make_reservation.add_reservation(patientid=request.form['patientid'], hospitalid=request.form['hospitalid'], doctorid=request.form['doctorid'], departmentid=request.form['departmentid'])
+        if reservationAddCheck is None or reservationAddCheck == -1:
+            derror = 'Reservation could not be added.'
+        else:
+            derror = 'Reservation is done'
         return render_template("medicalreport.html", derror=derror)
     else:
         return render_template("medicalreport.html")

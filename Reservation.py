@@ -12,7 +12,7 @@ class MedicalReport(UserMixin):
         self.CreateDate = createdate
         self.ReservationDate = reservationdate
 
-class ReservaitonDatabase:
+class ReservationDatabase:
     @classmethod
     def add_reservation(cls, patientid, hospitalid, doctorid, departmentid, reservationdate):
         with dbapi2.connect(database.config) as connection:
@@ -22,6 +22,8 @@ class ReservaitonDatabase:
                 cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), datetime.datetime.now(), str(reservationdate)))
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
