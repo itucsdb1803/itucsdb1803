@@ -49,7 +49,7 @@ def login_page():
 @site.route('/logout')
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('site.login_page'))
 
 
 @site.route('/disease', methods=['GET', 'POST'])
