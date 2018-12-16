@@ -306,3 +306,8 @@ def search_page():
 @site.route('/search/result', methods=['GET', 'POST'])
 def search_result_page(search):
     return render_template("search.html", searchList=search)
+
+
+@site.route('/register', methods=['GET', 'POST'])
+def register_page():
+    return render_template("register.html")
