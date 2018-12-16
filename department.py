@@ -12,17 +12,19 @@ class Department():
 
 class DepartmentDatabase:
     @classmethod
-    def add_department(cls, departmentid, hospitalid, deptypeid, roomcount, blocknumber, personalcount):
+    def add_department(cls, hospitalid, deptypeid, roomcount, blocknumber, personalcount):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO DepartmentInfo(DepartmentID, HospitalID, DepartmentTypeID, RoomCount, BlockNumber, PersonalCount, CreateDate) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO DepartmentInfo(DepartmentID, HospitalID, DepartmentTypeID, RoomCount, BlockNumber, PersonalCount, CreateDate) VALUES (%s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(departmentid), str(hospitalid), str(deptypeid), str(roomcount), str(blocknumber), str(personalcount), datetime.datetime.now()))
+                cursor.execute(query, str(hospitalid), str(deptypeid), str(roomcount), str(blocknumber), str(personalcount), datetime.datetime.now())
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
 
     @classmethod
     def update_department(cls, departmentid, hospitalid, departmentTypeid, roomCount, blockNumber, personalCount):
