@@ -96,10 +96,10 @@ def reservation_page():
         return render_template("reservation.html")
 
 @site.route('/hospital<int:HospitalID>')
-def hospital_page():
+def hospital_page(HospitalID):
     hospital = HospitalDatabase()
-    hospital.add_hospital(1, 1, 1, 1, "Orhan")
-    return render_template("hospital.html")
+    hospital = hospital.get_hospital_info(HospitalID)
+    return render_template("hospital.html", hospital=hospital)
 
 
 @site.route('/department')
