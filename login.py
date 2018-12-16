@@ -125,6 +125,6 @@ class LoginDatabase:
                 connection.commit()
 
             if logInfo:
-                return 1
+                return True
             else:
-                return 0
+                return False
