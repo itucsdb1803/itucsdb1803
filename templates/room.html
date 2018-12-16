@@ -1,0 +1,38 @@
+{% extends "layout.html" %}
+{% block content %}
+<html>
+<head>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</head>
+<body>
+<div class="container target">
+    <div class="row">
+        <div class="col-sm-10">
+             <h1 class="">{{profile[2]}} {{profile[3]}}</h1>
+            <h3 class="">{{profile[1]}}</h3>
+            <a href="/room/update/{{profile[0]}}">
+                <button type="button" class="btn btn-primary">Edit Profile</button>
+            </a>
+        <br><br><br>
+    </div>
+  <br>
+    <div class="row">
+        <div class="col-sm-4">
+            <!--left col-->
+            <ul class="list-group">
+                <li class="list-group-item text-muted" contenteditable="false">Profile</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department: </strong></span> {{profile[2]}} {{profile[3]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Room No: </strong></span>{{profile[4]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Capacity: </strong></span>{{profile[5]}}</li>
+                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Bathroom Number: </strong></span>{{profile[6]}}</li>
+            </ul>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+{% endblock %}
