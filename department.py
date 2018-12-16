@@ -55,6 +55,20 @@ class DepartmentDatabase:
             return
 
     @classmethod
+    def delete_department_info(cls, departmentId):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """DELETE FROM DepartmentInfo WHERE DepartmentID = %s"""
+            try:
+                cursor.execute(query, (departmentId))
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            return
+
+    @classmethod
     def select_department_info(cls, departmentId):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
