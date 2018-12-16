@@ -95,11 +95,11 @@ def reservation_page():
     else:
         return render_template("reservation.html")
 
-@site.route('/hospital', methods=['GET', 'POST'])
+@site.route('/hospital<int:HospitalID>')
 def hospital_page():
     hospital = HospitalDatabase()
     hospital.add_hospital(1, 1, 1, 1, "Orhan")
-    return render_template("home.html")
+    return render_template("hospital.html")
 
 
 @site.route('/department')
