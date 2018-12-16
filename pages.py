@@ -290,3 +290,19 @@ def update_patient_page(UserID):
         patientInfo = patient.select_patient_info(UserID)
         cities = parameter.select_parameters_with_type(1)
         return render_template("patient_update.html",  cities=cities, patient=patientInfo)
+
+
+@site.route('/search', methods=['GET', 'POST'])
+def search_page():
+    if request.method == 'POST':
+        login = LoginDatabase()
+        search = login.user_search(username=request.form['username'], name=request.form['name'],
+                                   surname=request.form['surname'], isEmployee=request.form['Type'])
+        return search_result_page(search)
+    else:
+        return render_template("search.html")
+
+
+@site.route('/search/result', methods=['GET', 'POST'])
+def search_result_page(search):
+    return render_template("search.html", searchList=search)
