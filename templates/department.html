@@ -1,39 +1,42 @@
-{% extends "layout.html" %}
-{% block content %}
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <meta charset="UTF-8">
+    <title>Add Department</title>
 </head>
 <body>
-<div class="container target">
-    <div class="row">
-        <div class="col-sm-10">
-             <h1 class="">{{profile[2]}} {{profile[3]}}</h1>
-            <h3 class="">{{profile[1]}}</h3>
-            <a href="/department/update/{{profile[0]}}">
-                <button type="button" class="btn btn-primary">Edit Profile</button>
-            </a>
-        <br><br><br>
-    </div>
-  <br>
-    <div class="row">
-        <div class="col-sm-4">
-            <!--left col-->
-            <ul class="list-group">
-                <li class="list-group-item text-muted" contenteditable="false">Profile</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Hospital: </strong></span> {{profile[2]}} {{profile[3]}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Department Type: </strong></span>{{profile[4]}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Number of Rooms: </strong></span>{{profile[5]}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Block Number: </strong></span>{{profile[6]}}</li>
-                <li class="list-group-item text-right"><span class="pull-left"><strong class="">Number of Personals: </strong></span>{{profile[7]}}</li>
-            </ul>
-            </div>
-        </div>
-    </div>
-</div>
+<center>
+<form action=""  method="post">
+	<table border="0">
+		<tr>
+			<td>HospitalID :</td>
+            <td><input type="text" size="29" name="departmentid" id="departmentid" value="{{request.form.departmentid}}" required/></td>
+		</tr>
+		<tr>
+			<td>Department Type ID :</td>
+            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
+		</tr>
+        <tr>
+			<td>Number of Rooms :</td>
+            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
+		</tr>
+        <tr>
+			<td>Block Number :</td>
+            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
+		</tr>
+        <tr>
+			<td>Personal Number :</td>
+            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
+		</tr>
+        <tr>
+			<td></td><td><input type="submit" value="Add Department"></td>
+		</tr>
+	</table>
+    {% if derror %}
+	<p class="derror"><strong>{{ derror }}</strong></p>
+      {% endif %}
+</form>
+
+</center>
 </body>
 </html>
-{% endblock %}
