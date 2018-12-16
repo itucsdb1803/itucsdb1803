@@ -20,9 +20,11 @@ class DiseaseDatabase:
                 cursor.execute(query, (str(department), str(name), str(diseasearea), str(description), datetime.datetime.now()))
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
 
 
     @classmethod

@@ -10,11 +10,11 @@
 	<table border="0">
 		<tr>
 			<td>DepartmentID :</td>
-            <td><input type="text" size="29" name="departmentid" id="departmentid" value="{{request.form.departmentid}}"/></td>
+            <td><input type="text" size="29" name="departmentid" id="departmentid" value="{{request.form.departmentid}}" required/></td>
 		</tr>
 		<tr>
 			<td>Disease Name :</td>
-            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}"/></td>
+            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
 		</tr>
 		<tr>
 			<td>Disease Area :</td>
@@ -30,7 +30,7 @@
 		</tr>
 	</table>
     {% if derror %}
-    <p class="error"><strong>Error:</strong> {{ derror }}</p>
+	<p class="error"><strong>{{ derror }}</strong></p>
       {% endif %}
 </form>
 

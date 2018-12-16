@@ -56,7 +56,7 @@ def disease_page():
     if request.method=='POST':
         disease = DiseaseDatabase()
         diseaseAddCheck = disease.add_disease(department=request.form['departmentid'],name=request.form['namer'],diseasearea=request.form['diseasearea'],description=request.form['description'])
-        if diseaseAddCheck is None or diseaseAddCheck==-1:
+        if diseaseAddCheck is None or diseaseAddCheck == -1:
             derror = 'Disease could not be added.'
         else:
             derror = 'Disease is added'
