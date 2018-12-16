@@ -1,10 +1,75 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends "layout.html" %}
+{% block content %}
+<form class="form-horizontal" action="{{ url_for('site.update_department_page', UserID = department[0]) }}" method="post">
+    <fieldset>
+   <!-- Hospital input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="HospitalID">Hospital</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="HospitalID" name="HospitalID" class="selectpicker form-control" required>
+                        {% for hospital in hospitals %}
+                            <option value="{{hospital[0] }}">{{ hospital[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- Department input-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="DepartmentID">Department</label>
+            <div class="col-md-4">
+                <div class="input-group">
+                    <span class="input-group-addon"></span>
+                    <select id="DepartmentID" name="DepartmentID" class="selectpicker form-control" required>
+                        {% for department in departments %}
+                            <option value="{{department[0]}}">{{ department[2] }}</option>
+                        {% endfor %}
+                    </select>
+                </div>
+            </div>
+        </div>
+
+    <!-- Room Counter-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="RoomCount">Room Count</label>
+            <div class="col-md-4">
+                <input id="roomCount" name="RoomCount" placeholder="RoomCount" class="form-control input-md"
+                       type="number" required>
+
+            </div>
+        </div>
+
+    <!-- Block Number-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="BlockNumber">Block Number</label>
+            <div class="col-md-4">
+                <input id="blockNumber" name="RoomCount" placeholder="BlockNumber" class="form-control input-md"
+                       type="number" required>
+
+            </div>
+        </div>
+
+    <!-- Personal Counter-->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="PersonalCount">Personal Count</label>
+            <div class="col-md-4">
+                <input id="personalCount" name="PersonalCount" placeholder="PersonalCount" class="form-control input-md"
+                       type="number" required>
+
+            </div>
+        </div>
+
+
+    <!-- Button -->
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="register_button"></label>
+            <div class="col-md-4">
+                <button id="register_button" name="register_button" class="btn btn-primary">Update</button>
+            </div>
+        </div>
+    </fieldset>
+</form>
+{% endblock %}
