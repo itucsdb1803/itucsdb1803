@@ -103,7 +103,7 @@ class HospitalDatabase:
             cursor = connection.cursor()
             hospitalInfo = None
 
-            query = """SELECT h.HospitalID, para.ID, para.Name, h.Capacity, h.Address, h.Name
+            query = """SELECT h.HospitalID, h.City, para.ID, para.Name, h.Capacity, h.Address, h.Name
                         FROM HospitalInfo h, ParameterInfo para
                         WHERE h.City = para.ID
                         AND h.HospitalID = %s"""
