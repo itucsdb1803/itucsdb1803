@@ -54,6 +54,20 @@ class RoomDatabase:
             return
 
     @classmethod
+    def delete_room_info(cls, roomId):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = """DELETE FROM RoomInfo WHERE RoomID = %s"""
+            try:
+                cursor.execute(query, (roomId))
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            return
+
+    @classmethod
     def select_room_info(cls, roomId):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
