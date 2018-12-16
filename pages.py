@@ -162,7 +162,7 @@ def updateredepartment_page(DepartmentID):
     derror = "OK"
     if request.method=='POST':
         create_department = DepartmentDatabase()
-        departmentAddCheck = create_department.update_hospital(departmentid=DepartmentID, hospitalid=request.form['HospitalID'], deptypeid=request.form['DepartmentTypeID'], roomcount=request.form['RoomCount'], blocknumber=request.form['BlockNumber'], personalcount=request.form['PersonalCount'])
+        departmentAddCheck = create_department.update_department(departmentid=DepartmentID, hospitalid=request.form['HospitalID'], departmentTypeid=request.form['DepartmentTypeID'], roomCount=request.form['RoomCount'], blockNumber=request.form['BlockNumber'], personalCount=request.form['PersonalCount'])
         if departmentAddCheck is None or departmentAddCheck == -1:
             derror = 'Department info could not be updated.'
         else:
@@ -185,6 +185,20 @@ def room_page():
         return render_template("room.html", derror=derror)
     else:
         return render_template("room.html")
+
+@site.route('/updateroom/<int:RoomID>')
+def updateredepartment_page(RoomID):
+    derror = "OK"
+    if request.method=='POST':
+        create_room = RoomDatabase()
+        roomAddCheck = create_room.update_room(roomid=RoomID, departmentid=request.form['DepartmentID'], roomno=request.form['RoomNo'], capacity=request.form['Capacity'], bathroomCount=request.form['BathroomCount'])
+        if roomAddCheck is None or roomAddCheck == -1:
+            derror = 'Room info could not be updated.'
+        else:
+            derror = 'Room info is updated'
+        return render_template("updateroom.html", derror=derror)
+    else:
+        return render_template("updateroom.html")
 
 
 @site.route('/personal/<int:UserID>')

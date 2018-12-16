@@ -41,7 +41,7 @@ class RoomDatabase:
             if capacity != '' and capacity is not None:
                 query = query + ", Capacity = '" + str(capacity) + "'"
             if bathroomCount != '' and bathroomCount is not None:
-                query = query + ", BathRoomCount = '" + str(bathroomCount) + "'"
+                query = query + ", BathroomCount = '" + str(bathroomCount) + "'"
             query = query + ' WHERE RoomId = ' + str(roomid)
 
             try:
