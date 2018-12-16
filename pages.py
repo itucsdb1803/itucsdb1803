@@ -95,18 +95,18 @@ def reservation_page():
     else:
         return render_template("reservation.html")
 
-@site.route('/hospital<int:HospitalID>')
+@site.route('/hospital/<int:HospitalID>')
 def hospital_page(HospitalID):
     hospital = HospitalDatabase()
     hospital = hospital.get_hospital_info(HospitalID)
     return render_template("hospital.html", hospital=hospital)
 
 
-@site.route('/department')
-def department_page():
+@site.route('/department/<int:DepartmentID>')
+def department_page(DepartmentID):
     department = DepartmentDatabase()
-    department.add_department(1, 1, 1, 1, 1, 1)
-    return render_template("home.html")
+    department = department.get_department_info(DepartmentID)
+    return render_template("home.html", department=department)
 
 
 @site.route('/room')
