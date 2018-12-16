@@ -158,7 +158,7 @@ def department_page():
         return render_template("department.html")
 
 @site.route('/updatedepartment/<int:DepartmentID>')
-def updateredepartment_page(DepartmentID):
+def updatedepartment_page(DepartmentID):
     derror = "OK"
     if request.method=='POST':
         create_department = DepartmentDatabase()
