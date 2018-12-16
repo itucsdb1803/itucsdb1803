@@ -1,10 +1,82 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends "layout.html" %}
+{% block content %}
+
+<html>
 <head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
+<link href="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="//cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 </head>
 <body>
-$END$
+
+<form class="form-horizontal" action="{{ url_for('site.search_page') }}" method="post">
+<div class="container-fluid bg-light ">
+    <div class="row align-items-center justify-content-center">
+            	        <div id="username">
+                            <div class="input-group col-md-12">
+                                <input name="username" type="text" class="  search-query form-control" placeholder="Username" />
+                            </div>
+                        </div>
+                        <div id="name">
+                            <div class="input-group col-md-12">
+                                <input name="name" type="text" class="  search-query form-control" placeholder="Name" />
+                            </div>
+                        </div>
+                        <div id="surname">
+                            <div class="input-group col-md-12">
+                                <input name="surname" type="text" class="  search-query form-control" placeholder="Surname" />
+                            </div>
+                        </div>
+                		<div class="col-md-2 pt-3">
+                           <div class="form-group">
+                              <select id="Type" name="Type" class="selectpicker form-control" required>
+                                  <option value="True" selected>Personal</option>
+                                  <option value="False" >Patient</option>
+
+                                </select>
+                           </div>
+                        </div>
+                        <div class="form-group col-md-2">
+                            <label class="col-md-4 control-label" for="register_button"></label>
+                                <div class="col-md-4">
+                                    <button id="register_button" name="register_button" class="btn btn-primary">Search</button>
+                                </div>
+                        </div>
+                	</div>
+    </div>
+    </form>
+    <table class="table">
+          <thead>
+            <tr>
+                <th scope="col">#</th>
+                <th scope="col">Username</th>
+                <th scope="col">Name</th>
+                <th scope="col">Surname</th>
+                <th scope="col">User Type</th>
+                <th scope="col">Phone Number</th>
+                <th scope="col">
+                    <a href="{{ url_for('site.home_page') }}">
+                        <button type="button" id="add" name="add" class="btn btn-success">
+                            Add
+                        </button>
+                    </a>
+                </th>
+            </tr>
+          </thead>
+          <tbody>
+          {% for search in searchList %}
+            <tr>
+                <td>{{loop.index}}</td>
+                <td>{{search[1]}}</td>
+                <td>{{search[2]}}</td>
+                <td>{{search[3]}}</td>
+                <td>{{search[4]}}</td>
+                <td>{{search[5]}}</td>
+            </tr>
+          {% endfor %}
+          </tbody>
+        </table>
+
 </body>
 </html>
+{% endblock %}
