@@ -26,7 +26,6 @@ class DiseaseDatabase:
             cursor.close()
             return 1
 
-
     @classmethod
     def select_disease(self, diseaseid):
         with dbapi2.connect(database.config) as connection:
