@@ -28,7 +28,7 @@ def initialize_database():
 
 @site.route('/')
 def home_page():
-    return render_template("home.html")
+    return redirect(url_for('site.login_page'))
 
 
 @site.route("/login", methods=['GET', 'POST'])
@@ -41,7 +41,10 @@ def login_page():
             error = 'Invalid Credentials. Please try again.'
         else:
             login_user(loginInfo)
-            return redirect(url_for('site.home_page'))
+            if str(current_user.IsEmployee) == "True":
+                return personel_page(current_user.id)
+            else:
+                return patient_page(current_user.id)
     return render_template('login.html', error=error)
 
 
