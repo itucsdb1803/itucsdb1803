@@ -29,3 +29,36 @@ class ReservationDatabase:
                 connection.commit()
             cursor.close()
             return 1
+    @classmethod
+    def update_reservation(cls, reservationid, patientid, hospitalid, doctorid, departmentid, diseaseid, comment, reservationdate, reservationhour):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+
+            query = 'UPDATE Reservation SET UpdateDate = ' + "'" + str(datetime.datetime.now()) + "'"
+
+            if patientid != '' and patientid is not None:
+                query = query + ", PatientID = '" + str(patientid) + "'"
+            if hospitalid != '' and hospitalid is not None:
+                query = query + ", HospitalID = '" + str(hospitalid) + "'"
+            if doctorid != '' and doctorid is not None:
+                query = query + ", DoctorID = '" + str(doctorid) + "'"
+            if departmentid != '' and departmentid is not None:
+                query = query + ", DepartmentID = '" + str(departmentid) + "'"
+            if diseaseid != '' and diseaseid is not None:
+                query = query + ", DiseaseID = '" + str(diseaseid) + "'"
+            if comment != '' and comment is not None:
+                query = query + ", Comment = '" + str(comment) + "'"
+            if reservationdate != '' and reservationdate is not None:
+                query = query + ", ReservationDate = '" + str(reservationdate) + "'"
+            if reservationhour != '' and reservationhour is not None:
+                query = query + ", ReservationHour = '" + str(reservationhour) + "'"
+            query = query + ' WHERE ReservationId = ' + str(reservationid)
+
+            try:
+                cursor.execute(query)
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+            cursor.close()
+            return
