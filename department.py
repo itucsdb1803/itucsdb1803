@@ -15,7 +15,7 @@ class DepartmentDatabase:
     def add_department(cls, hospitalid, deptypeid, roomcount, blocknumber, personalcount):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO DepartmentInfo(DepartmentID, HospitalID, DepartmentTypeID, RoomCount, BlockNumber, PersonalCount, CreateDate) VALUES (%s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO DepartmentInfo(HospitalID, DepartmentTypeID, RoomCount, BlockNumber, PersonalCount, CreateDate) VALUES (%s, %s, %s, %s, %s, %s)"""
             try:
                 cursor.execute(query, str(hospitalid), str(deptypeid), str(roomcount), str(blocknumber), str(personalcount), datetime.datetime.now())
             except dbapi2.Error:
