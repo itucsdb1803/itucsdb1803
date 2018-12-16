@@ -234,6 +234,6 @@ class DatabaseOperations:
             cursor.executemany(query, dep_dict)
 
             query = """INSERT INTO HospitalInfo(City, Capacity, Address, Name, CreateDate) VALUES (%s, %s, %s, %s, %s)"""
-            cursor.execute(query, (city_dict, "1500", "Maslak", "Acibadem", datetime.datetime.now()))
+            cursor.execute(query, (34, "1500", "Maslak", "Acibadem", datetime.datetime.now()))
 
 database = DatabaseOperations()
