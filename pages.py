@@ -176,7 +176,7 @@ def register_personal_page():
                                     userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
                                     name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
                                     birthPlace = request.form['BirthPlace'])
-                return redirect(url_for('site.profile.page'))
+                return redirect(url_for('site.profile_page'))
             else:
                 return render_template("error.html")
         else:
