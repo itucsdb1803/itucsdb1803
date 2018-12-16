@@ -202,19 +202,20 @@ def update_personal_page(UserID):
             if password is not None and password != '':
                 login.change_password(UserID, password)
 
-            personal.update_personal(userID=UserID, hospitalID=request.form['HospitalID'],
-                                     departmentID=request.form['DepartmentID'], userType=request.form['UserType'],
+            personal.update_personal(userID=UserID, hospitalID=request.form.get("HospitalID", None),
+                                     departmentID=request.form.get("DepartmentID", None), userType=request.form.get("UserType", None),
                                      regNu=request.form['RegNu'], name=request.form['Name'], telNo=request.form['TelNo'],
                                      surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                                     birthPlace=request.form['BirthPlace'])
+                                     birthPlace=request.form.get("BirthPlace", None))
             return redirect(url_for('site.profile_page'))
         else:
             parameter = ParameterDatabase()
             personal = PersonalDatabase()
+            hospital = HospitalDatabase()
             personalInfo = personal.select_personal_info(UserID)
             userTypes = parameter.select_parameters_with_type(2)
             cities = parameter.select_parameters_with_type(1)
-            hospitals = [(1, 2, "Örnek Hastane")]
+            hospitals = hospital.select_all_hospital_info(None)
             departments = parameter.select_parameters_with_type(3)
             return render_template("personal_update.html", userTypes=userTypes, cities=cities, hospitals=hospitals, departments=departments, personal=personalInfo)
     else:
@@ -322,7 +323,7 @@ def register_patient_page():
                 patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
                                     gsm=request.form['GSM'], name=request.form['Name'],
                                     surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                                    birthPlace=request.form['BirthPlace'])
+                                    birthPlace=request.form.get("BirthPlace", None))
                 return redirect(url_for('site.profile_page'))
             else:
                 return render_template('error.html')

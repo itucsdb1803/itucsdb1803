@@ -26,7 +26,7 @@
             <label class="col-md-4 control-label" for="Password">Password</label>
             <div class="col-md-4">
                 <input id="Password" name="Password" placeholder="Password" class="form-control input-md"
-                       required="" type="password">
+                       type="password">
 
             </div>
         </div>
@@ -40,7 +40,7 @@
                     <select id="HospitalID" name="HospitalID" class="selectpicker form-control">
                         <option value="" selected disabled>{{personal[2]}}</option>
                         {% for hospital in hospitals %}
-                            <option value="{{hospital[0] }}">{{ hospital[2] }}</option>
+                            <option value="{{hospital[0]}}">{{ hospital[4] }}</option>
                         {% endfor %}
                     </select>
                 </div>
@@ -94,7 +94,7 @@
             <label class="col-md-4 control-label" for="TelNo">Phone Number</label>
             <div class="col-md-4">
                 <input id="TelNo" name="TelNo" placeholder="{{personal[8]}}" class="form-control input-md"
-                       type="tel" maxlength="10" size="10" required>
+                       type="tel" maxlength="10" size="10">
             </div>
         </div>
 
