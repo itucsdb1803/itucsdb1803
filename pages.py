@@ -128,6 +128,19 @@ def hospital_page():
     else:
         return render_template("hospital.html")
 
+@site.route('/updatehospital/<int:HospitalID>')
+def updaterehospital_page(HospitalID):
+    derror = "OK"
+    if request.method=='POST':
+        create_hospital = HospitalDatabase()
+        hospitalAddCheck = create_hospital.update_hospital(hospitalid=HospitalID, city=request.form['City'], capacity=request.form['Capacity'], address=request.form['Address'], name=request.form['Name'])
+        if hospitalAddCheck is None or hospitalAddCheck == -1:
+            derror = 'Hospital info could not be updated.'
+        else:
+            derror = 'Hospital info is updated'
+        return render_template("updatehospital.html", derror=derror)
+    else:
+        return render_template("updatehospital.html")
 
 @site.route('/department', methods=['GET', 'POST'])
 def department_page():
