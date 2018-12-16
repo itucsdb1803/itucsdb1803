@@ -102,4 +102,5 @@ department_dict = ({"dep": "Cardiology"},
                    {"dep": "Psychiatry"},
                    {"dep": "Pulmonology"},
                    {"dep": "Radiology"},
-                   {"dep": "Urology"})
+                   {"dep": "Urology"},
+                   {"dep": "Management"})
