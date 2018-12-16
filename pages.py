@@ -101,17 +101,19 @@ def register_personal_page():
 
         username = request.form['UserName']
         password = request.form['Password']
+        isUsernameValid = login.username_validator(username)
+        if isUsernameValid:
+            login.add_login(username=username, password=password, isEmployee="true")
+            loginInfo = login.select_login_info(None, username, password)
 
-        login.add_login(username=username, password=password, isEmployee="true")
-        loginInfo = login.select_login_info(None, username, password)
-
-        personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
-                              departmentID=request.form['DepartmentID'], createUserID=current_user.id,
-                              userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
-                              name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                              birthPlace = request.form['BirthPlace'])
-
-        return redirect(url_for('site.home_page'))
+            personal.add_personal(loginInfo.get_id(), hospitalID=request.form['HospitalID'],
+                                departmentID=request.form['DepartmentID'], createUserID=current_user.id,
+                                userType=request.form['UserType'], regNu=request.form['RegNu'], telNo=request.form['TelNo'],
+                                name=request.form['Name'], surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                birthPlace = request.form['BirthPlace'])
+            return redirect(url_for('site.home_page'))
+        else:
+            return redirect(url_for('site.home_page'))
     else:
         parameter = ParameterDatabase()
         userTypes = parameter.select_parameters_with_type(2)
@@ -220,14 +222,17 @@ def register_patient_page():
 
         username = request.form['UserName']
         password = request.form['Password']
-
-        login.add_login(username=username, password=password, isEmployee="false")
-        loginInfo = login.select_login_info(None, username, password)
-        patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
-                            gsm=request.form['GSM'], name=request.form['Name'],
-                            surname=request.form['Surname'], birthDay=request.form['Birthday'],
-                            birthPlace=request.form['BirthPlace'])
-        return redirect(url_for('site.home_page'))
+        isUsernameValid = login.username_validator(username)
+        if isUsernameValid:
+            login.add_login(username=username, password=password, isEmployee="false")
+            loginInfo = login.select_login_info(None, username, password)
+            patient.add_patient(patientId=loginInfo.get_id(), createUserID=current_user.id, tckn=request.form['TCKN'],
+                                gsm=request.form['GSM'], name=request.form['Name'],
+                                surname=request.form['Surname'], birthDay=request.form['Birthday'],
+                                birthPlace=request.form['BirthPlace'])
+            return redirect(url_for('site.home_page'))
+        else:
+            return redirect(url_for('error.html'))
     else:
         parameter = ParameterDatabase()
         cities = parameter.select_parameters_with_type(1)
