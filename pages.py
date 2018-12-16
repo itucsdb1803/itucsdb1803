@@ -95,11 +95,20 @@ def reservation_page():
     else:
         return render_template("reservation.html")
 
-@site.route('/hospital/<int:HospitalID>')
-def hospital_page(HospitalID):
-    hospital = HospitalDatabase()
-    hospital = hospital.get_hospital_info(HospitalID)
-    return render_template("hospital.html", hospital=hospital)
+@site.route('/hospital', methods=['GET', 'POST'])
+def hospital_page():
+    derror = "OK"
+    if request.method=='POST':
+        hospital = HospitalDatabase()
+        hospitalAddCheck = hospital.add_hospital(city=request.form['City'], capacity=request.form['Capacity'], address=request.form['Address'], name=request.form['Name'])
+
+        if hospitalAddCheck is None or hospitalAddCheck == -1:
+            derror = 'Hospital could not be opened'
+        else:
+            derror = 'Hospital is added'
+        return render_template("hospital.html", derror=derror)
+    else:
+        return render_template("hospital.html")
 
 
 @site.route('/department/<int:DepartmentID>')

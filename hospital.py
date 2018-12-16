@@ -11,17 +11,19 @@ class Hospital():
 
 class HospitalDatabase:
     @classmethod
-    def add_hospital(cls, hospitalid, city, capacity, address, name):
+    def add_hospital(cls, city, capacity, address, name):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO HospitalInfo(HospitalID, City, Capacity, Address, Name, CreateDate) VALUES (%s, %s, %s, %s, %s, %s)"""
+            query = """INSERT INTO HospitalInfo(City, Capacity, Address, Name, CreateDate) VALUES (%s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(hospitalid), str(city), str(capacity), str(address), str(name), datetime.datetime.now()))
+                cursor.execute(query, (str(city), str(capacity), str(address), str(name), datetime.datetime.now()))
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
 
     @classmethod
     def update_hospital(cls, hospitalid, city, capacity, address, name):
