@@ -2,7 +2,7 @@ from werkzeug.utils import redirect
 from database import DatabaseOperations
 from flask import Blueprint, render_template, request, url_for
 from login import LoginDatabase
-from flask_login import login_user, logout_user, current_user
+from flask_login import login_user, logout_user, current_user, login_required
 from personal import PersonalDatabase
 from disease import DiseaseDatabase
 from hospital import HospitalDatabase
@@ -47,9 +47,10 @@ def login_page():
 
 
 @site.route('/logout')
+@login_required
 def logout():
     logout_user()
-    return redirect(url_for('index'))
+    return redirect(url_for('site.login_page'))
 
 
 @site.route('/disease', methods=['GET', 'POST'])
@@ -126,6 +127,7 @@ def room_page(RoomID):
 
 
 @site.route('/personal/<int:UserID>')
+@login_required
 def personel_page(UserID):
     personal = PersonalDatabase()
     profile = personal.get_profile_info(UserID)
@@ -133,6 +135,7 @@ def personel_page(UserID):
 
 
 @site.route('/register/personal' , methods=['GET', 'POST'])
+@login_required
 def register_personal_page():
     if request.method == 'POST':
         personal = PersonalDatabase()
@@ -163,6 +166,7 @@ def register_personal_page():
 
 
 @site.route('/personal/update/<int:UserID>' , methods=['GET', 'POST'])
+@login_required
 def update_personal_page(UserID):
     if request.method == 'POST':
         personal = PersonalDatabase()
@@ -190,6 +194,7 @@ def update_personal_page(UserID):
 
 
 @site.route('/duty', methods=['GET', 'POST'])
+@login_required
 def duty_page():
     if request.method == 'POST':
         deletes = request.form.getlist('duty_to_delete')
@@ -205,6 +210,7 @@ def duty_page():
 
 
 @site.route('/duty/add', methods=['GET', 'POST'])
+@login_required
 def duty_add_page():
     if request.method == 'POST':
         duty = DutyDatabase()
@@ -215,6 +221,7 @@ def duty_add_page():
 
 
 @site.route('/duty/update/<int:DutyID>', methods=['GET', 'POST'])
+@login_required
 def duty_update_page(DutyID):
     if request.method == 'POST':
         duty = DutyDatabase()
@@ -227,6 +234,7 @@ def duty_update_page(DutyID):
 
 
 @site.route('/parameter' , methods=['GET', 'POST'])
+@login_required
 def parameter_page():
     if request.method == 'POST':
         return redirect(url_for('site.home_page'))
@@ -235,6 +243,7 @@ def parameter_page():
 
 
 @site.route('/parameter/add' , methods=['GET', 'POST'])
+@login_required
 def parameter_add_page():
     if request.method == 'POST':
         parameter = ParameterDatabase()
@@ -247,6 +256,7 @@ def parameter_add_page():
 
 
 @site.route('/patient/<int:UserID>')
+@login_required
 def patient_page(UserID):
     patient = PatientDatabase()
     profile = patient.get_profile_info(UserID)
@@ -254,6 +264,7 @@ def patient_page(UserID):
 
 
 @site.route('/register/patient', methods=['GET', 'POST'])
+@login_required
 def register_patient_page():
     if request.method == 'POST':
         patient = PatientDatabase()
@@ -279,6 +290,7 @@ def register_patient_page():
 
 
 @site.route('/patient/update/<int:UserID>', methods=['GET', 'POST'])
+@login_required
 def update_patient_page(UserID):
     if request.method == 'POST':
         patient = PatientDatabase()
@@ -302,6 +314,7 @@ def update_patient_page(UserID):
 
 
 @site.route('/search', methods=['GET', 'POST'])
+@login_required
 def search_page():
     if request.method == 'POST':
         login = LoginDatabase()
@@ -313,10 +326,12 @@ def search_page():
 
 
 @site.route('/search/result', methods=['GET', 'POST'])
+@login_required
 def search_result_page(search):
     return render_template("search.html", searchList=search)
 
 
 @site.route('/register', methods=['GET', 'POST'])
+@login_required
 def register_page():
     return render_template("register.html")

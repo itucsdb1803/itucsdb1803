@@ -38,7 +38,7 @@ class DatabaseOperations:
                                                             ID SERIAL PRIMARY KEY,
                                                             TypeID INT NOT NULL,
                                                             Name VARCHAR(100) NOT NULL,
-                                                            FOREIGN KEY (TypeID) REFERENCES ParameterType(ID)
+                                                            FOREIGN KEY (TypeID) REFERENCES ParameterType(ID) ON DELETE RESTRICT
                                                                             )"""
             cursor.execute(query)
 
@@ -70,12 +70,12 @@ class DatabaseOperations:
                                                             Surname VARCHAR(100) NOT NULL,
                                                             BirthDay TIMESTAMP,
                                                             UpdateDate TIMESTAMP,
-                                                            FOREIGN KEY (UserID) REFERENCES LogInfo(UserID),
-                                                            FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
-                                                            FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID),
-                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
-                                                            FOREIGN KEY (DepartmentID) REFERENCES ParameterInfo(ID),
-                                                            FOREIGN KEY (UserType) REFERENCES ParameterInfo(ID)
+                                                            FOREIGN KEY (UserID) REFERENCES LogInfo(UserID) ON DELETE CASCADE,
+                                                            FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID) ON DELETE RESTRICT,
+                                                            FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT,
+                                                            FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID) ON DELETE RESTRICT,
+                                                            FOREIGN KEY (DepartmentID) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT,
+                                                            FOREIGN KEY (UserType) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT
                                                                             )"""
             cursor.execute(query)
 
@@ -89,7 +89,7 @@ class DatabaseOperations:
                                                 ShiftDate TIMESTAMP NOT NULL,
                                                 CreateDate TIMESTAMP NOT NULL,
                                                 UpdateDate TIMESTAMP,
-                                                FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID)
+                                                FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID) ON DELETE CASCADE
                                                                )"""
             cursor.execute(query)
 
@@ -162,9 +162,9 @@ class DatabaseOperations:
                                                          Surname VARCHAR(100) NOT NULL,
                                                          BirthDay TIMESTAMP NOT NULL,
                                                          UpdateDate TIMESTAMP,
-                                                         FOREIGN KEY (PatientID) REFERENCES LogInfo(UserID),
-                                                         FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID),
-                                                         FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID)
+                                                         FOREIGN KEY (PatientID) REFERENCES LogInfo(UserID) ON DELETE CASCADE,
+                                                         FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID) ON DELETE RESTRICT,
+                                                         FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT
                                                                 )"""
             cursor.execute(query)
 
