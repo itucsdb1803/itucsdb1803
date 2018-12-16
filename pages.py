@@ -104,7 +104,7 @@ def hospital_page():
         hospitalAddCheck = hospital.add_hospital(city=request.form['City'], capacity=request.form['Capacity'], address=request.form['Address'], name=request.form['Name'])
 
         if hospitalAddCheck is None or hospitalAddCheck == -1:
-            derror = 'Hospital could not be opened'
+            derror = 'Hospital could not be added'
         else:
             derror = 'Hospital is added'
         return render_template("hospital.html", derror=derror)
@@ -112,11 +112,20 @@ def hospital_page():
         return render_template("hospital.html")
 
 
-@site.route('/department/<int:DepartmentID>')
-def department_page(DepartmentID):
-    department = DepartmentDatabase()
-    department = department.get_department_info(DepartmentID)
-    return render_template("department.html", department=department)
+@site.route('/department', methods=['GET', 'POST'])
+def department_page():
+    derror = "OK"
+    if request.method=='POST':
+        department = DepartmentDatabase()
+        departmentAddCheck = department.add_department(hospitalid=request.form['HospitalID'], deptypeid=request.form['DepartmentTypeID'], roomcount=request.form['RoomCount'], blocknumber=request.form['BlockNumber'], personalcount=request.form['PersonalCount'])
+
+        if departmentAddCheck is None or departmentAddCheck == -1:
+            derror = 'Department could not be added'
+        else:
+            derror = 'Department is added'
+        return render_template("department.html", derror=derror)
+    else:
+        return render_template("department.html")
 
 
 @site.route('/room/<int:RoomID>')
