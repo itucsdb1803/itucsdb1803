@@ -181,9 +181,10 @@ def register_personal_page():
                 return render_template("error.html")
         else:
             parameter = ParameterDatabase()
+            hospital = HospitalDatabase()
             userTypes = parameter.select_parameters_with_type(2)
             cities = parameter.select_parameters_with_type(1)
-            hospitals = [(1, 2, "Örnek Hastane")]
+            hospitals = hospital.select_all_hospital_info("")
             departments = parameter.select_parameters_with_type(3)
             return render_template("personal_register.html", userTypes = userTypes, cities = cities, hospitals = hospitals, departments = departments)
     else:
