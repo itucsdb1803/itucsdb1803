@@ -98,6 +98,21 @@ def reservation_page():
     else:
         return render_template("reservation.html")
 
+@site.route('/updatereservation/<int:ReservationID>')
+def updatereservation_page(ReservationID):
+    derror = "OK"
+    if request.method=='POST':
+        make_reservation = ReservationDatabase()
+        reservationAddCheck = make_reservation.update_reservation(reservationid=ReservationID, patientid=request.form['patientid'], hospitalid=request.form['hospitalid'], doctorid=request.form['doctorid'], departmentid=request.form['departmentid'],
+                                                                diseaseid=request.form['diseaseid'], comment=request.form['comment'], reservationdate=request.form['reservationdate'], reservationhour=request.form['reservationhour'])
+        if reservationAddCheck is None or reservationAddCheck == -1:
+            derror = 'Reservation could not be updated.'
+        else:
+            derror = 'Reservation is updated'
+        return render_template("updatereservation.html", derror=derror)
+    else:
+        return render_template("updatereservation.html")
+
 @site.route('/hospital', methods=['GET', 'POST'])
 def hospital_page():
     derror = "OK"
