@@ -21,7 +21,7 @@ class ReservationDatabase:
             cursor = connection.cursor()
             query = """INSERT INTO Reservation(PatientID, HospitalID, DoctorID, DepartmentID, DiseaseID, Comment, CreateDate, ReservationDate, ReservationHour) VALUES (%s, %s, %s, %s, %s, %s, %s, %s, %s)"""
             try:
-                cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), str(diseaseid),str(comment), datetime.datetime.now(), str(reservationdate), str(reservationhour)))
+                cursor.execute(query, (str(patientid), str(hospitalid), str(doctorid), str(departmentid), str(diseaseid), str(comment), datetime.datetime.now(), str(reservationdate), str(reservationhour)))
             except dbapi2.Error:
                 connection.rollback()
                 return -1
