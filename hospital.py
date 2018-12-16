@@ -112,28 +112,3 @@ class HospitalDatabase:
                 return hospitalInfo
             else:
                 return -1
-
-    @classmethod
-    def get_hospital_info(cls, HospitalID):
-        with dbapi2.connect(database.config) as connection:
-            cursor = connection.cursor()
-            hospitalInfo = None
-
-            query = """SELECT h.HospitalID, h.City, para.ID, para.Name, h.Capacity, h.Address, h.Name
-                        FROM HospitalInfo h, ParameterInfo para
-                        WHERE h.City = para.ID
-                        AND h.HospitalID = %s"""
-
-            try:
-                cursor.execute(query, str(HospitalID))
-                hospitalInfo = cursor.fetchone()
-
-            except dbapi2.Error:
-                connection.rollback()
-            else:
-                connection.commit()
-
-            if hospitalInfo:
-                return hospitalInfo
-            else:
-                return []
