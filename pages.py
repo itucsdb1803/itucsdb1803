@@ -12,6 +12,7 @@ from parameter import ParameterDatabase
 from duty import DutyDatabase
 from parameter_type import ParameterTypeDatabase
 from patient import PatientDatabase
+from medicalreport import MedicalReportDatabase
 
 
 site = Blueprint('site', __name__,)
@@ -50,7 +51,7 @@ def logout():
     return redirect(url_for('index'))
 
 
-@site.route('/disease',methods=['GET', 'POST'])
+@site.route('/disease', methods=['GET', 'POST'])
 def disease_page():
     derror = "OK"
     if request.method=='POST':
@@ -64,6 +65,19 @@ def disease_page():
     else:
         return render_template("disease.html")
 
+@site.route('/medicalreport', methods=['GET', 'POST'])
+def medicalreport_page():
+    derror = "OK"
+    if request.method=='POST':
+        the_report = MedicalReportDatabase()
+        reportAddCheck = the_report.add_report(patientid=request.form['patientid'], doctorid=request.form['doctorid'], diseaseid=request.form['diseaseid'], treatment=request.form['treatment'], prescription=request.form['prescription'], report=request.form['report'])
+        if reportAddCheck is None or reportAddCheck == -1:
+            derror = 'Report could not be added.'
+        else:
+            derror = 'Report is added'
+        return render_template("medicalreport.html", derror=derror)
+    else:
+        return render_template("medicalreport.html")
 
 @site.route('/hospital', methods=['GET', 'POST'])
 def hospital_page():

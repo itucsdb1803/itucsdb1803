@@ -1,7 +1,6 @@
 from database import *
-from flask_login import UserMixin
 
-class MedicalReport(UserMixin):
+class MedicalReport():
     def __init__(self, patientid, doctorid, diseaseid, treatment, prescription, report, createdate, updatedate):
         self.PatientID = patientid
         self.DoctorID = doctorid
@@ -13,7 +12,7 @@ class MedicalReport(UserMixin):
         self.UpdateDate = updatedate
 class MedicalReportDatabase:
     @classmethod
-    def add_report(cls, patientid, doctorid, diseaseid, treatment, prescription, report, createdate):
+    def add_report(cls, patientid, doctorid, diseaseid, treatment, prescription, report):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
             query = """INSERT INTO MedicalReport(PatientID, DoctorID, DiseaseID, Treatment, Prescription, Report, CreateDate) VALUES (%s, %s, %s, %s, %s, %s, %s)"""
@@ -21,6 +20,8 @@ class MedicalReportDatabase:
                 cursor.execute(query, (str(patientid), str(doctorid), str(diseaseid), str(treatment), str(prescription), str(report), datetime.datetime.now()))
             except dbapi2.Error:
                 connection.rollback()
+                return -1
             else:
                 connection.commit()
             cursor.close()
+            return 1
