@@ -2,7 +2,7 @@ from database import *
 from flask_login import UserMixin
 
 class MedicalReport(UserMixin):
-    def __init__(self, reservationid, patientid, hospitalid, doctorid, departmentid, diseaseid, comment, updatedate, createdate, reservationdate):
+    def __init__(self, reservationid, patientid, hospitalid, doctorid, departmentid, diseaseid, comment, updatedate, createdate, reservationdate, reservationhour):
         self.ReservationID = reservationid
         self.PatientID = patientid
         self.HospitalID = hospitalid
@@ -13,6 +13,7 @@ class MedicalReport(UserMixin):
         self.UpdateDate = updatedate
         self.CreateDate = createdate
         self.ReservationDate = reservationdate
+        self.ReservationHour = reservationhour
 
 class ReservationDatabase:
     @classmethod
@@ -62,6 +63,7 @@ class ReservationDatabase:
                 connection.commit()
             cursor.close()
             return
+
     @classmethod
     def select_all_reservation_info(cls, patientid):
         with dbapi2.connect(database.config) as connection:
@@ -85,3 +87,27 @@ class ReservationDatabase:
                 return reservationInfo
             else:
                 return -1
+
+    @classmethod
+    def select_reservation_info(cls, patientid, reservationid):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            reservationInfo = None
+
+            query = """SELECT  p.PatientID, res.ReservationID, res.DoctorID, res.HospitalID, res.DepartmentID, 
+                            res.DiseaseID, res.Comment, res.ReservationDate, res.ReservationHour 
+                FROM  PatientInfo p, Reservation res
+                    WHERE p.PatientID = res.PatientID AND res.PatientID = %s AND res.ReservationID = %s"""
+            try:
+                cursor.execute(query, str(patientid, reservationid))
+                reservationInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if reservationInfo:
+                return reservationInfo
+            else:
+                return []
