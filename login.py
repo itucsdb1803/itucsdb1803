@@ -20,7 +20,7 @@ class LoginDatabase:
     def add_login(cls, username, password, isEmployee):
         with dbapi2.connect(database.config) as connection:
             cursor = connection.cursor()
-            query = """INSERT INTO LogInfo(UserName, Password, isEmployee, CreateDate) VALUES (%s, %s, %s)"""
+            query = """INSERT INTO LogInfo(UserName, Password, isEmployee, CreateDate) VALUES (%s, %s, %s, %s)"""
             try:
                 cursor.execute(query, (str(username), str(password), str(isEmployee), datetime.datetime.now()))
             except dbapi2.Error:

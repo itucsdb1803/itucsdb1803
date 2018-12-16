@@ -211,8 +211,8 @@ class DatabaseOperations:
         with dbapi2.connect(self.config) as connection:
             cursor = connection.cursor()
 
-            query = """INSERT INTO LogInfo(UserName, Password, CreateDate) VALUES (%s, %s, %s)"""
-            cursor.execute(query, ("admin", "12345", datetime.datetime.now()))
+            query = """INSERT INTO LogInfo(UserName, Password, IsEmployee, CreateDate) VALUES (%s, %s, %s, %s)"""
+            cursor.execute(query, ("admin", "12345", "true", datetime.datetime.now()))
 
             query = """INSERT INTO ParameterType(ID, Name) VALUES (%s, %s)"""
             cursor.execute(query, ("1", "City"))
