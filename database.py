@@ -48,6 +48,7 @@ class DatabaseOperations:
                                                 UserID SERIAL PRIMARY KEY,
                                                 UserName VARCHAR(100) NOT NULL,
                                                 Password VARCHAR(100) NOT NULL,
+                                                IsEmployee Boolean NOT NULL,
                                                 LastLoginDate TIMESTAMP,
                                                 CreateDate TIMESTAMP NOT NULL,
                                                 UpdateDate TIMESTAMP
