@@ -107,3 +107,24 @@ class LoginDatabase:
                          lastLoginDate=logInfo[4], createDate=logInfo[5], updateDate=logInfo[6])
             else:
                 return -1
+
+    @classmethod
+    def username_validator(cls, username):
+        with dbapi2.connect(database.config) as connection:
+            cursor = connection.cursor()
+            logInfo = None
+
+            query = """SELECT * FROM LogInfo WHERE username = %s"""
+            try:
+                cursor.execute(query, str(username))
+                logInfo = cursor.fetchone()
+
+            except dbapi2.Error:
+                connection.rollback()
+            else:
+                connection.commit()
+
+            if logInfo:
+                return 1
+            else:
+                return 0
