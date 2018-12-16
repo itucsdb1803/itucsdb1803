@@ -85,7 +85,8 @@ def reservation_page():
     derror = "OK"
     if request.method=='POST':
         make_reservation = ReservationDatabase()
-        reservationAddCheck = make_reservation.add_reservation(patientid=request.form['patientid'], hospitalid=request.form['hospitalid'], doctorid=request.form['doctorid'], departmentid=request.form['departmentid'], diseaseid=request.form['diseaseid'], comment=request.form['comment'])
+        reservationAddCheck = make_reservation.add_reservation(patientid=request.form['patientid'], hospitalid=request.form['hospitalid'], doctorid=request.form['doctorid'], departmentid=request.form['departmentid'],
+                                                                diseaseid=request.form['diseaseid'], comment=request.form['comment'], reservationdate=request.form['reservationdate'], reservationhour=request.form['reservationhour'])
         if reservationAddCheck is None or reservationAddCheck == -1:
             derror = 'Reservation could not be added.'
         else:

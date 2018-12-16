@@ -37,11 +37,48 @@
 		<tr>
 			<td>Reservation Date :</td>
 			<td><div id="datetimepicker1" class="input-append date col-md-4">
-                	<input data-format="dd/MM/yyyy hh:mm:ss" type="date" id="Birthday" name="Birthday" placeholder="ReservationDate" required />
+                	<input data-format="dd/MM/yyyy hh:mm:ss" type="date" size="29" id="ReservationDate" name="ReservationDate" placeholder="ReservationDate" value="{{request.form.reservationdate}}" required />
 					<span class="add-on">
                         <i data-time-icon="icon-time" data-date-icon="icon-calendar"></i>
 					</span>
 				</div>
+			</td>
+		</tr>
+		<tr>
+			<td>Reservation Hour :</td>
+            <td>
+				<select name="ReservationHour" id="ReservationHour" required >
+					<option value="{{request.form.reservationhour}}" >09:00</option>
+					<option value="{{request.form.reservationhour}}" >09:15</option>
+					<option value="{{request.form.reservationhour}}" >09:30</option>
+					<option value="{{request.form.reservationhour}}">09:45</option>
+					<option value="{{request.form.reservationhour}}">10:00</option>
+					<option value="{{request.form.reservationhour}}">10:15</option>
+					<option value="{{request.form.reservationhour}}">10:30</option>
+					<option value="{{request.form.reservationhour}}">10:45</option>
+					<option value="{{request.form.reservationhour}}">11:00</option>
+					<option value="{{request.form.reservationhour}}">11:15</option>
+					<option value="{{request.form.reservationhour}}">11:30</option>
+					<option value="{{request.form.reservationhour}}">11:45</option>
+					<option value="{{request.form.reservationhour}}">12:00</option>
+					<option value="{{request.form.reservationhour}}">12:15</option>
+					<option value="{{request.form.reservationhour}}">12:30</option>
+					<option value="{{request.form.reservationhour}}">12:45</option>
+					<option value="{{request.form.reservationhour}}">13:30</option>
+					<option value="{{request.form.reservationhour}}">13:45</option>
+					<option value="{{request.form.reservationhour}}">14:00</option>
+					<option value="{{request.form.reservationhour}}">14:15</option>
+					<option value="{{request.form.reservationhour}}">14:30</option>
+					<option value="{{request.form.reservationhour}}">14:45</option>
+					<option value="{{request.form.reservationhour}}">15:00</option>
+					<option value="{{request.form.reservationhour}}">15:15</option>
+					<option value="{{request.form.reservationhour}}">15:30</option>
+					<option value="{{request.form.reservationhour}}">15:45</option>
+					<option value="{{request.form.reservationhour}}">16:00</option>
+					<option value="{{request.form.reservationhour}}">16:15</option>
+					<option value="{{request.form.reservationhour}}">16:30</option>
+					<option value="{{request.form.reservationhour}}">16:45</option>
+				</select>
 			</td>
 		</tr>
 

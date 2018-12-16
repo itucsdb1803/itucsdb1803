@@ -181,6 +181,7 @@ class DatabaseOperations:
                                                 UpdateDate TIMESTAMP,
                                                 CreateDate TIMESTAMP NOT NULL,
                                                 ReservationDate TIMESTAMP NOT NULL,
+                                                ReservationHour VARCHAR(10),
                                                 FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),
                                                 FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),
                                                 FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),
