@@ -12,27 +12,27 @@
 	<table border="0">
 		<tr>
 			<td>PatientID :</td>
-            <td><input type="text" size="29" name="patientid" id="patientid" value="{{request.form.patientid}}"/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="patientid" id="patientid" value="{{request.form.patientid}}"/></td>
 		</tr>
 		<tr>
 			<td>HospitalID :</td>
-            <td><input type="text" size="29" name="hospitalid" id="hospitalid" value="{{request.form.hospitalid}}"/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="hospitalid" id="hospitalid" value="{{request.form.hospitalid}}"/></td>
 		</tr>
         <tr>
 			<td>DepartmentID :</td>
-            <td><input type="text" size="29" name="departmentid" id="departmentid" value="{{request.form.departmentid}}"/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="departmentid" id="departmentid" value="{{request.form.departmentid}}"/></td>
 		</tr>
 		<tr>
 			<td>DoctorID :</td>
-            <td><input type="text" size="29" name="doctorid" id="doctorid" value="{{request.form.doctorid}}"/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="doctorid" id="doctorid" value="{{request.form.doctorid}}"/></td>
 		</tr>
 		<tr>
 			<td>DiseaseID :</td>
-            <td><input type="text" size="29" name="diseaseid" id="diseaseid" value="{{request.form.diseaseid}}"/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="diseaseid" id="diseaseid" value="{{request.form.diseaseid}}"/></td>
 		</tr>
 		<tr>
 			<td>Comment about the disease :</td>
-			<td><textarea rows="4" cols="30" name="comment" id="comment" value="{{request.form.comment}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="comment" id="comment" value="{{request.form.comment}}"></textarea></td>
 		</tr>
 		<tr>
 			<td>Reservation Date :</td>
@@ -84,7 +84,7 @@
 
 
         <tr>
-			<td></td><td><input type="submit" value="UPDATE RESERVATION!"></td>
+			<td></td><td><input type="submit" class="btn btn-primary" value="UPDATE RESERVATION!"></td>
 		</tr>
 	</table>
 </form>

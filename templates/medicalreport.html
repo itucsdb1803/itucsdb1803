@@ -1,4 +1,5 @@
-<!DOCTYPE html>
+{% extends "layout.html" %}
+{% block content %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,33 +11,34 @@
 	<table border="0">
 		<tr>
 			<td>PatientID :</td>
-            <td><input type="text" size="29" name="PatientID" id="PatientID" value="{{request.form.patientid}}" required/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="PatientID" id="PatientID" value="{{request.form.patientid}}" required/></td>
 		</tr>
 		<tr>
 			<td>DoctorID :</td>
-            <td><input type="text" size="29" name="DoctorID" id="DoctorID" value="{{request.form.doctorid}}" required/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="DoctorID" id="DoctorID" value="{{request.form.doctorid}}" required/></td>
 		</tr>
         <tr>
 			<td>DiseaseID :</td>
-            <td><input type="text" size="29" name="DiseaseID" id="DiseaseID" value="{{request.form.diseaseid}}" required/></td>
+            <td><input type="text" size="29" class="list-group-item text-right" name="DiseaseID" id="DiseaseID" value="{{request.form.diseaseid}}" required/></td>
 		</tr>
 		<tr>
 			<td>Treatment :</td>
-			<td><textarea rows="4" cols="30" name="Treatment" id="Treatment" value="{{request.form.treatment}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="Treatment" id="Treatment" value="{{request.form.treatment}}"></textarea></td>
 		</tr>
         <tr>
 			<td>Prescription :</td>
-			<td><textarea rows="4" cols="30" name="Prescription" id="Prescription" value="{{request.form.prescription}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="Prescription" id="Prescription" value="{{request.form.prescription}}"></textarea></td>
 		</tr>
 		<tr>
 			<td>Report :</td>
-			<td><textarea rows="4" cols="30" name="Report" id="Report" value="{{request.form.report}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="Report" id="Report" value="{{request.form.report}}"></textarea></td>
 		</tr>
         <tr>
-			<td></td><td><input type="submit" value="Create Report!"/></td>
+			<td></td><td><input type="submit" class="btn btn-primary" value="Create Report!"/></td>
 		</tr>
 	</table>
 </form>
 </center>
 </body>
 </html>
+{% endblock %}

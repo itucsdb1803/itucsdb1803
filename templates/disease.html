@@ -5,23 +5,23 @@
 	<table border="0">
 		<tr>
 			<td>DepartmentID :</td>
-            <td><input type="text" size="29" name="departmentid" id="departmentid" value="{{request.form.departmentid}}" required/></td>
+            <td><input type="text" size="29" name="departmentid" class="list-group-item text-right" id="departmentid" value="{{request.form.departmentid}}" required/></td>
 		</tr>
 		<tr>
 			<td>Disease Name :</td>
-            <td><input type="text" size="29" name="namer" id="Name" value="{{request.form.namer}}" required/></td>
+            <td><input type="text" size="29" name="namer" class="list-group-item text-right" id="Name" value="{{request.form.namer}}" required/></td>
 		</tr>
 		<tr>
 			<td>Disease Area :</td>
-			<td><textarea rows="4" cols="30" name="diseasearea" id="DiseaseArea" value="{{request.form.diseasearea}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="diseasearea" id="DiseaseArea" value="{{request.form.diseasearea}}"></textarea></td>
 		</tr>
 		<tr>
 			<td>Description :</td>
-			<td><textarea rows="4" cols="30" name="description" id="Description" value="{{request.form.description}}"></textarea></td>
+			<td><textarea rows="4" cols="31" class="list-group-item text-right" name="description" id="Description" value="{{request.form.description}}"></textarea></td>
 		</tr>
 
         <tr>
-			<td></td><td><input type="submit" value="Add Disease"></td>
+			<td></td><td><input type="submit" class="btn btn-primary" value="Add Disease"></td>
 		</tr>
 	</table>
     {% if derror %}
