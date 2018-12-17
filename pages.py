@@ -404,7 +404,7 @@ def update_patient_page(UserID):
             if password is not None and password != '':
                 login.change_password(UserID, password)
 
-            patient.update_patient(patientId=UserID, tckn=request.form['TCKN'], birthPlace=request.form['BirthPlace'],
+            patient.update_patient(patientId=UserID, tckn=request.form['TCKN'], birthPlace=request.form.get("BirthPlace", None),
                                    gsm=request.form['GSM'], name=request.form['Name'], surname=request.form['Surname'],
                                    birthDay=request.form['Birthday'])
 
