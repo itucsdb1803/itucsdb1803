@@ -74,7 +74,7 @@ This operation is done under /disease page. Disease.py file includes the code ab
                 return -1
 				
 MedicalReport Table & Methods
-----------------------------
+------------------------------
 
 This is just for adding reports, in each time a new report should be added via doctors. Patients cannat see report adding page, butthey can see their medical reports.
 
