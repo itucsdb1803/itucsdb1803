@@ -1,0 +1,731 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.1. Parts Done By Orhan Kurto &mdash; ITUCSDB1803 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1.2. Parts Done By Bilal Can" href="bilal.html" />
+    <link rel="prev" title="2. Development Process" href="index.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1803
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">1. Installations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. Development Process</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#database-design-entity-relationship-diagram">2.1. Database Design - Entity-Relationship Diagram</a><ul class="current">
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.1.1. Parts Done By Orhan Kurto</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#hospitalinfo-table-methods">2.1.1.1. HospitalInfo Table &amp; Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#departmentinfo-table-methods">2.1.1.2. DepartmentInfo Table &amp; Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#roominfo-table-methods">2.1.1.3. RoomInfo Table &amp; Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameterinfo-table">2.1.1.4. ParameterInfo Table</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="bilal.html">2.1.2. Parts Done By Bilal Can</a></li>
+<li class="toctree-l3"><a class="reference internal" href="utku.html">2.1.3. Parts Implemented by Utku Anil Saykara</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../userface/index.html">3. Userface</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1803</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. Development Process</a> &raquo;</li>
+        
+      <li>2.1.1. Parts Done By Orhan Kurto</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/orhan.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-done-by-orhan-kurto">
+<h1>2.1.1. Parts Done By Orhan Kurto<a class="headerlink" href="#parts-done-by-orhan-kurto" title="Permalink to this headline">¶</a></h1>
+<p>The main entities-tables created by me are HospitalInfo, DepartmentInfo and RoomInfo. Also a sub-table which keeps information such as city id’s and department id’s names as ParameterInfo. All the tables were created by using the function create_tables. The details about the tables and their methods are as follows:</p>
+<div class="section" id="hospitalinfo-table-methods">
+<h2>2.1.1.1. HospitalInfo Table &amp; Methods<a class="headerlink" href="#hospitalinfo-table-methods" title="Permalink to this headline">¶</a></h2>
+<p>HospitalInfo table is created in order to keep the data of a hospital. Hospitals consist data such as city, capacity, name, address etc. and as a primary key it has a parameter named as hodpitalId which is choosen to be serial in order to avoid conflicts. HospitalInfo table includes add_hospital, update_hospital, delete_hospital and show_hospital_info methods. In this project, hospital informations can be modified only by admin.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creating HospitalInfo Table:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent creation of hospitalinfo table. This table includes a primary key named HospitalId which is serial in order to avoid conflicts when adding new hospitals to database and a foreign key names city which reference comes from ParameterInfo table. Also it includes non-key elements such as capacity, name, address and date of creation. Create_tables function can be found in database.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS HospitalInfo CASCADE &quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE HospitalInfo (</span>
+<span class="s2">                      HospitalID SERIAL PRIMARY KEY,</span>
+<span class="s2">                      City INT NOT NULL,</span>
+<span class="s2">                      Capacity INT NOT NULL,</span>
+<span class="s2">                      Address VARCHAR(500) NOT NULL,</span>
+<span class="s2">                      Name VARCHAR(250) NOT NULL,</span>
+<span class="s2">                      CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                      FOREIGN KEY (City) REFERENCES ParameterInfo(ID) ON DELETE CASCADE</span>
+<span class="s2">                                              )&quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">2) Add Hospital:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent method of adding a new hospital to the database. It simply inserts a new row with the given attributes to hospitalInfo table. As the creation date of the hospital, it takes the current time depending on when the hospital is added to the database. Add_hospital method can be found in hospital.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">add_hospital</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO HospitalInfo(City, Capacity, Address, Name, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">city</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">capacity</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">3) Update Hospital:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Similarly to add hospital method, update hospital method gives opportunity to modify an already added hospital. Differently from adding hospital, when updating, the hospital id which is a serial primary key in the table does not change, all the non-key elements can be changed and the creation date also updates itself to the time of updateing process. Update_hospital can be found under hospital.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">update_hospital</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">city</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">address</span><span class="p">,</span> <span class="n">name</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+         <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE HospitalInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+         <span class="k">if</span> <span class="n">city</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">city</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, city = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">city</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">capacity</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">capacity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Capacity = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">address</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">address</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, address = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">address</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Name = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE HospitalId = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalid</span><span class="p">)</span>
+
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">4) Delete Hospital:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Delete hospital info method, deletes the hospital given its hospitalId. Since in the create table it says ON DELETE CASCADE, it deletes itself from the connected tables too. Delete hospital info method can be found under hospital.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">delete_hospital_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">hospitalId</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM HospitalInfo WHERE HospitalID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">hospitalId</span><span class="p">))</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">5) Connection to HTML:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>To redirect to the hospital page the following piece of code is written. if the entered parameters are valid, it adds the hospital to the database easily from a userfriendly interface. The User Interface will be shown in User part of the report.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/hospital&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+ <span class="k">def</span> <span class="nf">hospital_page</span><span class="p">():</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">hospital</span> <span class="o">=</span> <span class="n">HospitalDatabase</span><span class="p">()</span>
+     <span class="n">hospitalAddCheck</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">add_hospital</span><span class="p">(</span><span class="n">city</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">],</span> <span class="n">capacity</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Capacity&#39;</span><span class="p">],</span> <span class="n">address</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Address&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+
+     <span class="k">if</span> <span class="n">hospitalAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">hospitalAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Hospital could not be added&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Hospital is added&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;hospital.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;hospital.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly to the code above, updating the hospital info can be done by the help of update_hospital page which is reached by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/updatehospital/&lt;int:HospitalID&gt;&#39;</span><span class="p">)</span>
+ <span class="k">def</span> <span class="nf">updaterehospital_page</span><span class="p">(</span><span class="n">HospitalID</span><span class="p">):</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">create_hospital</span> <span class="o">=</span> <span class="n">HospitalDatabase</span><span class="p">()</span>
+     <span class="n">hospitalAddCheck</span> <span class="o">=</span> <span class="n">create_hospital</span><span class="o">.</span><span class="n">update_hospital</span><span class="p">(</span><span class="n">hospitalid</span><span class="o">=</span><span class="n">HospitalID</span><span class="p">,</span> <span class="n">city</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;City&#39;</span><span class="p">],</span> <span class="n">capacity</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Capacity&#39;</span><span class="p">],</span> <span class="n">address</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Address&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">])</span>
+     <span class="k">if</span> <span class="n">hospitalAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">hospitalAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Hospital info could not be updated.&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Hospital info is updated&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updatehospital.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updatehospital.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="departmentinfo-table-methods">
+<h2>2.1.1.2. DepartmentInfo Table &amp; Methods<a class="headerlink" href="#departmentinfo-table-methods" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creating DepartmentInfo Table:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent creation of departmentinfo table. This table includes a primary key named DepartmentId which is serial in order to avoid conflicts when adding new departments to database and foreign keys named as hospitalId which reference comes from HospitalInfo table, and departmentTypeId which reference comes from ParameterInfo table. Also it includes non-key elements such as roomCount, blockNumber, personalCount and date of creation. Create_tables function can be found in database.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS DepartmentInfo CASCADE &quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE DepartmentInfo (</span>
+<span class="s2">                      DepartmentID SERIAL PRIMARY KEY,</span>
+<span class="s2">                      HospitalID INT,</span>
+<span class="s2">                      DepartmentTypeID INT,</span>
+<span class="s2">                      RoomCount INT,</span>
+<span class="s2">                      BlockNumber INT,</span>
+<span class="s2">                      PersonalCount INT,</span>
+<span class="s2">                      CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                      FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID) ON DELETE CASCADE,</span>
+<span class="s2">                      FOREIGN KEY (DepartmentTypeID) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT</span>
+<span class="s2">                                                )&quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">2) Adding Department:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent method of adding a new department to the database. It simply inserts a new row with the given attributes to departmentInfo table. As the creation date of the department, it takes the current time depending on when the department is added to the database. add_department method can be found in department.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">add_department</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">deptypeid</span><span class="p">,</span> <span class="n">roomcount</span><span class="p">,</span> <span class="n">blocknumber</span><span class="p">,</span> <span class="n">personalcount</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO DepartmentInfo(HospitalID, DepartmentTypeID, RoomCount, BlockNumber, PersonalCount, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">deptypeid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">roomcount</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">blocknumber</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">personalcount</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">3) Update Department:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Similarly to add department method, update department method gives opportunity to modify an already added department. Differently from adding department, when updating, the department id which is a serial primary key in the table does not change, all the non-key elements can be changed and the creation date also updates itself to the time of updateing process. Update_department can be found under department.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">update_department</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">departmentTypeid</span><span class="p">,</span> <span class="n">roomCount</span><span class="p">,</span> <span class="n">blockNumber</span><span class="p">,</span> <span class="n">personalCount</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+         <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE DepartmentInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+         <span class="k">if</span> <span class="n">hospitalid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">hospitalid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, HospitalId = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">departmentTypeid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">departmentTypeid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DepartmentTypeId = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentTypeid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">roomCount</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">roomCount</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, RoomCount = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roomCount</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">blockNumber</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">blockNumber</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BlockNumber = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">blockNumber</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">personalCount</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">personalCount</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, PersonalCount = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">personalCount</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39;WHERE DepartmentId = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentid</span><span class="p">)</span>
+
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">4) Delete Department:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Delete department info method, deletes the department given its departmentId. Since in the create table it says ON DELETE CASCADE for the departmentId, it deletes itself from the connected tables too. Differently, for hospitalId element is says ON DELETE RESTRICT, in the deletion of department, hospital wants to be deleted too, it does not let that to happen. Delete department info method can be found under department.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+  <span class="k">def</span> <span class="nf">delete_department_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">departmentId</span><span class="p">):</span>
+      <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+          <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+          <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM DepartmentInfo WHERE DepartmentID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+          <span class="k">try</span><span class="p">:</span>
+              <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">departmentId</span><span class="p">))</span>
+          <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+              <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+          <span class="k">else</span><span class="p">:</span>
+              <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+          <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">5) Connection to HTML:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>To redirect to the department page the following piece of code is written. if the entered parameters are valid, it adds the department to the database easily from a userfriendly interface. The User Interface will be shown in User part of the report.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/department&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+ <span class="k">def</span> <span class="nf">department_page</span><span class="p">():</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">department</span> <span class="o">=</span> <span class="n">DepartmentDatabase</span><span class="p">()</span>
+     <span class="n">departmentAddCheck</span> <span class="o">=</span> <span class="n">department</span><span class="o">.</span><span class="n">add_department</span><span class="p">(</span><span class="n">hospitalid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;HospitalID&#39;</span><span class="p">],</span> <span class="n">deptypeid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;DepartmentTypeID&#39;</span><span class="p">],</span> <span class="n">roomcount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RoomCount&#39;</span><span class="p">],</span> <span class="n">blocknumber</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;BlockNumber&#39;</span><span class="p">],</span> <span class="n">personalcount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;PersonalCount&#39;</span><span class="p">])</span>
+
+     <span class="k">if</span> <span class="n">departmentAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">departmentAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Department could not be added&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Department is added&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;department.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;department.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly to the code above, updating the department info can be done by the help of update_department page which is reached by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/updatedepartment/&lt;int:DepartmentID&gt;&#39;</span><span class="p">)</span>
+ <span class="k">def</span> <span class="nf">updatedepartment_page</span><span class="p">(</span><span class="n">DepartmentID</span><span class="p">):</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">create_department</span> <span class="o">=</span> <span class="n">DepartmentDatabase</span><span class="p">()</span>
+     <span class="n">departmentAddCheck</span> <span class="o">=</span> <span class="n">create_department</span><span class="o">.</span><span class="n">update_department</span><span class="p">(</span><span class="n">departmentid</span><span class="o">=</span><span class="n">DepartmentID</span><span class="p">,</span> <span class="n">hospitalid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;HospitalID&#39;</span><span class="p">],</span> <span class="n">departmentTypeid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;DepartmentTypeID&#39;</span><span class="p">],</span> <span class="n">roomCount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RoomCount&#39;</span><span class="p">],</span> <span class="n">blockNumber</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;BlockNumber&#39;</span><span class="p">],</span> <span class="n">personalCount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;PersonalCount&#39;</span><span class="p">])</span>
+     <span class="k">if</span> <span class="n">departmentAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">departmentAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Department info could not be updated.&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Department info is updated&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updatedepartment.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updatedepartment.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="roominfo-table-methods">
+<h2>2.1.1.3. RoomInfo Table &amp; Methods<a class="headerlink" href="#roominfo-table-methods" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creating RoomInfo Table:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent creation of roominfo table. This table includes a primary key named RoomId which is serial in order to avoid conflicts when adding new rooms to database and a foreign key named as departmentId which reference comes from DepartmentInfo table. Also it includes non-key elements such as roomNo, bathroomCount, capacity, date of creation and update date. Create_tables function can be found in database.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS RoomInfo CASCADE &quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE RoomInfo (</span>
+<span class="s2">                      DepartmentID INT,</span>
+<span class="s2">                      RoomNo INT NOT NULL,</span>
+<span class="s2">                      RoomID SERIAL PRIMARY KEY,</span>
+<span class="s2">                      Capacity INT NOT NULL,</span>
+<span class="s2">                      BathroomCount INT,</span>
+<span class="s2">                      LastControl TIMESTAMP,</span>
+<span class="s2">                      CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                      UpdateDate TIMESTAMP,</span>
+<span class="s2">                      FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID) ON DELETE CASCADE</span>
+<span class="s2">                                          )&quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">2) Adding Room:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The code below represent method of adding a new room to the database. It simply inserts a new row with the given attributes to RoomInfo table. As the creation date of the room, it takes the current time depending on when the room is added to the database. add_room method can be found in department.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">add_room</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">roomno</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">bathroomcount</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO RoomInfo(DepartmentID, RoomNo, Capacity, BathroomCount, LastControl, CreateDate, UpdateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">roomno</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">capacity</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">bathroomcount</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+             <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">3) Update Room:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Similarly to add room method, update room method gives opportunity to modify an already added room. Differently from adding room, when updating, the room id which is a serial primary key in the table does not change, all the non-key elements can be changed and the creation date remains same but in this table it adds an attribute named update time which shows the time of updateing process. Update_room can be found under room.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@classmethod</span>
+ <span class="k">def</span> <span class="nf">update_room</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">roomid</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">roomno</span><span class="p">,</span> <span class="n">capacity</span><span class="p">,</span> <span class="n">bathroomCount</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+         <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE RoomInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+         <span class="k">if</span> <span class="n">departmentid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">departmentid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DepartmentId = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">roomno</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">roomno</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, RoomNo = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roomno</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">capacity</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">capacity</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Capacity = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">capacity</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="k">if</span> <span class="n">bathroomCount</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">bathroomCount</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+             <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BathroomCount = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">bathroomCount</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE RoomId = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">roomid</span><span class="p">)</span>
+
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+         <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">4) Delete Room:</th><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Delete room info method, deletes the room given its roomId. Since in the create table it says ON DELETE CASCADE for the departmentId, it deletes itself automatically if the department is deleted. Delete room info method can be found under room.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_room_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">roomId</span><span class="p">):</span>
+     <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+         <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM RoomInfo WHERE RoomID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+         <span class="k">try</span><span class="p">:</span>
+             <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">roomId</span><span class="p">))</span>
+         <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+         <span class="k">else</span><span class="p">:</span>
+             <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+         <span class="k">return</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">5) Connection to HTML:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>To redirect to the room page the following piece of code is written. if the entered parameters are valid, it adds the room to the database easily from a userfriendly interface. The User Interface will be shown in User part of the report.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/room&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+ <span class="k">def</span> <span class="nf">room_page</span><span class="p">():</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">room</span> <span class="o">=</span> <span class="n">RoomDatabase</span><span class="p">()</span>
+     <span class="n">roomAddCheck</span> <span class="o">=</span> <span class="n">room</span><span class="o">.</span><span class="n">add_room</span><span class="p">(</span><span class="n">departmentid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;DepartmentID&#39;</span><span class="p">],</span> <span class="n">roomno</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RoomNo&#39;</span><span class="p">],</span> <span class="n">capacity</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Capacity&#39;</span><span class="p">],</span> <span class="n">bathroomcount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;BathroomCount&#39;</span><span class="p">])</span>
+
+     <span class="k">if</span> <span class="n">roomAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">roomAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Room could not be added&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Room is added&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;room.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;room.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>Similarly to the code above, updating the room info can be done by the help of update_room page which is reached by:</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/updateroom/&lt;int:RoomID&gt;&#39;</span><span class="p">)</span>
+ <span class="k">def</span> <span class="nf">updaterederoom_page</span><span class="p">(</span><span class="n">RoomID</span><span class="p">):</span>
+ <span class="n">derror</span> <span class="o">=</span> <span class="s2">&quot;OK&quot;</span>
+ <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span><span class="o">==</span><span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+     <span class="n">create_room</span> <span class="o">=</span> <span class="n">RoomDatabase</span><span class="p">()</span>
+     <span class="n">roomAddCheck</span> <span class="o">=</span> <span class="n">create_room</span><span class="o">.</span><span class="n">update_room</span><span class="p">(</span><span class="n">roomid</span><span class="o">=</span><span class="n">RoomID</span><span class="p">,</span> <span class="n">departmentid</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;DepartmentID&#39;</span><span class="p">],</span> <span class="n">roomno</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RoomNo&#39;</span><span class="p">],</span> <span class="n">capacity</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Capacity&#39;</span><span class="p">],</span> <span class="n">bathroomCount</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;BathroomCount&#39;</span><span class="p">])</span>
+     <span class="k">if</span> <span class="n">roomAddCheck</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">roomAddCheck</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Room info could not be updated.&#39;</span>
+     <span class="k">else</span><span class="p">:</span>
+         <span class="n">derror</span> <span class="o">=</span> <span class="s1">&#39;Room info is updated&#39;</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updateroom.html&quot;</span><span class="p">,</span> <span class="n">derror</span><span class="o">=</span><span class="n">derror</span><span class="p">)</span>
+ <span class="k">else</span><span class="p">:</span>
+     <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;updateroom.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameterinfo-table">
+<h2>2.1.1.4. ParameterInfo Table<a class="headerlink" href="#parameterinfo-table" title="Permalink to this headline">¶</a></h2>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">Creating ParameterInfo Table:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The ParameterInfo Table is a helping table for many main tables in out project. the ID which is a serial primary key connect to hospital id, department id and room id. Similarly Type id connects to department type id and the name parameter keeps the names of these different types of ID’s connected to other tables. The code below represent the creation of the ParameterInfo Table. It can be found under database.py.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS ParameterInfo CASCADE &quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+         <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE ParameterInfo (</span>
+<span class="s2">                      ID SERIAL PRIMARY KEY,</span>
+<span class="s2">                      TypeID INT NOT NULL,</span>
+<span class="s2">                      Name VARCHAR(100) NOT NULL,</span>
+<span class="s2">                      FOREIGN KEY (TypeID) REFERENCES ParameterType(ID) ON DELETE RESTRICT</span>
+<span class="s2">                                               )&quot;&quot;&quot;</span>
+         <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="bilal.html" class="btn btn-neutral float-right" title="2.1.2. Parts Done By Bilal Can" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="index.html" class="btn btn-neutral" title="2. Development Process" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1803
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

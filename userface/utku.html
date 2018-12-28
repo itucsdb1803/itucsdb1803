@@ -1,0 +1,365 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>3.3. Parts Implemented by Utku Anil Saykara &mdash; ITUCSDB1803 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="prev" title="3.2. Parts Done By Bilal Can" href="bilal.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1803
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">1. Installations</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../development/index.html">2. Development Process</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">3. Userface</a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="orhan.html">3.1. Parts Done By Orhan Kurto</a></li>
+<li class="toctree-l2"><a class="reference internal" href="bilal.html">3.2. Parts Done By Bilal Can</a></li>
+<li class="toctree-l2 current"><a class="current reference internal" href="#">3.3. Parts Implemented by Utku Anil Saykara</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="#user-login">3.3.1. User Login</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#profile-page">3.3.2. Profile Page</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#personnel-profile-page">3.3.2.1. Personnel Profile Page</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#patient-profile-page">3.3.2.2. Patient Profile Page</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#update-user-information">3.3.3. Update User Information</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#update-personnel-information">3.3.3.1. Update Personnel Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#update-patient-information">3.3.3.2. Update Patient Information</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#register-page">3.3.4. Register Page</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#register-personnel">3.3.4.1. Register Personnel</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#register-patient">3.3.4.2. Register Patient</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#search-page">3.3.5. Search Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#duty-page">3.3.6. Duty Page</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#duty-add">3.3.6.1. Duty Add</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duty-update">3.3.6.2. Duty Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duty-delete">3.3.6.3. Duty Delete</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="#parameter-add-page">3.3.7. Parameter Add Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#permission-denied-page">3.3.8. Permission Denied Page</a></li>
+<li class="toctree-l3"><a class="reference internal" href="#error-page">3.3.9. Error Page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1803</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">3. Userface</a> &raquo;</li>
+        
+      <li>3.3. Parts Implemented by Utku Anil Saykara</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/userface/utku.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-utku-anil-saykara">
+<h1>3.3. Parts Implemented by Utku Anil Saykara<a class="headerlink" href="#parts-implemented-by-utku-anil-saykara" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="user-login">
+<h2>3.3.1. User Login<a class="headerlink" href="#user-login" title="Permalink to this headline">¶</a></h2>
+<p>This page allows users to login to the system and check-in. When the system is first turned on, only the administrator account is pre-defined. Persons who want to login to the site must be registered in advance by the managers. Those who try to enter other pages of the site from the address line without logging in are also directed to this page.</p>
+<div class="figure">
+<img alt="Login Page" src="../_images/login.PNG" />
+</div>
+</div>
+<div class="section" id="profile-page">
+<h2>3.3.2. Profile Page<a class="headerlink" href="#profile-page" title="Permalink to this headline">¶</a></h2>
+<p>Signed users are directed to their profile page. Users can navigate to pages that have authority through the navigation bar. Users can access and update their information via this page.</p>
+<div class="section" id="personnel-profile-page">
+<h3>3.3.2.1. Personnel Profile Page<a class="headerlink" href="#personnel-profile-page" title="Permalink to this headline">¶</a></h3>
+<p>Personnel can view and update their own information, and they can access and modify pages within their authority.</p>
+<div class="figure">
+<img alt="Personnel Profile Page" src="../_images/personal.PNG" />
+</div>
+</div>
+<div class="section" id="patient-profile-page">
+<h3>3.3.2.2. Patient Profile Page<a class="headerlink" href="#patient-profile-page" title="Permalink to this headline">¶</a></h3>
+<p>Patients can see their own profiles and their own information. They can also update their profiles as other users.</p>
+<div class="figure">
+<img alt="Patient Profile Page" src="../_images/patient.PNG" />
+</div>
+</div>
+</div>
+<div class="section" id="update-user-information">
+<h2>3.3.3. Update User Information<a class="headerlink" href="#update-user-information" title="Permalink to this headline">¶</a></h2>
+<p>Users can update their own information via the update button on their profile page. Administrators can also update other accounts.</p>
+<div class="section" id="update-personnel-information">
+<h3>3.3.3.1. Update Personnel Information<a class="headerlink" href="#update-personnel-information" title="Permalink to this headline">¶</a></h3>
+<p>Updating personnel information is as follows.</p>
+<div class="figure">
+<img alt="Personnel Update Page" src="../_images/personal_update.PNG" />
+</div>
+</div>
+<div class="section" id="update-patient-information">
+<h3>3.3.3.2. Update Patient Information<a class="headerlink" href="#update-patient-information" title="Permalink to this headline">¶</a></h3>
+<p>Updating patient information is as follows.</p>
+<div class="figure">
+<img alt="Patient Update Page" src="../_images/patient_update.PNG" />
+</div>
+</div>
+</div>
+<div class="section" id="register-page">
+<h2>3.3.4. Register Page<a class="headerlink" href="#register-page" title="Permalink to this headline">¶</a></h2>
+<p>Because the system is a hospital management system, external registration is prevented. To register, contact the hospital personnel and then create a new user via the personnel’s registration page. You can access register page using the register button on navigation bar.</p>
+<div class="figure">
+<img alt="Register Page" src="../_images/register.PNG" />
+</div>
+<div class="section" id="register-personnel">
+<h3>3.3.4.1. Register Personnel<a class="headerlink" href="#register-personnel" title="Permalink to this headline">¶</a></h3>
+<p>At this page, you can add new personnel.</p>
+<div class="figure">
+<img alt="Register Personnel Page" src="../_images/personal_register.PNG" />
+</div>
+</div>
+<div class="section" id="register-patient">
+<h3>3.3.4.2. Register Patient<a class="headerlink" href="#register-patient" title="Permalink to this headline">¶</a></h3>
+<p>At this page, you can add new patient.</p>
+<div class="figure">
+<img alt="Register Patient Page" src="../_images/patient_register.PNG" />
+</div>
+</div>
+</div>
+<div class="section" id="search-page">
+<h2>3.3.5. Search Page<a class="headerlink" href="#search-page" title="Permalink to this headline">¶</a></h2>
+<p>You can search users and access their information and profile pages at this page. In addition, there is an add button to access register page. Only personnel can access this page.</p>
+<div class="figure">
+<img alt="Search Page" src="../_images/search.PNG" />
+</div>
+</div>
+<div class="section" id="duty-page">
+<h2>3.3.6. Duty Page<a class="headerlink" href="#duty-page" title="Permalink to this headline">¶</a></h2>
+<p>You can access duty reports at this page. In addition, there are buttons for adding new reports, updating reports, and erasing reports. Only personnel can access this page.</p>
+<div class="figure">
+<img alt="Duty Page" src="../_images/duty.PNG" />
+</div>
+<div class="section" id="duty-add">
+<h3>3.3.6.1. Duty Add<a class="headerlink" href="#duty-add" title="Permalink to this headline">¶</a></h3>
+<p>You can access this page with add button on duty page. You can add new duty reports on this page. Current user will added as creator of report. Only personnel can access this page.</p>
+<div class="figure">
+<img alt="Duty Add Page" src="../_images/duty_add.PNG" />
+</div>
+</div>
+<div class="section" id="duty-update">
+<h3>3.3.6.2. Duty Update<a class="headerlink" href="#duty-update" title="Permalink to this headline">¶</a></h3>
+<p>You can update reports with the edit button next to it on duty page. Only personnel can access this page.</p>
+<div class="figure">
+<img alt="Duty Update Page" src="../_images/duty_update.PNG" />
+</div>
+</div>
+<div class="section" id="duty-delete">
+<h3>3.3.6.3. Duty Delete<a class="headerlink" href="#duty-delete" title="Permalink to this headline">¶</a></h3>
+<p>With the delete button on the task page, the staff can delete the reports they selected with the check boxes on the right of each report.</p>
+</div>
+</div>
+<div class="section" id="parameter-add-page">
+<h2>3.3.7. Parameter Add Page<a class="headerlink" href="#parameter-add-page" title="Permalink to this headline">¶</a></h2>
+<p>You can add new department type, city and user type on this page.</p>
+<div class="figure">
+<img alt="Parameter Add Page" src="../_images/parameter.PNG" />
+</div>
+</div>
+<div class="section" id="permission-denied-page">
+<h2>3.3.8. Permission Denied Page<a class="headerlink" href="#permission-denied-page" title="Permalink to this headline">¶</a></h2>
+<p>If the user tries to access a page without permission, permission denied page will came out.</p>
+<div class="figure">
+<img alt="Permission Denied Page" src="../_images/permission.PNG" />
+</div>
+</div>
+<div class="section" id="error-page">
+<h2>3.3.9. Error Page<a class="headerlink" href="#error-page" title="Permalink to this headline">¶</a></h2>
+<p>An unexpected error occurs, error page will came out.</p>
+<div class="figure">
+<img alt="Error Page" src="../_images/error.PNG" />
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+      
+        <a href="bilal.html" class="btn btn-neutral" title="3.2. Parts Done By Bilal Can" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1803
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

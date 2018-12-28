@@ -1,0 +1,565 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.2. Parts Done By Bilal Can &mdash; ITUCSDB1803 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="2.1.3. Parts Implemented by Utku Anil Saykara" href="utku.html" />
+    <link rel="prev" title="2.1.1. Parts Done By Orhan Kurto" href="orhan.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1803
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">1. Installations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. Development Process</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#database-design-entity-relationship-diagram">2.1. Database Design - Entity-Relationship Diagram</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="orhan.html">2.1.1. Parts Done By Orhan Kurto</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.1.2. Parts Done By Bilal Can</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#diseaseinfo-table-methods">2.1.2.1. DiseaseInfo Table &amp; Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#medicalreport-table-methods">2.1.2.2. MedicalReport Table &amp; Methods</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#reservation-table-methods">2.1.2.3. Reservation Table &amp; Methods</a></li>
+</ul>
+</li>
+<li class="toctree-l3"><a class="reference internal" href="utku.html">2.1.3. Parts Implemented by Utku Anil Saykara</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../userface/index.html">3. Userface</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1803</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. Development Process</a> &raquo;</li>
+        
+      <li>2.1.2. Parts Done By Bilal Can</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/bilal.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-done-by-bilal-can">
+<h1>2.1.2. Parts Done By Bilal Can<a class="headerlink" href="#parts-done-by-bilal-can" title="Permalink to this headline">¶</a></h1>
+<p>Bilal Can is responsible for the tables DiseaseInfo, MedicalReport, and Reservation. Tables are created inside database.py.</p>
+<div class="section" id="diseaseinfo-table-methods">
+<h2>2.1.2.1. DiseaseInfo Table &amp; Methods<a class="headerlink" href="#diseaseinfo-table-methods" title="Permalink to this headline">¶</a></h2>
+<p>This table is for adding diseases into the database.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creation of the table DiseaseInfo:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS DiseaseInfo CASCADE&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE DiseaseInfo(</span>
+<span class="s2">                                        DiseaseID SERIAL PRIMARY KEY,</span>
+<span class="s2">                                        Department INT NOT NULL,</span>
+<span class="s2">                                        Name VARCHAR(150) NOT NULL,</span>
+<span class="s2">                                        DiseaseArea VARCHAR(150),</span>
+<span class="s2">                                        Description VARCHAR(500),</span>
+<span class="s2">                                        CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                                        UpdateDate TIMESTAMP,</span>
+<span class="s2">                                        FOREIGN KEY (Department) REFERENCES DepartmentInfo(DepartmentID)</span>
+<span class="s2">                                    )&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">2) Adding diseases into the database:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>This operation is done under /disease page. Disease.py file includes the code about adding. Pages.py give oppurtunity of communication between the html document and the Disease.py file.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="k">class</span> <span class="nc">DiseaseDatabase</span><span class="p">:</span>
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">add_disease</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">department</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">diseasearea</span><span class="p">,</span> <span class="n">description</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO DiseaseInfo(Department, Name, DiseaseArea, Description, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">department</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">diseasearea</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">description</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">3) Selection of diseases:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">select_disease</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM DiseaseInfo WHERE DiseaseID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">diseaseid</span><span class="p">))</span>
+            <span class="n">sicknessInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">sicknessInfo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Disease</span><span class="p">(</span><span class="n">diseaseid</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">department</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span>
+                           <span class="n">diseasearea</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                           <span class="n">description</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">createdate</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">updatedate</span><span class="o">=</span><span class="n">sicknessInfo</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="medicalreport-table-methods">
+<h2>2.1.2.2. MedicalReport Table &amp; Methods<a class="headerlink" href="#medicalreport-table-methods" title="Permalink to this headline">¶</a></h2>
+<p>This is just for adding reports, in each time a new report should be added via doctors. Patients cannat see report adding page, butthey can see their medical reports.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creation of the table MedicalReport:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>İt is created under database.py and coded like below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS MedicalReport CASCADE&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE MedicalReport(</span>
+<span class="s2">                                    PatientID INT PRIMARY KEY,</span>
+<span class="s2">                                    DoctorID INT NOT NULL,</span>
+<span class="s2">                                    DiseaseID INT NOT NULL,</span>
+<span class="s2">                                    Treatment VARCHAR(500),</span>
+<span class="s2">                                    Prescription VARCHAR(500),</span>
+<span class="s2">                                    Report VARCHAR(1000),</span>
+<span class="s2">                                    CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                                    UpdateDate TIMESTAMP,</span>
+<span class="s2">                                    FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),</span>
+<span class="s2">                                    FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),</span>
+<span class="s2">                                    FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID)</span>
+<span class="s2">                                            )&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">2) Adding a MedicalReport:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>For adding a medicalreport medicalreport.py is used. Codes are like below. Only Personnels of a hospital can access here.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">database</span> <span class="kn">import</span> <span class="o">*</span>
+    <span class="k">class</span> <span class="nc">MedicalReport</span><span class="p">():</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">patientid</span><span class="p">,</span> <span class="n">doctorid</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">prescription</span><span class="p">,</span> <span class="n">report</span><span class="p">,</span> <span class="n">createdate</span><span class="p">,</span> <span class="n">updatedate</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">PatientID</span> <span class="o">=</span> <span class="n">patientid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DoctorID</span> <span class="o">=</span> <span class="n">doctorid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DiseaseID</span> <span class="o">=</span> <span class="n">diseaseid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Treatment</span> <span class="o">=</span> <span class="n">treatment</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Prescription</span> <span class="o">=</span> <span class="n">prescription</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Report</span> <span class="o">=</span> <span class="n">report</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">CreateDate</span> <span class="o">=</span> <span class="n">createdate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">UpdateDate</span> <span class="o">=</span> <span class="n">updatedate</span>
+    <span class="k">class</span> <span class="nc">MedicalReportDatabase</span><span class="p">:</span>
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">add_report</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientid</span><span class="p">,</span> <span class="n">doctorid</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">,</span> <span class="n">treatment</span><span class="p">,</span> <span class="n">prescription</span><span class="p">,</span> <span class="n">report</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO MedicalReport(PatientID, DoctorID, DiseaseID, Treatment, Prescription, Report, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">patientid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">doctorid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">diseaseid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">treatment</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">prescription</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">report</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="reservation-table-methods">
+<h2>2.1.2.3. Reservation Table &amp; Methods<a class="headerlink" href="#reservation-table-methods" title="Permalink to this headline">¶</a></h2>
+<p>Users can do reservations; also, the personnel of the hospital can make reservations for patients. Patients can see their information about reservations, and they can change the reservations information later.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">1) Creating Table for Reservations:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>It is created under databse.py with the code below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS Reservation CASCADE &quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE Reservation (</span>
+<span class="s2">                                        ReservationID SERIAL PRIMARY KEY,</span>
+<span class="s2">                                        PatientID INT NOT NULL,</span>
+<span class="s2">                                        HospitalID INT NOT NULL,</span>
+<span class="s2">                                        DoctorID INT NOT NULL,</span>
+<span class="s2">                                        DepartmentID INT NOT NULL,</span>
+<span class="s2">                                        DiseaseID INT NOT NULL,</span>
+<span class="s2">                                        Comment VARCHAR(500),</span>
+<span class="s2">                                        UpdateDate TIMESTAMP,</span>
+<span class="s2">                                        CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                                        ReservationDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                                        ReservationHour VARCHAR(10),</span>
+<span class="s2">                                        FOREIGN KEY (PatientID) REFERENCES PatientInfo(PatientID),</span>
+<span class="s2">                                        FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID),</span>
+<span class="s2">                                        FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID),</span>
+<span class="s2">                                        FOREIGN KEY (DepartmentID) REFERENCES DepartmentInfo(DepartmentID),</span>
+<span class="s2">                                        FOREIGN KEY (DiseaseID) REFERENCES DiseaseInfo(DiseaseID)</span>
+<span class="s2">                                                        )&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">2) Making a Reservation:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>Under reservation file a class is formed, and it has a method for making a reservation.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="kn">from</span> <span class="nn">database</span> <span class="kn">import</span> <span class="o">*</span>
+    <span class="kn">from</span> <span class="nn">flask_login</span> <span class="kn">import</span> <span class="n">UserMixin</span>
+    <span class="k">class</span> <span class="nc">MedicalReport</span><span class="p">(</span><span class="n">UserMixin</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">reservationid</span><span class="p">,</span> <span class="n">patientid</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">doctorid</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">updatedate</span><span class="p">,</span> <span class="n">createdate</span><span class="p">,</span> <span class="n">reservationdate</span><span class="p">,</span> <span class="n">reservationhour</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ReservationID</span> <span class="o">=</span> <span class="n">reservationid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">PatientID</span> <span class="o">=</span> <span class="n">patientid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">HospitalID</span> <span class="o">=</span> <span class="n">hospitalid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DoctorID</span> <span class="o">=</span> <span class="n">doctorid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DepartmentID</span> <span class="o">=</span> <span class="n">departmentid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">DiseaeID</span> <span class="o">=</span> <span class="n">diseaseid</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Comment</span> <span class="o">=</span> <span class="n">comment</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">UpdateDate</span> <span class="o">=</span> <span class="n">updatedate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">CreateDate</span> <span class="o">=</span> <span class="n">createdate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ReservationDate</span> <span class="o">=</span> <span class="n">reservationdate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">ReservationHour</span> <span class="o">=</span> <span class="n">reservationhour</span>
+    <span class="k">class</span> <span class="nc">ReservationDatabase</span><span class="p">:</span>
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">add_reservation</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientid</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">doctorid</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">reservationdate</span><span class="p">,</span> <span class="n">reservationhour</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO Reservation(PatientID, HospitalID, DoctorID, DepartmentID, DiseaseID, Comment, CreateDate, ReservationDate, ReservationHour) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">patientid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">doctorid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">diseaseid</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">comment</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="nb">str</span><span class="p">(</span><span class="n">reservationdate</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">reservationhour</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span> <span class="mi">1</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">3) Selecting a Reservation:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<p>The selection of reservation should be done to show them to the patients in the profile page of them. Allso after clicking “Update Reservation” button, to change the correct reservation info, we should at first get the reservationid from the database.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">select_all_reservation_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">reservationInfo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="k">if</span> <span class="n">patientid</span> <span class="o">==</span> <span class="s1">&#39;&#39;</span> <span class="ow">or</span> <span class="n">patientid</span> <span class="o">==</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM Reservation&quot;&quot;&quot;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT * FROM ReservationInfo WHERE PatientID = &#39;</span> <span class="o">+</span> <span class="n">patientid</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,)</span>
+            <span class="n">reservationInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reservationInfo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">reservationInfo</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+<span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">select_reservation_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientid</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">reservationInfo</span> <span class="o">=</span> <span class="bp">None</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT  res.PatientID, res.ReservationID, res.DoctorID, res.HospitalID, res.DepartmentID,</span>
+<span class="s2">                        res.DiseaseID, res.Comment, res.ReservationDate, res.ReservationHour</span>
+<span class="s2">            FROM  PatientInfo p, Reservation res</span>
+<span class="s2">                WHERE p.PatientID = res.PatientID AND p.PatientID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientid</span><span class="p">))</span>
+            <span class="n">reservationInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">reservationInfo</span><span class="p">:</span>
+            <span class="n">reservationInfo2</span> <span class="o">=</span> <span class="p">[</span><span class="n">reservationInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                                <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">reservationInfo</span><span class="p">[</span><span class="mi">8</span><span class="p">]]</span>
+            <span class="k">return</span> <span class="n">reservationInfo2</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name" colspan="2">4) Updating a Reservation:</th></tr>
+<tr class="field-odd field"><td>&#160;</td><td class="field-body"></td>
+</tr>
+</tbody>
+</table>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span>    <span class="nd">@classmethod</span>
+<span class="k">def</span> <span class="nf">update_reservation</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">reservationid</span><span class="p">,</span> <span class="n">patientid</span><span class="p">,</span> <span class="n">hospitalid</span><span class="p">,</span> <span class="n">doctorid</span><span class="p">,</span> <span class="n">departmentid</span><span class="p">,</span> <span class="n">diseaseid</span><span class="p">,</span> <span class="n">comment</span><span class="p">,</span> <span class="n">reservationdate</span><span class="p">,</span> <span class="n">reservationhour</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE Reservation SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+        <span class="k">if</span> <span class="n">patientid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">patientid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, PatientID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">hospitalid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">hospitalid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, HospitalID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">doctorid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">doctorid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DoctorID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">doctorid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">departmentid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">departmentid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DepartmentID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">diseaseid</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">diseaseid</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DiseaseID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">diseaseid</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">comment</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">comment</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Comment = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">comment</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">reservationdate</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">reservationdate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, ReservationDate = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">reservationdate</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">reservationhour</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">reservationhour</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, ReservationHour = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">reservationhour</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE ReservationId = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">reservationid</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="utku.html" class="btn btn-neutral float-right" title="2.1.3. Parts Implemented by Utku Anil Saykara" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="orhan.html" class="btn btn-neutral" title="2.1.1. Parts Done By Orhan Kurto" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1803
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

@@ -1,0 +1,1100 @@
+
+
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <title>2.1.3. Parts Implemented by Utku Anil Saykara &mdash; ITUCSDB1803 1.0 documentation</title>
+  
+
+  
+  
+  
+  
+
+  
+
+  
+  
+    
+
+  
+
+  <link rel="stylesheet" href="../_static/css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="../_static/pygments.css" type="text/css" />
+    <link rel="index" title="Index" href="../genindex.html" />
+    <link rel="search" title="Search" href="../search.html" />
+    <link rel="next" title="3. Userface" href="../userface/index.html" />
+    <link rel="prev" title="2.1.2. Parts Done By Bilal Can" href="bilal.html" /> 
+
+  
+  <script src="../_static/js/modernizr.min.js"></script>
+
+</head>
+
+<body class="wy-body-for-nav">
+
+   
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search">
+          
+
+          
+            <a href="../index.html" class="icon icon-home"> ITUCSDB1803
+          
+
+          
+          </a>
+
+          
+            
+            
+              <div class="version">
+                1.0
+              </div>
+            
+          
+
+          
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+
+          
+        </div>
+
+        <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+          
+            
+            
+              
+            
+            
+              <ul class="current">
+<li class="toctree-l1"><a class="reference internal" href="../installation/index.html">1. Installations</a></li>
+<li class="toctree-l1 current"><a class="reference internal" href="index.html">2. Development Process</a><ul class="current">
+<li class="toctree-l2 current"><a class="reference internal" href="index.html#database-design-entity-relationship-diagram">2.1. Database Design - Entity-Relationship Diagram</a><ul class="current">
+<li class="toctree-l3"><a class="reference internal" href="orhan.html">2.1.1. Parts Done By Orhan Kurto</a></li>
+<li class="toctree-l3"><a class="reference internal" href="bilal.html">2.1.2. Parts Done By Bilal Can</a></li>
+<li class="toctree-l3 current"><a class="current reference internal" href="#">2.1.3. Parts Implemented by Utku Anil Saykara</a><ul>
+<li class="toctree-l4"><a class="reference internal" href="#initializing-parameters-and-first-user">2.1.3.1. Initializing Parameters and First User</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#login-information">2.1.3.2. Login Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-information">2.1.3.3. User Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-profile">2.1.3.4. User Profile</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-registration">2.1.3.5. User Registration</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-update">2.1.3.6. User Update</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-delete">2.1.3.7. User Delete</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#user-search">2.1.3.8. User Search</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#parameter-information">2.1.3.9. Parameter Information</a></li>
+<li class="toctree-l4"><a class="reference internal" href="#duty-operations">2.1.3.10. Duty Operations</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="toctree-l1"><a class="reference internal" href="../userface/index.html">3. Userface</a></li>
+</ul>
+
+            
+          
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" aria-label="top navigation">
+        
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../index.html">ITUCSDB1803</a>
+        
+      </nav>
+
+
+      <div class="wy-nav-content">
+        
+        <div class="rst-content">
+        
+          
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div role="navigation" aria-label="breadcrumbs navigation">
+
+  <ul class="wy-breadcrumbs">
+    
+      <li><a href="../index.html">Docs</a> &raquo;</li>
+        
+          <li><a href="index.html">2. Development Process</a> &raquo;</li>
+        
+      <li>2.1.3. Parts Implemented by Utku Anil Saykara</li>
+    
+    
+      <li class="wy-breadcrumbs-aside">
+        
+            
+            <a href="../_sources/development/utku.rst.txt" rel="nofollow"> View page source</a>
+          
+        
+      </li>
+    
+  </ul>
+
+  
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+            
+  <div class="section" id="parts-implemented-by-utku-anil-saykara">
+<h1>2.1.3. Parts Implemented by Utku Anil Saykara<a class="headerlink" href="#parts-implemented-by-utku-anil-saykara" title="Permalink to this headline">¶</a></h1>
+<p>All tables are created in the create_tables function at database.py.</p>
+<div class="section" id="initializing-parameters-and-first-user">
+<h2>2.1.3.1. Initializing Parameters and First User<a class="headerlink" href="#initializing-parameters-and-first-user" title="Permalink to this headline">¶</a></h2>
+<p>When the “/initdb” page is opened, create_tables function is executed and all tables will create. After that, the function init_db is executed and the parameter types are added to the “ParameterType” table first. After adding the parameter types, the necessary initial parameters are added using these types. These parameters are found in the dictionaries in the init_parameters.py file. Then the user login information for the first user is created in the “LogInfo” table. With this information generated, the administrator’s information is entered in the “PersonalInfo” table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">init_db</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterType(ID, Name) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;City&quot;</span><span class="p">))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterType(ID, Name) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;2&quot;</span><span class="p">,</span> <span class="s2">&quot;Duty&quot;</span><span class="p">))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterType(ID, Name) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;3&quot;</span><span class="p">,</span> <span class="s2">&quot;Department Type&quot;</span><span class="p">))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterInfo(TypeID, Name) VALUES (1, </span><span class="si">%(city)s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">city_dict</span><span class="p">)</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterInfo(TypeID, Name) VALUES (2, </span><span class="si">%(job)s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">job_dict</span><span class="p">)</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterInfo(TypeID, Name) VALUES (3, </span><span class="si">%(dep)s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">executemany</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">dep_dict</span><span class="p">)</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO HospitalInfo(City, Capacity, Address, Name, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="mi">34</span><span class="p">,</span> <span class="s2">&quot;1500&quot;</span><span class="p">,</span> <span class="s2">&quot;Maslak&quot;</span><span class="p">,</span> <span class="s2">&quot;Acibadem&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO LogInfo(UserName, Password, IsEmployee, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="s2">&quot;12345&quot;</span><span class="p">,</span> <span class="s2">&quot;true&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO PersonalInfo(UserID, HospitalID, DepartmentID, createUserID, UserType, RegNu, TelNo, BirthPlace, Name, Surname, BirthDay) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+    <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;103&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;87&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;0&quot;</span><span class="p">,</span> <span class="s2">&quot;1&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="s2">&quot;admin&quot;</span><span class="p">,</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="login-information">
+<h2>2.1.3.2. Login Information<a class="headerlink" href="#login-information" title="Permalink to this headline">¶</a></h2>
+<p>The information required for the user to login to the system is kept in the “LogInfo” table. This table was used as the primary key of the user’s UserID. This table also keeps the user name and password. Also, whether the user is a staff member, the last entry date and the last password change date are kept in this table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS LogInfo CASCADE &quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE LogInfo (</span>
+<span class="s2">                  UserID SERIAL PRIMARY KEY,</span>
+<span class="s2">                  UserName VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  Password VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  IsEmployee Boolean NOT NULL,</span>
+<span class="s2">                  LastLoginDate TIMESTAMP,</span>
+<span class="s2">                  CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                  UpdateDate TIMESTAMP)&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The Login class keeps some information of the user who is currently logged into the system. As shown in the following snippet, this information is: ID, user name, password, last login time, create date, update date and employee information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">class</span> <span class="nc">Login</span><span class="p">(</span><span class="n">UserMixin</span><span class="p">):</span>
+<span class="k">def</span> <span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="nb">id</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">isEmployee</span><span class="p">,</span> <span class="n">lastLoginDate</span><span class="p">,</span> <span class="n">createDate</span><span class="p">,</span> <span class="n">updateDate</span><span class="p">):</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">id</span> <span class="o">=</span> <span class="nb">id</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">UserName</span> <span class="o">=</span> <span class="n">username</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">Password</span> <span class="o">=</span> <span class="n">password</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">IsEmployee</span> <span class="o">=</span> <span class="n">isEmployee</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">LastLoginDate</span> <span class="o">=</span> <span class="n">lastLoginDate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">CreateDate</span> <span class="o">=</span> <span class="n">createDate</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">UpdateDate</span> <span class="o">=</span> <span class="n">updateDate</span>
+</pre></div>
+</div>
+<p>When the user open the login page, he/she logs in by filling out the forms. The log_in_job function in the LoginDatabase class in the Login.py file compares the information entered to the form with the records. If there is a user with this name and its password matches, it updates the last entry time and performs user login with the login_user function of the Flask-Login library.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s2">&quot;/login&quot;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="k">def</span> <span class="nf">login</span>
+    <span class="n">error</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">ld</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+        <span class="n">loginInfo</span> <span class="o">=</span> <span class="n">ld</span><span class="o">.</span><span class="n">log_in_job</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="n">password</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;password&#39;</span><span class="p">])</span>
+        <span class="k">if</span> <span class="n">loginInfo</span> <span class="ow">is</span> <span class="bp">None</span> <span class="ow">or</span> <span class="n">loginInfo</span> <span class="o">==</span> <span class="o">-</span><span class="mi">1</span><span class="p">:</span>
+            <span class="n">error</span> <span class="o">=</span> <span class="s1">&#39;Invalid Credentials. Please try again.&#39;</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">login_user</span><span class="p">(</span><span class="n">loginInfo</span><span class="p">)</span>
+            <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">personel_page</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">patient_page</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">id</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;login.html&#39;</span><span class="p">,</span> <span class="n">error</span><span class="o">=</span><span class="n">error</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>log_in_job function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">log_in_job</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">logData</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT * FROM LogInfo WHERE Username = </span><span class="si">%s</span><span class="s2"> AND Password = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">username</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">)))</span>
+            <span class="n">logData</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+            <span class="k">if</span> <span class="n">logData</span><span class="p">:</span>
+                <span class="n">LoginDatabase</span><span class="o">.</span><span class="n">update_last_login</span><span class="p">(</span><span class="n">logData</span><span class="p">[</span><span class="mi">0</span><span class="p">])</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">logData</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">Login</span><span class="p">(</span><span class="nb">id</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">username</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">password</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">isEmployee</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span>
+                     <span class="n">lastLoginDate</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">createDate</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">updateDate</span><span class="o">=</span><span class="n">logData</span><span class="p">[</span><span class="mi">6</span><span class="p">])</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="o">-</span><span class="mi">1</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="user-information">
+<h2>2.1.3.3. User Information<a class="headerlink" href="#user-information" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personnel-information">
+<h3>2.1.3.3.1. Personnel Information<a class="headerlink" href="#personnel-information" title="Permalink to this headline">¶</a></h3>
+<p>The information of the personnel is kept in the “PersonalInfo” table. UserID was used as the primary key. During user registration, the serial key created in the “LogInfo” table has been added to this table as UserID and a “one-to-one” relationship has been created with the “LogInfo” table. HospitalID was used as the foreign key to take the hospital information from the “HospitalInfo” table. The DepartmentID was used as an foreign key to retrieve the department where the personnel work from the “ParameterInfo” table. CreateUserID has been used as an foreign key to find the person who created the user in “LogInfo” table. UserType was used as the external key to retrieve the user’s task information from the “ParameterInfo” table. BirthPlace is used as an foreign key to take the user’s birth location from the “ParameterInfo” table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS PersonalInfo CASCADE &quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE PersonalInfo (</span>
+<span class="s2">                  UserID INT PRIMARY KEY,</span>
+<span class="s2">                  HospitalID INT NOT NULL,</span>
+<span class="s2">                  DepartmentID INT NOT NULL,</span>
+<span class="s2">                  CreateUserID INT NOT NULL,</span>
+<span class="s2">                  UserType INT NOT NULL,</span>
+<span class="s2">                  RegNu INT NOT NULL,</span>
+<span class="s2">                  BirthPlace INT NOT NULL,</span>
+<span class="s2">                  TelNo VARCHAR(50) NOT NULL,</span>
+<span class="s2">                  Name VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  Surname VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  BirthDay TIMESTAMP,</span>
+<span class="s2">                  UpdateDate TIMESTAMP,</span>
+<span class="s2">                  FOREIGN KEY (UserID) REFERENCES LogInfo(UserID) ON DELETE CASCADE,</span>
+<span class="s2">                  FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID) ON DELETE RESTRICT,</span>
+<span class="s2">                  FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT,</span>
+<span class="s2">                  FOREIGN KEY (HospitalID) REFERENCES HospitalInfo(HospitalID) ON DELETE RESTRICT,</span>
+<span class="s2">                  FOREIGN KEY (DepartmentID) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT,</span>
+<span class="s2">                  FOREIGN KEY (UserType) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT)&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patient-information">
+<h3>2.1.3.3.2. Patient Information<a class="headerlink" href="#patient-information" title="Permalink to this headline">¶</a></h3>
+<p>The information of the patient is kept in the “PatientInfo” table. PatientID was used as the primary key. During user registration, the serial key created in the “LogInfo” table has been added to this table as PatientID and a “one-to-one” relationship has been created with the “LogInfo” table. CreateUserID has been used as an foreign key to find the person who created the user in “LogInfo” table. BirthPlace is used as an foreign key to take the user’s birth location from the “ParameterInfo” table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE  IF EXISTS PatientInfo CASCADE&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE PatientInfo(</span>
+<span class="s2">                  PatientID INT PRIMARY KEY,</span>
+<span class="s2">                  CreateUserID INT NOT NULL,</span>
+<span class="s2">                  BirthPlace INT NOT NULL,</span>
+<span class="s2">                  GSM VARCHAR(50) NOT NULL,</span>
+<span class="s2">                  TCKN VARCHAR(50) NOT NULL,</span>
+<span class="s2">                  Name VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  Surname VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  BirthDay TIMESTAMP NOT NULL,</span>
+<span class="s2">                  UpdateDate TIMESTAMP,</span>
+<span class="s2">                  FOREIGN KEY (PatientID) REFERENCES LogInfo(UserID) ON DELETE CASCADE,</span>
+<span class="s2">                  FOREIGN KEY (CreateUserID) REFERENCES LogInfo(UserID) ON DELETE RESTRICT,</span>
+<span class="s2">                  FOREIGN KEY (BirthPlace) REFERENCES ParameterInfo(ID) ON DELETE RESTRICT)&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-profile">
+<h2>2.1.3.4. User Profile<a class="headerlink" href="#user-profile" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personnel-profile">
+<h3>2.1.3.4.1. Personnel Profile<a class="headerlink" href="#personnel-profile" title="Permalink to this headline">¶</a></h3>
+<p>The personnel profile can be viewed through this page. The get_profile_info function retrieves the user’s information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">personel_page</span><span class="p">(</span><span class="n">UserID</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="n">personal</span> <span class="o">=</span> <span class="n">PersonalDatabase</span><span class="p">()</span>
+        <span class="n">profile</span> <span class="o">=</span> <span class="n">personal</span><span class="o">.</span><span class="n">get_profile_info</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;personal.html&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="n">profile</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The profile information of the personnel is retrieved with the get_profile_info function. When taking data from the database, appropriate data is retrieved using database relationships to see the values that correspond to those IDs instead of IDs. The user’s age is calculated by taking the birthday information from the incoming data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_profile_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">personalInfo</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.UserID, l.username, p.Name, p.Surname, para2.Name, h.name, para1.name, p.RegNu, p.BirthDay, para3.Name, p.TelNo</span>
+<span class="s2">                FROM PersonalInfo p, ParameterInfo para1, ParameterInfo para2, ParameterInfo para3, HospitalInfo h, LogInfo l</span>
+<span class="s2">                    WHERE p.DepartmentID = para1.ID AND p.UserType = para2.ID AND p.BirthPlace = para3.ID AND p.HospitalID = h.HospitalID AND p.UserID = l.UserID</span>
+<span class="s2">                        AND p.UserID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">userID</span><span class="p">))</span>
+            <span class="n">personalInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">personalInfo</span><span class="p">:</span>
+            <span class="n">birthDay</span> <span class="o">=</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">8</span><span class="p">]</span>
+            <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">today</span> <span class="o">-</span> <span class="n">birthDay</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mi">365</span><span class="p">)</span>
+            <span class="n">profileInfo</span> <span class="o">=</span> <span class="p">[</span><span class="n">personalInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                            <span class="n">personalInfo</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">6</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">7</span><span class="p">],</span> <span class="n">age</span><span class="p">,</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">9</span><span class="p">],</span> <span class="n">personalInfo</span><span class="p">[</span><span class="mi">10</span><span class="p">]]</span>
+            <span class="k">return</span> <span class="n">profileInfo</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patient-profile">
+<h3>2.1.3.4.2. Patient Profile<a class="headerlink" href="#patient-profile" title="Permalink to this headline">¶</a></h3>
+<p>The patient profile can be viewed through this page. The get_profile_info function retrieves the user’s information.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">patient_page</span><span class="p">(</span><span class="n">UserID</span><span class="p">):</span>
+    <span class="n">patient</span> <span class="o">=</span> <span class="n">PatientDatabase</span><span class="p">()</span>
+    <span class="n">profile</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">get_profile_info</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span>
+    <span class="n">reservation</span> <span class="o">=</span> <span class="n">ReservationDatabase</span><span class="p">()</span>
+    <span class="n">reservation_list</span> <span class="o">=</span> <span class="n">reservation</span><span class="o">.</span><span class="n">select_reservation_info</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;patient.html&quot;</span><span class="p">,</span> <span class="n">profile</span><span class="o">=</span><span class="n">profile</span><span class="p">,</span> <span class="n">reservation</span><span class="o">=</span><span class="n">reservation_list</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The profile information of the patient is retrieved with the get_profile_info function. When taking data from the database, appropriate data is retrieved using database relationships to see the values that correspond to those IDs instead of IDs. The user’s age is calculated by taking the birthday information from the incoming data.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">get_profile_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">patientInfo</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;SELECT p.PatientID, l.username, p.name, p.Surname, p.TCKN, p.GSM, p.BirthDay, para.name</span>
+<span class="s2">            FROM PatientInfo p, ParameterInfo para, LogInfo l</span>
+<span class="s2">            WHERE p.BirthPlace = para.ID AND p.PatientID = l.UserID</span>
+<span class="s2">            AND p.PatientID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientID</span><span class="p">))</span>
+            <span class="n">patientInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">patientInfo</span><span class="p">:</span>
+            <span class="n">birthDay</span> <span class="o">=</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">6</span><span class="p">]</span>
+            <span class="n">today</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()</span>
+            <span class="n">age</span> <span class="o">=</span> <span class="nb">int</span><span class="p">((</span><span class="n">today</span> <span class="o">-</span> <span class="n">birthDay</span><span class="p">)</span><span class="o">.</span><span class="n">days</span> <span class="o">/</span> <span class="mi">365</span><span class="p">)</span>
+            <span class="n">profileInfo</span> <span class="o">=</span> <span class="p">[</span><span class="n">patientInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span>
+                           <span class="n">patientInfo</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="n">age</span><span class="p">,</span> <span class="n">patientInfo</span><span class="p">[</span><span class="mi">7</span><span class="p">]]</span>
+            <span class="k">return</span> <span class="n">profileInfo</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-registration">
+<h2>2.1.3.5. User Registration<a class="headerlink" href="#user-registration" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personnel-registration">
+<h3>2.1.3.5.1. Personnel Registration<a class="headerlink" href="#personnel-registration" title="Permalink to this headline">¶</a></h3>
+<p>First, the user’s authorization is checked, if not authorized, the permission denied page is called. If it has permission, the username_validator function checks the availability of the user name that the user entered. If not, it will be redirected to the error page. If appropriate, the login information of the user is registered with the add_login function. After this recording is done, userID is selected with select_login_info function. Using the UserID, personnel information is entered using the add_personal function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">register_personal_page</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">personal</span> <span class="o">=</span> <span class="n">PersonalDatabase</span><span class="p">()</span>
+            <span class="n">login</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+
+            <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;UserName&#39;</span><span class="p">]</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Password&#39;</span><span class="p">]</span>
+            <span class="n">isUsernameValid</span> <span class="o">=</span> <span class="n">login</span><span class="o">.</span><span class="n">username_validator</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">isUsernameValid</span><span class="p">:</span>
+                <span class="n">login</span><span class="o">.</span><span class="n">add_login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">isEmployee</span><span class="o">=</span><span class="s2">&quot;true&quot;</span><span class="p">)</span>
+                <span class="n">loginInfo</span> <span class="o">=</span> <span class="n">login</span><span class="o">.</span><span class="n">select_login_info</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+                <span class="n">personal</span><span class="o">.</span><span class="n">add_personal</span><span class="p">(</span><span class="n">loginInfo</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">hospitalID</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;HospitalID&#39;</span><span class="p">],</span>
+                                    <span class="n">departmentID</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;DepartmentID&#39;</span><span class="p">],</span> <span class="n">createUserID</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span>
+                                    <span class="n">userType</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;UserType&#39;</span><span class="p">],</span> <span class="n">regNu</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RegNu&#39;</span><span class="p">],</span> <span class="n">telNo</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;TelNo&#39;</span><span class="p">],</span>
+                                    <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span> <span class="n">surname</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">],</span> <span class="n">birthDay</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">],</span>
+                                    <span class="n">birthPlace</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;BirthPlace&#39;</span><span class="p">])</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;site.profile_page&#39;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;error.html&quot;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="n">ParameterDatabase</span><span class="p">()</span>
+            <span class="n">hospital</span> <span class="o">=</span> <span class="n">HospitalDatabase</span><span class="p">()</span>
+            <span class="n">userTypes</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">cities</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">hospitals</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_all_hospital_info</span><span class="p">(</span><span class="s2">&quot;&quot;</span><span class="p">)</span>
+            <span class="n">departments</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;personal_register.html&quot;</span><span class="p">,</span> <span class="n">userTypes</span> <span class="o">=</span> <span class="n">userTypes</span><span class="p">,</span> <span class="n">cities</span> <span class="o">=</span> <span class="n">cities</span><span class="p">,</span> <span class="n">hospitals</span> <span class="o">=</span> <span class="n">hospitals</span><span class="p">,</span> <span class="n">departments</span> <span class="o">=</span> <span class="n">departments</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>username_validator is given below. username_validator function checks the availability of the user name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">username_validator</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">logInfo</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) FROM LogInfo WHERE username = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">logInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">logInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>To add login information to “LogInfo” table, add_login function is used and add_login function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_login</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">isEmployee</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO LogInfo(UserName, Password, isEmployee, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">username</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">isEmployee</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To add personnel to “PersonalInfo” table, add_personal function is used and add_personal function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_personal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">UserID</span><span class="p">,</span> <span class="n">hospitalID</span><span class="p">,</span> <span class="n">departmentID</span><span class="p">,</span> <span class="n">createUserID</span><span class="p">,</span> <span class="n">userType</span><span class="p">,</span> <span class="n">regNu</span><span class="p">,</span> <span class="n">telNo</span><span class="p">,</span> <span class="n">birthPlace</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthDay</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO PersonalInfo(UserID, HospitalID, DepartmentID, createUserID, UserType, RegNu, TelNo, BirthPlace, Name, Surname, BirthDay) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">UserID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">createUserID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">userType</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">regNu</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">telNo</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthPlace</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">surname</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthDay</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patient-registration">
+<h3>2.1.3.5.2. Patient Registration<a class="headerlink" href="#patient-registration" title="Permalink to this headline">¶</a></h3>
+<p>First, the user’s authorization is checked, if not authorized, the permission denied page is called. If it has permission, the username_validator function checks the availability of the user name that the user entered. If not, it will be redirected to the error page. If appropriate, the login information of the user is registered with the add_login function. After this recording is done, userID is selected with select_login_info function. Using the UserID, patient information is entered using the add_patient function.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">register_patient_page</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">patient</span> <span class="o">=</span> <span class="n">PatientDatabase</span><span class="p">()</span>
+            <span class="n">login</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+
+            <span class="n">username</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;UserName&#39;</span><span class="p">]</span>
+            <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Password&#39;</span><span class="p">]</span>
+            <span class="n">isUsernameValid</span> <span class="o">=</span> <span class="n">login</span><span class="o">.</span><span class="n">username_validator</span><span class="p">(</span><span class="n">username</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">isUsernameValid</span><span class="p">:</span>
+                <span class="n">login</span><span class="o">.</span><span class="n">add_login</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="o">=</span><span class="n">password</span><span class="p">,</span> <span class="n">isEmployee</span><span class="o">=</span><span class="s2">&quot;false&quot;</span><span class="p">)</span>
+                <span class="n">loginInfo</span> <span class="o">=</span> <span class="n">login</span><span class="o">.</span><span class="n">select_login_info</span><span class="p">(</span><span class="bp">None</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+                <span class="n">patient</span><span class="o">.</span><span class="n">add_patient</span><span class="p">(</span><span class="n">patientId</span><span class="o">=</span><span class="n">loginInfo</span><span class="o">.</span><span class="n">get_id</span><span class="p">(),</span> <span class="n">createUserID</span><span class="o">=</span><span class="n">current_user</span><span class="o">.</span><span class="n">id</span><span class="p">,</span> <span class="n">tckn</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;TCKN&#39;</span><span class="p">],</span>
+                                    <span class="n">gsm</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;GSM&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span>
+                                    <span class="n">surname</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">],</span> <span class="n">birthDay</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">],</span>
+                                    <span class="n">birthPlace</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;BirthPlace&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+                <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;site.profile_page&#39;</span><span class="p">))</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s1">&#39;error.html&#39;</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="n">ParameterDatabase</span><span class="p">()</span>
+            <span class="n">cities</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;patient_register.html&quot;</span><span class="p">,</span> <span class="n">cities</span><span class="o">=</span><span class="n">cities</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>username_validator is given below. username_validator function checks the availability of the user name.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">username_validator</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">logInfo</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT COUNT(*) FROM LogInfo WHERE username = </span><span class="si">%s</span><span class="s2">&quot;</span> <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+            <span class="n">logInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchone</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">logInfo</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">True</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="bp">False</span>
+</pre></div>
+</div>
+<p>To add login information to “LogInfo” table, add_login function is used and add_login function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_login</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">password</span><span class="p">,</span> <span class="n">isEmployee</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO LogInfo(UserName, Password, isEmployee, CreateDate) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">username</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">isEmployee</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">()))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+</pre></div>
+</div>
+<p>To add patient to “PatientInfo” table, add_patient function is used and add_patient function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_patient</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientId</span><span class="p">,</span> <span class="n">tckn</span><span class="p">,</span> <span class="n">createUserID</span><span class="p">,</span> <span class="n">birthPlace</span><span class="p">,</span> <span class="n">gsm</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthDay</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO PatientInfo(PatientID, CreateUserID, TCKN, BirthPlace, GSM, Name, Surname, BirthDay) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">patientId</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">createUserID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">tckn</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthPlace</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">gsm</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">surname</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthDay</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-update">
+<h2>2.1.3.6. User Update<a class="headerlink" href="#user-update" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personnel-update">
+<h3>2.1.3.6.1. Personnel Update<a class="headerlink" href="#personnel-update" title="Permalink to this headline">¶</a></h3>
+<p>The user’s information is updated via the user number when the request to update the profile is received. If the user has entered a new password, the change_password function is called and the password is changed. Then the other information of the staff is updated via update_personal.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">update_personal_page</span><span class="p">(</span><span class="n">UserID</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">personal</span> <span class="o">=</span> <span class="n">PersonalDatabase</span><span class="p">()</span>
+            <span class="n">login</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+
+            <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Password&#39;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+                <span class="n">login</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+            <span class="n">personal</span><span class="o">.</span><span class="n">update_personal</span><span class="p">(</span><span class="n">userID</span><span class="o">=</span><span class="n">UserID</span><span class="p">,</span> <span class="n">hospitalID</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;HospitalID&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+                                     <span class="n">departmentID</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;DepartmentID&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span> <span class="n">userType</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;UserType&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+                                     <span class="n">regNu</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;RegNu&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span> <span class="n">telNo</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;TelNo&#39;</span><span class="p">],</span>
+                                     <span class="n">surname</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">],</span> <span class="n">birthDay</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">],</span>
+                                     <span class="n">birthPlace</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;BirthPlace&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">))</span>
+            <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;site.profile_page&#39;</span><span class="p">))</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">parameter</span> <span class="o">=</span> <span class="n">ParameterDatabase</span><span class="p">()</span>
+            <span class="n">personal</span> <span class="o">=</span> <span class="n">PersonalDatabase</span><span class="p">()</span>
+            <span class="n">hospital</span> <span class="o">=</span> <span class="n">HospitalDatabase</span><span class="p">()</span>
+            <span class="n">personalInfo</span> <span class="o">=</span> <span class="n">personal</span><span class="o">.</span><span class="n">select_personal_info</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span>
+            <span class="n">userTypes</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">2</span><span class="p">)</span>
+            <span class="n">cities</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+            <span class="n">hospitals</span> <span class="o">=</span> <span class="n">hospital</span><span class="o">.</span><span class="n">select_all_hospital_info</span><span class="p">(</span><span class="bp">None</span><span class="p">)</span>
+            <span class="n">departments</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;personal_update.html&quot;</span><span class="p">,</span> <span class="n">userTypes</span><span class="o">=</span><span class="n">userTypes</span><span class="p">,</span> <span class="n">cities</span><span class="o">=</span><span class="n">cities</span><span class="p">,</span> <span class="n">hospitals</span><span class="o">=</span><span class="n">hospitals</span><span class="p">,</span> <span class="n">departments</span><span class="o">=</span><span class="n">departments</span><span class="p">,</span> <span class="n">personal</span><span class="o">=</span><span class="n">personalInfo</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>change_password function is updating password of user. change_password function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_password</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;UPDATE LogInfo SET Password = &#39;</span><span class="si">%s</span><span class="s2">&#39;, UpdateDate = &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE UserID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span> \
+                    <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="nb">str</span><span class="p">(</span><span class="n">userID</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+<p>update_personal function is updating information of personnel which is only changed by user. update_personal function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_personal</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">,</span> <span class="n">hospitalID</span><span class="p">,</span> <span class="n">departmentID</span><span class="p">,</span> <span class="n">userType</span><span class="p">,</span> <span class="n">regNu</span><span class="p">,</span> <span class="n">telNo</span><span class="p">,</span> <span class="n">birthPlace</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthDay</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE PersonalInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+        <span class="k">if</span> <span class="n">hospitalID</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">hospitalID</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, HospitalID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">hospitalID</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">departmentID</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">departmentID</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, DepartmentID = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">departmentID</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">userType</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">userType</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, UserType = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">userType</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">regNu</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">regNu</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, RegNu = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">regNu</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">telNo</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">telNo</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, TelNo = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">telNo</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">birthPlace</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">birthPlace</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BirthPlace = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthPlace</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Name = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">surname</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">surname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Surname = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">surname</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">birthDay</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">birthDay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BirthDay = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthDay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE UserID = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">userID</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patient-update">
+<h3>2.1.3.6.2. Patient Update<a class="headerlink" href="#patient-update" title="Permalink to this headline">¶</a></h3>
+<p>The user’s information is updated via the user number when the request to update the profile is received. If the user has entered a new password, the change_password function is called and the password is changed. Then the other information of the patient is updated via update_patient.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">update_patient_page</span><span class="p">(</span><span class="n">UserID</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+        <span class="n">patient</span> <span class="o">=</span> <span class="n">PatientDatabase</span><span class="p">()</span>
+        <span class="n">login</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+
+        <span class="n">password</span> <span class="o">=</span> <span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Password&#39;</span><span class="p">]</span>
+        <span class="k">if</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span><span class="p">:</span>
+            <span class="n">login</span><span class="o">.</span><span class="n">change_password</span><span class="p">(</span><span class="n">UserID</span><span class="p">,</span> <span class="n">password</span><span class="p">)</span>
+
+        <span class="n">patient</span><span class="o">.</span><span class="n">update_patient</span><span class="p">(</span><span class="n">patientId</span><span class="o">=</span><span class="n">UserID</span><span class="p">,</span> <span class="n">tckn</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;TCKN&#39;</span><span class="p">],</span> <span class="n">birthPlace</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="s2">&quot;BirthPlace&quot;</span><span class="p">,</span> <span class="bp">None</span><span class="p">),</span>
+                               <span class="n">gsm</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;GSM&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Name&#39;</span><span class="p">],</span> <span class="n">surname</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Surname&#39;</span><span class="p">],</span>
+                               <span class="n">birthDay</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Birthday&#39;</span><span class="p">])</span>
+
+        <span class="k">return</span> <span class="n">redirect</span><span class="p">(</span><span class="n">url_for</span><span class="p">(</span><span class="s1">&#39;site.profile_page&#39;</span><span class="p">))</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">parameter</span> <span class="o">=</span> <span class="n">ParameterDatabase</span><span class="p">()</span>
+        <span class="n">patient</span> <span class="o">=</span> <span class="n">PatientDatabase</span><span class="p">()</span>
+        <span class="n">patientInfo</span> <span class="o">=</span> <span class="n">patient</span><span class="o">.</span><span class="n">select_patient_info</span><span class="p">(</span><span class="n">UserID</span><span class="p">)</span>
+        <span class="n">cities</span> <span class="o">=</span> <span class="n">parameter</span><span class="o">.</span><span class="n">select_parameters_with_type</span><span class="p">(</span><span class="mi">1</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;patient_update.html&quot;</span><span class="p">,</span>  <span class="n">cities</span><span class="o">=</span><span class="n">cities</span><span class="p">,</span> <span class="n">patient</span><span class="o">=</span><span class="n">patientInfo</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>change_password function is updating password of user. change_password function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">change_password</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">,</span> <span class="n">password</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="k">if</span> <span class="n">password</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">password</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;UPDATE LogInfo SET Password = &#39;</span><span class="si">%s</span><span class="s2">&#39;, UpdateDate = &#39;</span><span class="si">%s</span><span class="s2">&#39; WHERE UserID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span> \
+                    <span class="o">%</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">password</span><span class="p">),</span> <span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(),</span> <span class="nb">str</span><span class="p">(</span><span class="n">userID</span><span class="p">))</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+<p>update_patient function is updating information of patient which is only changed by user. update_patient function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_patient</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">patientId</span><span class="p">,</span> <span class="n">tckn</span><span class="p">,</span> <span class="n">birthPlace</span><span class="p">,</span> <span class="n">gsm</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">birthDay</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE PatientInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+        <span class="k">if</span> <span class="n">gsm</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">gsm</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, GSM = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">gsm</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">tckn</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">tckn</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, TCKN = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">tckn</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">birthPlace</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">birthPlace</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BirthPlace = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthPlace</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Name = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">surname</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">surname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Surname = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">surname</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">birthDay</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">birthDay</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, BirthDay = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">birthDay</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE PatientId = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientId</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-delete">
+<h2>2.1.3.7. User Delete<a class="headerlink" href="#user-delete" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="personnel-delete">
+<h3>2.1.3.7.1. Personnel Delete<a class="headerlink" href="#personnel-delete" title="Permalink to this headline">¶</a></h3>
+<p>delete_personal_info is deleting information of personal.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_personal_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM PersonalInfo WHERE UserID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">userID</span><span class="p">))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="patient-delete">
+<h3>2.1.3.7.2. Patient Delete<a class="headerlink" href="#patient-delete" title="Permalink to this headline">¶</a></h3>
+<p>delete_patient_info is deleting information of personal.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_patient_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">userID</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM PatientInfo WHERE PatientID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="n">userID</span><span class="p">))</span>
+    <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="user-search">
+<h2>2.1.3.8. User Search<a class="headerlink" href="#user-search" title="Permalink to this headline">¶</a></h2>
+<p>Returns the relevant results using the user_search function according to the data entered by the user.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/search&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">search_page</span><span class="p">():</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">request</span><span class="o">.</span><span class="n">method</span> <span class="o">==</span> <span class="s1">&#39;POST&#39;</span><span class="p">:</span>
+            <span class="n">login</span> <span class="o">=</span> <span class="n">LoginDatabase</span><span class="p">()</span>
+            <span class="n">search</span> <span class="o">=</span> <span class="n">login</span><span class="o">.</span><span class="n">user_search</span><span class="p">(</span><span class="n">username</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;username&#39;</span><span class="p">],</span> <span class="n">name</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;name&#39;</span><span class="p">],</span>
+                                       <span class="n">surname</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;surname&#39;</span><span class="p">],</span> <span class="n">isEmployee</span><span class="o">=</span><span class="n">request</span><span class="o">.</span><span class="n">form</span><span class="p">[</span><span class="s1">&#39;Type&#39;</span><span class="p">])</span>
+            <span class="k">return</span> <span class="n">search_result_page</span><span class="p">(</span><span class="n">search</span><span class="p">)</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;search.html&quot;</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+
+
+<span class="nd">@site.route</span><span class="p">(</span><span class="s1">&#39;/search/result&#39;</span><span class="p">,</span> <span class="n">methods</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;GET&#39;</span><span class="p">,</span> <span class="s1">&#39;POST&#39;</span><span class="p">])</span>
+<span class="nd">@login_required</span>
+<span class="k">def</span> <span class="nf">search_result_page</span><span class="p">(</span><span class="n">search</span><span class="p">):</span>
+    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">current_user</span><span class="o">.</span><span class="n">IsEmployee</span><span class="p">)</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;search.html&quot;</span><span class="p">,</span> <span class="n">searchList</span><span class="o">=</span><span class="n">search</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">render_template</span><span class="p">(</span><span class="s2">&quot;permission_denied.html&quot;</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>The user_search function only returns the required results using the information entered by the user. During the query, appropriate data is retrieved using database relationships to see the values that correspond to those IDs instead of IDs. user_search function is given below.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">user_search</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">username</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">surname</span><span class="p">,</span> <span class="n">isEmployee</span><span class="p">):</span>
+<span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+    <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+    <span class="n">logInfo</span> <span class="o">=</span> <span class="bp">None</span>
+    <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;SELECT l.UserID, l.username, p.name, p.surname,&quot;</span>
+    <span class="k">if</span> <span class="n">isEmployee</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; par.name, p.TelNo FROM LogInfo l, personalInfo p, parameterInfo par WHERE l.UserID = p.UserID AND p.usertype = par.ID&quot;</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">username</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND l.username like &#39;%&quot;</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND p.name like &#39;%&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">surname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">surname</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND p.surname like &#39;%&quot;</span> <span class="o">+</span> <span class="n">surname</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;  p.GSM FROM LogInfo l, patientInfo p WHERE l.UserID = p.patientID&quot;</span>
+        <span class="k">if</span> <span class="n">username</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">username</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND l.username like &#39;%&quot;</span> <span class="o">+</span> <span class="n">username</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">name</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">name</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND p.name like &#39;%&quot;</span> <span class="o">+</span> <span class="n">name</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">surname</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span> <span class="ow">and</span> <span class="n">surname</span> <span class="o">!=</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot; AND p.surname like &#39;%&quot;</span> <span class="o">+</span> <span class="n">surname</span> <span class="o">+</span> <span class="s2">&quot;%&#39;&quot;</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="n">logInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+    <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+    <span class="n">result</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="k">if</span> <span class="n">logInfo</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">isEmployee</span> <span class="o">==</span> <span class="s2">&quot;True&quot;</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">logInfo</span><span class="p">:</span>
+                <span class="nb">input</span> <span class="o">=</span> <span class="p">[</span><span class="n">log</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">5</span><span class="p">],</span> <span class="s2">&quot;/personal/&quot;</span><span class="p">]</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">for</span> <span class="n">log</span> <span class="ow">in</span> <span class="n">logInfo</span><span class="p">:</span>
+                <span class="nb">input</span> <span class="o">=</span> <span class="p">[</span><span class="n">log</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">2</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">3</span><span class="p">],</span> <span class="n">log</span><span class="p">[</span><span class="mi">4</span><span class="p">],</span> <span class="s2">&quot;Patient&quot;</span><span class="p">,</span> <span class="s2">&quot;/patient/&quot;</span><span class="p">]</span>
+                <span class="n">result</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">input</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">result</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="parameter-information">
+<h2>2.1.3.9. Parameter Information<a class="headerlink" href="#parameter-information" title="Permalink to this headline">¶</a></h2>
+<p>The “ParameterType” table stores the parameter types used in the system. These parameter types are divided into three types: user type, department and city.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS ParameterType CASCADE &quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE ParameterType (</span>
+<span class="s2">                  ID SERIAL PRIMARY KEY,</span>
+<span class="s2">                  Name VARCHAR(100))&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span>
+</pre></div>
+</div>
+<p>“ParameterInfo” keeps information such as user type, department and city used in the system. “ParameterInfo” table is connected to the “ParameterType” table with foreign key. This table contains the parameters that other tables should use. The parameter table is referenced in many tables with the foreign key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS ParameterInfo CASCADE &quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE ParameterInfo (</span>
+<span class="s2">                  ID SERIAL PRIMARY KEY,</span>
+<span class="s2">                  TypeID INT NOT NULL,</span>
+<span class="s2">                  Name VARCHAR(100) NOT NULL,</span>
+<span class="s2">                  FOREIGN KEY (TypeID) REFERENCES ParameterType(ID) ON DELETE RESTRICT)&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="section" id="parameter-add">
+<h3>2.1.3.9.1. Parameter Add<a class="headerlink" href="#parameter-add" title="Permalink to this headline">¶</a></h3>
+<p>Adding parameter to “ParameterInfo” table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_parameter</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">name</span><span class="p">,</span> <span class="n">typeID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;INSERT INTO ParameterInfo(TypeID, Name) VALUES (</span><span class="si">%s</span><span class="s2">, </span><span class="si">%s</span><span class="s2">)&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">typeID</span><span class="p">),</span> <span class="nb">str</span><span class="p">(</span><span class="n">name</span><span class="p">)))</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+<div class="section" id="duty-operations">
+<h2>2.1.3.10. Duty Operations<a class="headerlink" href="#duty-operations" title="Permalink to this headline">¶</a></h2>
+<div class="section" id="duty-information">
+<h3>2.1.3.10.1. Duty Information<a class="headerlink" href="#duty-information" title="Permalink to this headline">¶</a></h3>
+<p>Duty reports of doctors are kept in “DutyInfo” table. DoctorID has been used as an foreign key to find the doctor who created the user in “PersonalInfo” table. In addition, Patient count, report, shiftDate, createDate, and updateDate of duty kept in this table.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DROP TABLE IF EXISTS DutyInfo CASCADE &quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+<span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;CREATE TABLE DutyInfo (</span>
+<span class="s2">                  DutyID SERIAL PRIMARY KEY,</span>
+<span class="s2">                  DoctorID INT NOT NULL,</span>
+<span class="s2">                  PatientCount INT DEFAULT 0,</span>
+<span class="s2">                  Report VARCHAR(500),</span>
+<span class="s2">                  ShiftDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                  CreateDate TIMESTAMP NOT NULL,</span>
+<span class="s2">                  UpdateDate TIMESTAMP,</span>
+<span class="s2">                  FOREIGN KEY (DoctorID) REFERENCES PersonalInfo(UserID) ON DELETE CASCADE)&quot;&quot;&quot;</span>
+<span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="duty-list">
+<h3>2.1.3.10.2. Duty List<a class="headerlink" href="#duty-list" title="Permalink to this headline">¶</a></h3>
+<p>select_all_duty_info is using for to take all duty reports in system. Also doctor name is taken from “PersonalInfo” table with using foreign key.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">select_all_duty_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">dutyInfo</span> <span class="o">=</span> <span class="bp">None</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;SELECT d.DutyID, d.DoctorID, p.Name, p.Surname, d.PatientCount, d.Report, d.ShiftDate, d.CreateDate&#39;</span> \
+                <span class="s1">&#39; FROM DutyInfo d, PersonalInfo p Where d.DoctorID = p.UserID&#39;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="p">)</span>
+            <span class="n">dutyInfo</span> <span class="o">=</span> <span class="n">cursor</span><span class="o">.</span><span class="n">fetchall</span><span class="p">()</span>
+
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+
+        <span class="k">if</span> <span class="n">dutyInfo</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">dutyInfo</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="k">return</span> <span class="p">[]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="duty-add">
+<h3>2.1.3.10.3. Duty Add<a class="headerlink" href="#duty-add" title="Permalink to this headline">¶</a></h3>
+<p>add_duty</p>
+<p>add_duty is using for adding duty report.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">add_duty</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">doctorID</span><span class="p">,</span> <span class="n">patientCount</span><span class="p">,</span> <span class="n">report</span><span class="p">,</span> <span class="n">shiftDate</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;INSERT INTO DutyInfo(DoctorID, PatientCount, Report, ShiftDate, CreateDate) VALUES (&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">doctorID</span><span class="p">)</span> <span class="o">+</span> \
+                <span class="s2">&quot;&#39;, &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientCount</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;, &#39;&quot;</span> <span class="o">+</span> <span class="n">report</span> <span class="o">+</span> <span class="s2">&quot;&#39;, &#39;&quot;</span> <span class="o">+</span> <span class="n">shiftDate</span> <span class="o">+</span> <span class="s2">&quot;&#39;, &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;)&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="duty-update">
+<h3>2.1.3.10.4. Duty Update<a class="headerlink" href="#duty-update" title="Permalink to this headline">¶</a></h3>
+<p>update_duty is using for updating duty report. Only the data entered by the user is being updated.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">update_duty</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dutyID</span><span class="p">,</span> <span class="n">patientCount</span><span class="p">,</span> <span class="n">report</span><span class="p">,</span> <span class="n">shiftDate</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s1">&#39;UPDATE DutyInfo SET UpdateDate = &#39;</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">datetime</span><span class="o">.</span><span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">())</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+
+        <span class="k">if</span> <span class="n">patientCount</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">patientCount</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, PatientCount = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">patientCount</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">report</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">report</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, Report = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">report</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="k">if</span> <span class="n">shiftDate</span> <span class="o">!=</span> <span class="s1">&#39;&#39;</span> <span class="ow">and</span> <span class="n">shiftDate</span> <span class="ow">is</span> <span class="ow">not</span> <span class="bp">None</span><span class="p">:</span>
+            <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s2">&quot;, ShiftDate = &#39;&quot;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">shiftDate</span><span class="p">)</span> <span class="o">+</span> <span class="s2">&quot;&#39;&quot;</span>
+        <span class="n">query</span> <span class="o">=</span> <span class="n">query</span> <span class="o">+</span> <span class="s1">&#39; WHERE DutyID = &#39;</span> <span class="o">+</span> <span class="nb">str</span><span class="p">(</span><span class="n">dutyID</span><span class="p">)</span>
+
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="n">cursor</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="duty-delete">
+<h3>2.1.3.10.5. Duty Delete<a class="headerlink" href="#duty-delete" title="Permalink to this headline">¶</a></h3>
+<p>delete_duty_info function is using for deleting duty report.</p>
+<div class="highlight-python notranslate"><div class="highlight"><pre><span></span><span class="k">def</span> <span class="nf">delete_duty_info</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">dutyID</span><span class="p">):</span>
+    <span class="k">with</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">connect</span><span class="p">(</span><span class="n">database</span><span class="o">.</span><span class="n">config</span><span class="p">)</span> <span class="k">as</span> <span class="n">connection</span><span class="p">:</span>
+        <span class="n">cursor</span> <span class="o">=</span> <span class="n">connection</span><span class="o">.</span><span class="n">cursor</span><span class="p">()</span>
+
+        <span class="n">query</span> <span class="o">=</span> <span class="s2">&quot;&quot;&quot;DELETE FROM DutyInfo WHERE DutyID = </span><span class="si">%s</span><span class="s2">&quot;&quot;&quot;</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">cursor</span><span class="o">.</span><span class="n">execute</span><span class="p">(</span><span class="n">query</span><span class="p">,</span> <span class="n">dutyID</span><span class="p">)</span>
+        <span class="k">except</span> <span class="n">dbapi2</span><span class="o">.</span><span class="n">Error</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">rollback</span><span class="p">()</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">connection</span><span class="o">.</span><span class="n">commit</span><span class="p">()</span>
+        <span class="k">return</span>
+</pre></div>
+</div>
+</div>
+</div>
+</div>
+
+
+           </div>
+           
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../userface/index.html" class="btn btn-neutral float-right" title="3. Userface" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+      
+      
+        <a href="bilal.html" class="btn btn-neutral" title="2.1.2. Parts Done By Bilal Can" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>
+        &copy; Copyright 2018, ITUCSDB1803
+
+    </p>
+  </div>
+  Built with <a href="http://sphinx-doc.org/">Sphinx</a> using a <a href="https://github.com/rtfd/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>. 
+
+</footer>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+  
+
+
+  
+
+    
+    
+      <script type="text/javascript" id="documentation_options" data-url_root="../" src="../_static/documentation_options.js"></script>
+        <script type="text/javascript" src="../_static/jquery.js"></script>
+        <script type="text/javascript" src="../_static/underscore.js"></script>
+        <script type="text/javascript" src="../_static/doctools.js"></script>
+        <script type="text/javascript" src="../_static/language_data.js"></script>
+    
+
+  
+
+  <script type="text/javascript" src="../_static/js/theme.js"></script>
+
+  <script type="text/javascript">
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
