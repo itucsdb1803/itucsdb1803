@@ -19,6 +19,6 @@ Hospital Registration system is a platform which keeps the information of severa
    :maxdepth: 2
    :caption: Contents:
 
-   source/installation/index
-   source/development/index
-   source/userface/index
+   installation/index
+   development/index
+   userface/index
