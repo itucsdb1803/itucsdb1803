@@ -12,8 +12,8 @@ Hosital Registration System
 Hospital Registration system is a platform which keeps the information of several hospitals, their personal and patients and offer users to keep track of their appointments.
 
 .. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+   :maxdepth: 6
+   :numbered:
 
    installation/index
    development/index
