@@ -435,6 +435,7 @@ ParameterInfo Table
 -------------------
 
 :Creating ParameterInfo Table:
+
 The ParameterInfo Table is a helping table for many main tables in out project. the ID which is a serial primary key connect to hospital id, department id and room id. Similarly Type id connects to department type id and the name parameter keeps the names of these different types of ID's connected to other tables. The code below represent the creation of the ParameterInfo Table. It can be found under database.py.
 
 .. code-block:: python
