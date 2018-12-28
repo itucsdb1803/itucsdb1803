@@ -11,6 +11,7 @@ This table is for adding diseases into the database.
 :1)Creation of the table DiseaseInfo
 
 .. code-block:: python
+
 	query = """DROP TABLE IF EXISTS DiseaseInfo CASCADE"""
     cursor.execute(query)
     query = """CREATE TABLE DiseaseInfo(
@@ -30,6 +31,7 @@ This table is for adding diseases into the database.
 This operation is done under /disease page. Disease.py file includes the code about adding. Pages.py give oppurtunity of communication between the html document and the Disease.py file.
 
 .. code-block:: python
+
 	class DiseaseDatabase:
     @classmethod
     def add_disease(cls, department, name, diseasearea, description):
@@ -49,6 +51,7 @@ This operation is done under /disease page. Disease.py file includes the code ab
 :3)Selection of diseases
 
 .. code-block:: python
+
 	@classmethod
     def select_disease(self, diseaseid):
         with dbapi2.connect(database.config) as connection:
